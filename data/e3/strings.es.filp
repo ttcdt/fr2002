@@ -1,0 +1,66 @@
+/episode_name "El Pozo de las Almas" set
+
+/room_names (
+	"Entrada al Pozo de las Almas"		/* 0 */ 
+	"Garganta del Miedo"		/* 1 */ 
+	"La Charca de los Mutantes"		/* 2 */ 
+	"El Bosque Maldito"		/* 3 */ 
+	"Noreste del Pozo de las Almas" 	/* 4 */ 
+	"Camino hacia el Cementerio"		/* 5 */ 
+	"La Gran Trampa"		/* 6 */ 
+	"Hacia el Interior"		/* 7 */ 
+	"El Círculo de la Muerte"		/* 8 */ 
+	"Hematorium"		/* 9 */ 
+	"El Viejo Cementerio"		/* 10 */ 
+	"Afueras de la Ciudad Muerta"		/* 11 */ 
+	"La Cripta"		/* 12 */ 
+	"Santuario"		/* 13 */ 
+	"Oratorio"		/* 14 */ 
+	"La Gran Bestia"		/* 15 */ 
+	"La Ciudad Muerta"		/* 16 */ 
+	"La Catedral de la Locura"		/* 17 */ 
+	"Ala Este de la Catedral"		/* 18 */ 
+	"Cámara Final"		/* 19 */ 
+	"Las Mazmorras" 	/* 20 */ 
+	"Ala Oeste de la Catedral"		/* 21 */ 
+	"Ala Sur de la Catedral"		/* 22 */ 
+	"Pórtico del Terror"		/* 23 */ 
+	"Antecámara Final"		/* 24 */ 
+	""		/* 25 */ 
+) set
+
+/end_text "
+
+
+
+Cruzado el Idolo, has alcanzado
+el Palacio del Sueño. Aquí se citan
+las pesadillas para aterrar al mundo
+y trazar sus planes de confusión...
+
+Será una dura batalla final." set
+
+/info_text "
+El Pozo de las Almas - Episodio III
+Episodios Originales de Freaks
+.
+Mapas:
+Angel Ortega
+.
+Gráficos:
+Angel Ortega
+.
+Música:
+Ann Hell
+(The Antagonist)
+" set
+
+/full_inv_text " 
+Todos las joyas del ídolo
+ya son tuyas.
+ 
+Ahora busca la salida...
+ 
+pero recuerda que no todo
+es lo que parece.
+ " set

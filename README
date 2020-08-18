@@ -1,0 +1,42 @@
+Freaks 2.002 README
+===================
+
+ Freaks 2.002 - A remake of Freaks!
+ ttcdt <dev@triptico.com>
+ Home Page: https://triptico.com/software/fr2002.html
+
+NOTE: This silly game is now hosted by the TTCDT: don't bother the
+original authors about them. We at the TTCDT also don't plan to make
+any real maintenance on this, just to host it and give love to the
+MS Windows executables. If you want to rebuild this code from scratch
+you'll need the filp and qdgdf libraries -- Theodore from the ttcdt (2019)
+
+Freaks 2.002 is a port of Freaks! [1], a 3D maze and monster smashing
+adventure developed in the 90's, to newer architectures. The original code
+was too MSDOS-dependent (including big chunks of Turbo Assembler!), so a
+remake using the QDGDF [2] library was done to boost portability. On the
+way, some new features were implemented:
+
+ * Full angle rotation (not limited to the original 90 degree steps),
+ * Engine improvements (depth cue lighting, better sounds management),
+ * Map definitions and some game logic rewritten in a higher-level
+   language (using Filp [3]),
+ * More ambientation (rain, lightning storms, etc).
+
+The game idea is mostly unchanged; the only difference is that life is not
+replenished after killing a monster, but after passing over a corpse (as if
+"feeding" from it).
+
+This software is released into the public domain.
+
+Credits
+-------
+
+ * Coding: Ángel Ortega, Manuel Zamora
+ * Artwork: Ángel Ortega, Antonio Guerrero
+ * Maps: Ángel Ortega, Manuel Zamora, Antonio Guerrero
+ * Music: Ann Hell
+
+ [1] https://triptico.com/software/freaks.html
+ [2] https://triptico.com/software/qdgdf.html
+ [3] https://triptico.com/software/filp.html

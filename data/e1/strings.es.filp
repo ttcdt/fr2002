@@ -1,0 +1,98 @@
+/episode_name "El Renacer" set
+
+/room_names (
+	"¡Acceso al mundo de Freaks!"		/* 0 */ 
+	"El Antro de los Ghouls"		/* 1 */ 
+	"Pasaje de las Torturas"		/* 2 */ 
+	"Pasillo del Purgatorio"		/* 3 */ 
+	"Patio del Templo"		/* 4 */ 
+	"Sótano Sumergido"		/* 5 */ 
+	"Antecámara del Dolor"		/* 6 */ 
+	"Caverna de los Templarios"		/* 7 */ 
+	"Pasadizo Subterráneo"		/* 8 */ 
+	"Bajada al Pasadizo"		/* 9 */ 
+	"Pasaje de las Bestias" 	/* 10 */ 
+	"Biblioteca"		/* 11 */ 
+	"Caída Abisal"		/* 12 */ 
+	"Entrada al Bestiario"		/* 13 */ 
+	"Purgatorio"		/* 14 */ 
+	"El Patio Interior"		/* 15 */ 
+	"Entrada al Reino de los Dholes"		/* 16 */ 
+	"Muro Este del Templo"		/* 17 */ 
+	"El Reino de los Dholes"		/* 18 */ 
+	"Pasaje hacia el Torreón"		/* 19 */ 
+	"Viperae Mundi" 	/* 20 */ 
+	"Pasaje Serpentiforme"		/* 21 */ 
+	"Bestiario"		/* 22 */ 
+	"Pórtico del Templo"		/* 23 */ 
+	"Cámara de la Custodia" 	/* 24 */ 
+	"Cruz del Infierno"		/* 25 */ 
+	"6 6 6" 	       /* 26 */ 
+	"El Jardín de las Delicias"		/* 27 */ 
+	""
+	""
+	"El Torreón"		/* 30 */ 
+	"Corredor Sur"		/* 31 */ 
+	"El Pozo"		/* 32 */ 
+	"Las Cloacas"		/* 33 */ 
+	"El Sumidero"		/* 34 */ 
+	"Lado Oeste del Jardín" 	/* 35 */ 
+	"Templo junto al Mar"		/* 36 */ 
+	"Entrada Oeste al Castillo"		/* 37 */ 
+	"Cámara del Suplicio"		/* 38 */ 
+	"La Casa en los Infiernos"		/* 39 */ 
+	"Acceso al mundo de las Hormigas"		/* 40 */ 
+	"El mundo de las Hormigas"		/* 41 */ 
+	"Gran Cámara Inferior"		/* 42 */ 
+	"Salida a la Superficie"		/* 43 */ 
+	"La Cala"		/* 44 */ 
+	"Galería de la Miseria" 	/* 45 */ 
+	"Los Establos"		/* 46 */ 
+	"Salón de Ceremonias"		/* 47 */ 
+	"Pasillo del Laboratorio"		/* 48 */ 
+	"Laboratorio Genético"		/* 49 */ 
+	"La Máquina del Tiempo" 	/* 50 */ 
+) set
+
+/end_text "Una vez cruzada la Puerta, acabas de
+descubrir que El Aprendiz ya no es
+de este mundo; su última creación,
+la Máquina del Tiempo, le ha servido
+para transportar su maldad al futuro.
+Has recuperado tus dominios, pero eso
+ahora no te importa...
+
+Tu odio hacia él crece hasta el infinito,
+ahora que ves perdida la ocasión
+de venganza que tan cerca creías...
+
+Sin dudarlo, sin temer qué te espera
+al otro lado, activas la Máquina del
+Tiempo siguiendo sus pasos hacia
+el Futuro." set
+
+/info_text "
+El Renacer - Episodio I
+Episodios Originales de Freaks
+.
+Mapas:
+Angel Ortega
+Antonio Guerrero
+Manuel Zamora
+.
+Gráficos:
+Angel Ortega
+Antonio Guerrero
+.
+Música:
+Ann Hell
+(Solsticio de Invierno II)
+" set
+
+/full_inv_text " 
+Acabas de alcanzar la masa crítica
+necesaria para regenerar
+la materia de tu cuerpo.
+ 
+Ahora puedes ir a por El Aprendiz...
+ " set

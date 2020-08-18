@@ -1,0 +1,2524 @@
+/* Episode 1 - defmap */ 
+
+/* episode startup */
+
+/root "$data_dir/e$episode" =
+
+"$root/ids.filp" load
+"$root/pal.bin" load_palette
+
+{ "$root/strings.en.filp" load } eval pop
+{ "$root/strings.$lang.filp" load } eval pop
+
+"$root/walls.bin" load_walls
+"$root/demons.bin" load_demons
+"$root/items.bin" load_items
+"$root/font.bin" load_font
+"$root/landscape.pcx" load_landscape
+"$root/dbull.bin" "$root/pbull.bin" load_bullets
+"$root/sounds.filp" load
+
+0 set_accum_buffer
+
+/* room 0 (Access to the world of Freaks!) */ 
+
+18 114 22 19 0 NULL new_room
+
+1 2400 352 1 2 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_WINDOW_D" NULL block
+/* 02 */ NULL NULL "STONE_WALL_L" NULL block
+/* 03 */ NULL "STONE_CANDLE_D" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_D" block
+/* 05 */ NULL "STONE_DOOR_D" NULL NULL block
+/* 06 */ "STONE_WALL_D" NULL NULL NULL block
+/* 07 */ "STONE_WALL_D" "STONE_WALL_L" NULL NULL block
+/* 08 */ "STONE_OPEN_D" NULL NULL NULL block
+/* 09 */ "STONE_WALL_D" NULL NULL "STONE_WALL_L" block
+/* 0A */ "STONE_WALL_D" NULL NULL "STONE_CANDLE_L" block
+/* 0B */ "STONE_WALL_D" "STONE_WALL_D" NULL NULL block
+/* 0C */ NULL NULL NULL "STONE_CANDLE_D" block
+/* 0D */ NULL "STONE_CANDLE_L" NULL NULL block
+/* 0E */ NULL NULL NULL "STONE_WALL_L" block
+/* 0F */ NULL "STONE_WALL_D" NULL NULL block
+/* 10 */ NULL "STONE_WALL_L" NULL NULL block
+/* 11 */ NULL NULL NULL "STONE_CANDLE_L" block
+/* 12 */ "STONE_CANDLE_D" NULL NULL NULL block
+/* 13 */ "STONE_WALL_L" NULL NULL NULL block
+/* 14 */ "ENTRY_DOOR_L" NULL NULL NULL block
+
+"
+..0001000100010001000202020202000000000000..
+03........................................04
+05........................................04
+03........................................04
+..06060607080809060607......0A06060B......04
+....03..........0C..0D......0E....0F......04
+....03..........0C..10......11....0F......04
+....03..........0C..0D......0E....0F......04
+......1212121212....10......11....0F......04
+....................0D......0E....0F......04
+....................10......11......060606..
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+......................131413................
+" defmap
+
+/* room 1 (Den of the Ghouls) */ 
+
+18 114 40 20 1 NULL new_room
+
+3 1184 480 3 1 NULL gate
+0 160 160 38 5 NULL gate
+2 160 160 3 18 NULL gate
+
+"BONES" 1696 1120 item
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "STONE_CANDLE_L" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 03 */ NULL NULL "STONE_WALL_D" NULL block
+/* 04 */ NULL "STONE_WALL_D" NULL NULL block
+/* 05 */ NULL NULL NULL "STONE_WALL_L" block
+/* 06 */ NULL NULL NULL "STONE_WALL_D" block
+/* 07 */ NULL "STONE_WALL_L" NULL NULL block
+/* 08 */ NULL NULL "STONE_WALL_D" "STONE_WALL_D" block
+/* 09 */ NULL NULL "STONE_CANDLE_D" NULL block
+/* 0A */ "STONE_WALL_L" "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 0B */ NULL NULL NULL "STONE_CANDLE_D" block
+/* 0C */ "STONE_WALL_L" NULL NULL NULL block
+/* 0D */ "STONE_WALL_L" NULL NULL "STONE_WALL_D" block
+/* 0E */ NULL NULL NULL "STONE_DOOR_D" block
+/* 0F */ NULL "STONE_WALL_D" "STONE_WALL_L" NULL block
+/* 10 */ NULL NULL "STONE_WALL_L" "STONE_WALL_L" block
+/* 11 */ NULL NULL "STONE_WINDOW_L" NULL block
+/* 12 */ NULL "STONE_WALL_L" "STONE_WALL_L" NULL block
+/* 13 */ "STONE_CANDLE_L" NULL NULL "STONE_WALL_L" block
+/* 14 */ "STONE_CANDLE_L" NULL NULL NULL block
+/* 15 */ NULL "STONE_GRILL_D" NULL NULL block
+/* 16 */ NULL "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 17 */ "STONE_WALL_L" NULL NULL "STONE_WALL_L" block
+/* 18 */ "STONE_WALL_L" "STONE_WALL_D" NULL NULL block
+/* 19 */ NULL NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 1A */ "STONE_CANDLE_L" "STONE_WALL_D" NULL NULL block
+/* 1B */ "STONE_WALL_L" NULL "STONE_WALL_L" NULL block
+/* 1C */ NULL NULL "STONE_WALL_L" "STONE_WALL_D" block
+/* 1D */ "STONE_DOOR_L" NULL NULL NULL block
+/* 1E */ "STONE_WINDOW_L" NULL NULL NULL block
+
+"
+..0001020100010001..............................030303..........................
+04................05..............0303030303..04......06........................
+04................05............07..........0604......06........................
+04................05............07..........0607......080903090309030903090309..
+04........0A......05............07..........0607..............................0B
+..0C0C0C0C04......05............07......0D0C..07..............................0E
+..000000000F......1000110011001112......06....07..............................0B
+04......................................06....07......130C140C140C140C140C140C..
+15......................................06....07......05............0303030303..
+04......................................08030316......05..........07..........06
+15........170C18......170C0C0C18......................19030303030316..........06
+04........05..04......05......15..............................................06
+15........05..04......05......04..............................................06
+04........05..04......05......15..............................................06
+15........05..04......05......04......0D140C140C140C140C140C1A......0D0C0C0C0C..
+..1B1B1B1B00000F......05......15......1C0000000000000000....04......0803030303..
+04....................05......04........................06..04................0B
+04....................05......15........................06..04................0B
+04....................05......04........................06..04................0B
+..0C0C1D0C0C0C0C0C0C0C..........0C0C0C0C0C0C0C0C0C0C0C0C......1E0C1E0C1E0C1E0C..
+" defmap
+
+/* room 2 (Passage of Tortures) */ 
+
+18 114 5 15 2 NULL new_room
+
+1 224 1120 2 1 NULL gate
+6 352 160 2 13 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 02 */ NULL "STONE_CANDLE_D" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_CANDLE_D" block
+/* 04 */ "STONE_WALL_D" NULL NULL NULL block
+/* 05 */ "STONE_DOOR_D" NULL NULL NULL block
+
+"
+..000100..
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+..040504..
+" defmap
+
+/* room 3 (Purgatory Passage) */ 
+
+0 17 30 10 3 { 128 ambient_light } new_room
+
+14 416 352 28 2 NULL gate
+37 864 1056 1 6 NULL gate
+44 1056 288 6 8 NULL gate
+1 224 160 18 8 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_WALL_L" NULL block
+/* 02 */ NULL "STONE_WALL_L" NULL NULL block
+/* 03 */ NULL NULL "DARK_STONE_D" "STONE_WALL_D" block
+/* 04 */ NULL NULL "DARK_STONE_D" NULL block
+/* 05 */ NULL "STONE_WALL_D" "DARK_STONE_D" NULL block
+/* 06 */ NULL NULL NULL "STONE_WALL_D" block
+/* 07 */ NULL "JAIL_DOOR_D" NULL NULL block
+/* 08 */ NULL NULL NULL "JAIL_DOOR_D" block
+/* 09 */ NULL NULL NULL "STONE_DOOR_D" block
+/* 0A */ "DARK_STONE_L" NULL NULL "STONE_WALL_D" block
+/* 0B */ "DARK_STONE_L" NULL NULL NULL block
+/* 0C */ "DARK_STONE_L" "STONE_WALL_D" NULL NULL block
+/* 0D */ NULL "STONE_WALL_L" "STONE_WALL_L" NULL block
+/* 0E */ "STONE_WALL_D" NULL NULL "STONE_WALL_L" block
+/* 0F */ "STONE_WALL_D" NULL NULL NULL block
+/* 10 */ "STONE_WALL_D" "STONE_WALL_L" NULL NULL block
+/* 11 */ NULL NULL NULL "STONE_WALL_L" block
+/* 12 */ NULL "STONE_CANDLE_L" NULL NULL block
+/* 13 */ NULL NULL NULL "STONE_CANDLE_L" block
+/* 14 */ NULL "STONE_DOOR_L" NULL NULL block
+/* 15 */ "STONE_WALL_L" NULL NULL NULL block
+/* 16 */ "STONE_WALL_L" "STONE_WALL_D" NULL NULL block
+/* 17 */ "STONE_DOOR_L" NULL NULL NULL block
+
+"
+..........00000000............0001010101010000000000000000..
+........02........030404040405............................06
+........02......0708........0708..........................09
+........02........0A0B0B0B0B0C............................06
+..0101010D......0E............0F10......0E0F0F0F0F0F0F0F0F..
+02..............11..............12......13..................
+14..............11..............02......11..................
+02..............11..............12......13..................
+..15151516......11..............02......11..................
+..........151715..................151715....................
+" defmap
+
+/* room 4 (Yard of Temple) */ 
+
+80 139 25 25 4 { landscape } new_room
+
+23 672 1120 10 1 NULL gate
+27 2208 736 1 6 NULL gate
+/* -1 544 416 6 6 NULL gate
+-1 352 416 7 6 NULL gate */
+17 160 992 23 6 NULL gate
+15 1056 160 19 23 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 01 */ NULL NULL "GREEK_DOOR_L" NULL block
+/* 02 */ "TREE_L" "TREE_L" "TREE_L" "TREE_L" block
+/* 03 */ NULL NULL NULL "TREE_L" block
+/* 04 */ NULL NULL "TREE_D" NULL block
+/* 05 */ NULL "TREE_L" "TREE_D" NULL block
+/* 06 */ NULL NULL "TREE_D" "TREE_L" block
+/* 07 */ NULL NULL NULL "STONE_WALL_D" block
+/* 08 */ NULL "GARDEN_DOOR_L" NULL "GARDEN_DOOR_L" block
+/* 09 */ NULL NULL "GARDEN_DOOR_L" NULL block
+/* 0A */ NULL NULL NULL "STONE_DOOR_D" block
+/* 0B */ "TREE_D" NULL NULL NULL block
+/* 0C */ "TREE_D" "TREE_L" NULL NULL block
+/* 0D */ "RED_WALL_D" NULL "RED_WALL_D" "RED_WALL_L" block
+/* 0E */ "RED_WALL_D" NULL "RED_WALL_D" NULL block
+/* 0F */ "RED_WALL_D" NULL NULL NULL block
+/* 10 */ NULL "STONE_WALL_D" NULL NULL block
+/* 11 */ NULL NULL NULL "RED_WALL_L" block
+/* 12 */ NULL NULL "RED_WALL_D" "RED_WALL_L" block
+/* 13 */ NULL NULL "RED_WALL_D" NULL block
+/* 14 */ "STONE_WALL_D" NULL NULL NULL block
+/* 15 */ "RED_WALL_L" NULL NULL NULL block
+/* 16 */ "RED_WALL_L" "RED_WALL_D" NULL NULL block
+/* 17 */ NULL "RED_WALL_D" NULL NULL block
+/* 18 */ "STONE_WALL_L" NULL NULL NULL block
+/* 19 */ "STONE_DOOR_D" NULL NULL NULL block
+/* 1A */ NULL NULL NULL "STONE_WALL_L" block
+
+"
+..............0000000100000000....................
+............02..............03....................
+............02..............03....................
+............02..............03....................
+..040404040405..............06040404040404040404..
+02........0902..................................07
+08..............................................0A
+02..........02..................................07
+..0B0B0B0B0B0C......................0D0E0E0E0F0F07
+10040404040405............................11......
+10........................................12131313
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+10..............................................07
+14151515151516..................................07
+............17..................................07
+..............18181818181818181818141419141414141A
+" defmap
+
+/* room 5 (Underwater Cellar) */ 
+
+177 177 25 25 5 { under_water } new_room
+
+7 160 1056 2 2 NULL gate
+7 1440 928 22 22 NULL gate
+
+/* 00 */ NULL NULL "DROWN_STONE_L" NULL block
+/* 01 */ NULL "DROWN_STONE_L" NULL NULL block
+/* 02 */ NULL NULL "CEILING_HOLE_BLUE" NULL block
+/* 03 */ NULL NULL NULL "DROWN_STONE_L" block
+/* 04 */ NULL "DROWN_STONE_D" NULL NULL block
+/* 05 */ NULL NULL NULL "DROWN_STONE_D" block
+/* 06 */ NULL "DROWN_STONE_D" "DROWN_STONE_L" NULL block
+/* 07 */ NULL "DROWN_STONE_D" NULL "DROWN_STONE_D" block
+/* 08 */ "DROWN_STONE_L" NULL NULL "DROWN_STONE_D" block
+/* 09 */ "DROWN_STONE_L" NULL NULL NULL block
+/* 0A */ "DROWN_STONE_L" NULL "DROWN_STONE_L" NULL block
+/* 0B */ "DROWN_STONE_L" "DROWN_STONE_D" "DROWN_STONE_L" NULL block
+/* 0C */ NULL NULL "DROWN_STONE_L" "DROWN_STONE_D" block
+/* 0D */ "DROWN_STONE_L" "DROWN_STONE_D" NULL NULL block
+/* 0E */ "DROWN_STONE_D" "DROWN_STONE_L" "DROWN_STONE_D" "DROWN_STONE_L" block
+/* 0F */ "DROWN_STONE_L" NULL "DROWN_STONE_L" "DROWN_STONE_L" block
+/* 10 */ "DROWN_STONE_D" "DROWN_STONE_L" NULL "DROWN_STONE_D" block
+/* 11 */ NULL "DROWN_STONE_L" NULL "DROWN_STONE_D" block
+/* 12 */ "CEILING_HOLE_RED" NULL NULL NULL block
+
+"
+..000000........................000000000000......
+01..02..03....................04............05....
+01......03....................04............05....
+04......050000000000000000000006............05....
+04......07............................080909......
+04......07............................05..........
+04......07............................05..........
+04......07......080909090A0A0A0B......05..........
+04......07......05....04..............05..........
+04......07......0C000004..............05..........
+04......07............07..............05..........
+04......07............07......08090909............
+04......07............07......05..................
+04......0C0A0A0D......07......0C0000000000000000..
+04............07......07........................05
+04............07......07........................05
+04............07......07........................05
+04............07......07................0E......05
+04............07......07........................05
+04............07......07........................05
+04........0F0A06......07......0E................05
+04....................07........................03
+04....................07................10......03
+04....................07................11..12..03
+..09090909090909090909..0909090909090909..090909..
+" defmap
+
+/* room 6 (Antechamber of Pain) */ 
+
+18 114 25 17 6 NULL new_room
+
+2 160 800 5 1 NULL gate
+7 160 160 23 13 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 02 */ NULL "STONE_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_WALL_D" block
+/* 04 */ NULL "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 05 */ NULL "STONE_WALL_D" "STONE_WALL_L" NULL block
+/* 06 */ NULL NULL "STONE_WALL_L" "STONE_WALL_D" block
+/* 07 */ "STONE_WALL_L" "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 08 */ "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_L" block
+/* 09 */ NULL "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_D" block
+/* 0A */ "STONE_WINDOW_L" NULL NULL NULL block
+/* 0B */ "STONE_WALL_L" NULL NULL NULL block
+/* 0C */ NULL NULL "STONE_OPEN_D" NULL block
+/* 0D */ "STONE_WALL_L" NULL "STONE_WALL_L" "STONE_WALL_D" block
+/* 0E */ "STONE_CANDLE_L" NULL "STONE_WALL_L" NULL block
+/* 0F */ "STONE_WALL_L" NULL "STONE_WALL_L" NULL block
+/* 10 */ "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_L" NULL block
+/* 11 */ "STONE_OPEN_L" NULL "STONE_OPEN_L" NULL block
+/* 12 */ "STONE_CANDLE_L" NULL "STONE_WALL_D" NULL block
+/* 13 */ "STONE_OPEN_D" NULL NULL NULL block
+/* 14 */ NULL NULL NULL "STONE_DOOR_L" block
+/* 15 */ NULL NULL NULL "STONE_WALL_L" block
+/* 16 */ "STONE_WALL_D" NULL NULL NULL block
+
+"
+........000100......000000000000..00000000000000..
+......02......03..02............04..............03
+..000005......060005............04..............03
+02..............................04..............03
+02..............................04..............03
+02..............................04..............03
+02......07......08......08......09..............03
+02......04......................................03
+..0A0B0A02......................................03
+........02............................0C0C0C....03
+........02......0D0E0F0E0F0E0F0E0F0E101111110D12..
+........02............................131313....03
+........02......................................03
+........02......................................14
+........02......................................15
+........02......................................15
+..........0B0B0B0B1616161616161616160B0B0B0B0B0B..
+" defmap
+
+/* room 7 (Cavern of Templars) */ 
+
+0 17 25 25 7 NULL new_room
+
+9 160 1120 20 1 NULL gate
+6 1440 864 1 2 NULL gate
+5 1440 1376 22 13 NULL gate
+-1 1248 992 16 15 NULL gate
+-1 992 992 18 15 NULL gate
+-1 1376 1312 21 16 NULL gate
+5 160 224 2 17 NULL gate
+-1 416 1248 6 17 NULL gate
+-1 416 1056 6 18 NULL gate
+-1 1376 992 21 19 NULL gate
+
+"FEET" 736 1440 item
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_WALL_L" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 03 */ NULL "STONE_WALL_D" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_D" block
+/* 05 */ NULL "STONE_DOOR_D" NULL NULL block
+/* 06 */ "STONE_WALL_D" NULL NULL NULL block
+/* 07 */ "STONE_WALL_D" "STONE_WALL_L" NULL NULL block
+/* 08 */ "STONE_WALL_D" NULL NULL "STONE_WALL_L" block
+/* 09 */ "STONE_WALL_D" "STONE_WALL_D" NULL NULL block
+/* 0A */ NULL "STONE_WALL_L" NULL NULL block
+/* 0B */ NULL NULL NULL "STONE_WALL_L" block
+/* 0C */ "STONE_WALL_D" "STONE_CANDLE_L" "STONE_WALL_D" NULL block
+/* 0D */ "STONE_WALL_D" NULL "STONE_WALL_D" "STONE_CANDLE_L" block
+/* 0E */ NULL NULL NULL "RED_WALL_D" block
+/* 0F */ NULL "RED_WALL_D" NULL NULL block
+/* 10 */ NULL "RED_WALL_D" "STONE_WALL_D" NULL block
+/* 11 */ NULL NULL "STONE_WALL_D" "RED_WALL_D" block
+/* 12 */ NULL NULL "TRAP_DOOR_D" NULL block
+/* 13 */ "RED_WALL_L" NULL NULL NULL block
+/* 14 */ NULL NULL "STONE_WALL_D" "STONE_WALL_D" block
+/* 15 */ NULL "STONE_WALL_D" "STONE_WALL_D" NULL block
+/* 16 */ NULL "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 17 */ NULL "STONE_DOOR_D" NULL "STONE_DOOR_D" block
+/* 18 */ "STONE_WALL_D" "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 19 */ NULL "STONE_WALL_D" NULL "STONE_WALL_L" block
+/* 1A */ "TRAP_DOOR_D" NULL NULL NULL block
+/* 1B */ NULL "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" block
+/* 1C */ NULL "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 1D */ "STONE_DOOR_D" NULL NULL NULL block
+/* 1E */ "STONE_WALL_D" "DARK_STONE_L" NULL NULL block
+/* 1F */ "STONE_WALL_D" "JAIL_L" NULL NULL block
+/* 20 */ NULL NULL NULL "JAIL_L" block
+/* 21 */ NULL NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 22 */ NULL "DARK_STONE_L" NULL NULL block
+/* 23 */ NULL "JAIL_L" NULL NULL block
+/* 24 */ NULL NULL NULL "DARK_STONE_L" block
+/* 25 */ NULL NULL "JAIL_L" "JAIL_L" block
+/* 26 */ NULL NULL "JAIL_L" NULL block
+/* 27 */ "JAIL_L" NULL NULL NULL block
+/* 28 */ "JAIL_L" "JAIL_L" NULL NULL block
+/* 29 */ "DARK_STONE_D" NULL NULL NULL block
+
+"
+..0001010101010000000000000000000000000002000000..
+03..............................................04
+05..............................................04
+03..............................................04
+..0607......08060607..............08060609......04
+....0A......0B....0A..............0B....03......04
+....0A......0B....0A..............0B....03......04
+....0A......0B......0C..........0D......03......04
+....0A......0B....0A..............0B......060606..
+....0A......0E....0A..............0B..............
+....0F......0E....0A..............0B......000000..
+....0F......0E....0A..............0B....03......04
+..00100000001100....0C..........0D......03..12..04
+03....131313....040A..............14000015......04
+03..............040A..............16............04
+03..............040A..............17............04
+03......18......040A..............19............04
+03..1A001B000200141C..............080606061D0606..
+..061E06..061D1F20................210000000200....
+....22........2320..................2320......24..
+....22........23252626262626........2320......24..
+....22..........27272727272820......2320......24..
+....22....................2320......2320......24..
+....22....................2320......2320......24..
+......2929292929292929292929292929292929292929....
+" defmap
+
+/* room 8 (Subterranean Passage) */ 
+
+0 0 30 15 8 NULL new_room
+
+16 160 352 28 3 { "FEET" item_taken } gate
+9 672 736 2 4 NULL gate
+10 224 992 23 12 NULL gate
+
+/* 00 */ NULL NULL "DARK_STONE_L" NULL block
+/* 01 */ NULL "DARK_STONE_L" NULL NULL block
+/* 02 */ NULL NULL NULL "DARK_STONE_D" block
+/* 03 */ NULL NULL "LAVA_L" NULL block
+/* 04 */ NULL "LAVA_D" NULL NULL block
+/* 05 */ NULL NULL NULL "LAVA_D" block
+/* 06 */ NULL NULL NULL "MONSTER_DOOR_D" block
+/* 07 */ "DARK_STONE_L" NULL NULL "DARK_STONE_L" block
+/* 08 */ "DARK_STONE_L" NULL "DARK_STONE_L" NULL block
+/* 09 */ "DARK_STONE_L" "DARK_STONE_D" NULL NULL block
+/* 0A */ "CEILING_HOLE_RED" NULL NULL NULL block
+/* 0B */ NULL "DARK_STONE_D" NULL "DARK_STONE_L" block
+/* 0C */ NULL "DARK_STONE_D" NULL "DARK_STONE_D" block
+/* 0D */ NULL "DARK_STONE_D" NULL NULL block
+/* 0E */ "LAVA_L" NULL NULL "DARK_STONE_D" block
+/* 0F */ "LAVA_L" NULL NULL NULL block
+/* 10 */ "DARK_STONE_L" NULL NULL NULL block
+/* 11 */ NULL "DARK_STONE_D" "DARK_STONE_L" "DARK_STONE_D" block
+/* 12 */ "DARK_STONE_L" NULL "DARK_STONE_L" "DARK_STONE_D" block
+/* 13 */ NULL "DARK_STONE_D" "DARK_STONE_L" NULL block
+/* 14 */ NULL NULL "DARK_STONE_L" "DARK_STONE_D" block
+/* 15 */ NULL NULL NULL "DARK_STONE_L" block
+/* 16 */ NULL NULL NULL "CEILING_HOLE_RED" block
+
+"
+..0000000000000000000000....................................
+01......................02............03030303030303030303..
+01......................02..........04....................05
+01......................02..........04....................06
+01......0708080809......02000000....04....................05
+01..0A..0B......0C......0C......02..0D......0E0F0F0F0F0F0F..
+..1010100D......11......11......02..0D......02..............
+........0D......................02..0D......02..............
+........0D......................02..0D......02..............
+........0D......................02..0D......02..............
+..........10101009........120808000013......140000..........
+................0D................................15........
+................0D..............................1615........
+................0D................................15........
+..................10101010101010101010101010101010..........
+" defmap
+
+/* room 9 (Down to the Passage) */ 
+
+0 18 21 20 9 NULL new_room
+
+8 160 224 10 10 NULL gate
+7 1312 160 2 18 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL "STONE_WALL_L" NULL NULL block
+/* 02 */ NULL NULL NULL "STONE_WALL_L" block
+/* 03 */ "STONE_WALL_D" NULL NULL "STONE_WALL_L" block
+/* 04 */ "STONE_WALL_D" NULL "STONE_WALL_D" NULL block
+/* 05 */ "STONE_WALL_D" "STONE_WALL_L" NULL NULL block
+/* 06 */ NULL "STONE_WALL_L" NULL "STONE_WALL_L" block
+/* 07 */ NULL NULL "TRAP_DOOR_D" NULL block
+/* 08 */ NULL "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_L" block
+/* 09 */ NULL NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 0A */ NULL "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 0B */ "STONE_WALL_D" NULL NULL NULL block
+/* 0C */ "STONE_DOOR_D" NULL NULL NULL block
+
+"
+..00000000000000000000000000000000000000..
+01......................................02
+01......................................02
+01......................................02
+01......03040404040404040404040405......02
+01......06......................06......02
+01......06......................06......02
+01......06......................06......02
+01......06......0304040405......06......02
+01......06......06..07..06......06......02
+01......06......06......06......06......02
+01......06......06......08......06......02
+01......06......06..............06......02
+01......06......06..............06......02
+01......06......06..............06......02
+01......06......09040404040404040A......02
+01......06..............................02
+01......06..............................02
+01......06..............................02
+..0B0C0B..0B0B0B0B0B0B0B0B0B0B0B0B0B0B0B..
+" defmap
+
+/* room 10 (Passage of Beasts) */ 
+
+18 114 18 18 10 NULL new_room
+
+13 288 480 15 1 NULL gate
+8 1440 800 2 15 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 02 */ NULL "STONE_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_WALL_D" block
+/* 04 */ NULL "STONE_WALL_L" NULL NULL block
+/* 05 */ NULL NULL NULL "STONE_WALL_L" block
+/* 06 */ NULL "STONE_CANDLE_L" NULL NULL block
+/* 07 */ NULL NULL NULL "STONE_CANDLE_L" block
+/* 08 */ "STONE_WALL_D" NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 09 */ "STONE_WALL_D" NULL "STONE_WALL_D" NULL block
+/* 0A */ NULL "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 0B */ "STONE_WALL_D" NULL NULL NULL block
+/* 0C */ "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 0D */ NULL "TRAP_DOOR_L" NULL NULL block
+
+"
+..0000000000000000..........00010000
+02................03......04......05
+02................03......06......07
+02................03......04......05
+02................03......06......07
+04......0809090909000000000A......05
+04................................07
+04................................05
+04................................07
+04......08090B0B0B0B0B0B0B0B0B0B0B05
+04..........05......................
+04..........05......................
+04..........05......................
+..090C......05......................
+02..........05......................
+020D........05......................
+02..........05......................
+..0B0B0B0B0B........................
+" defmap
+
+/* room 11 (Library) */ 
+
+113 184 15 25 11 NULL new_room
+
+48 160 224 13 4 NULL gate
+47 160 224 13 22 NULL gate
+
+/* 00 */ NULL NULL "LIBRARY_D" NULL block
+/* 01 */ NULL NULL "LIBRARY_WINDOW_L" NULL block
+/* 02 */ NULL NULL "LIBRARY_L" NULL block
+/* 03 */ NULL "LIBRARY_D" NULL NULL block
+/* 04 */ NULL "LIBRARY_D" NULL "LIBRARY_L" block
+/* 05 */ NULL NULL NULL "LIBRARY_L" block
+/* 06 */ NULL "LIBRARY_D" "LIBRARY_L" NULL block
+/* 07 */ NULL "LIBRARY_D" "LIBRARY_D" "LIBRARY_L" block
+/* 08 */ NULL "LIBRARY_L" NULL NULL block
+/* 09 */ NULL "LIBRARY_WINDOW_L" NULL NULL block
+/* 0A */ NULL NULL NULL "LIBRARY_DOOR_L" block
+/* 0B */ "LIBRARY_D" NULL "LIBRARY_L" NULL block
+/* 0C */ "LIBRARY_D" "LIBRARY_D" "LIBRARY_L" NULL block
+/* 0D */ "LIBRARY_L" "LIBRARY_D" NULL "LIBRARY_L" block
+/* 0E */ NULL NULL NULL "LIBRARY_D" block
+/* 0F */ "LIBRARY_D" NULL NULL NULL block
+/* 10 */ "LIBRARY_L" NULL NULL NULL block
+/* 11 */ NULL NULL "LIBRARY_L" "LIBRARY_L" block
+/* 12 */ "LIBRARY_D" NULL "LIBRARY_L" "LIBRARY_L" block
+/* 13 */ NULL "LIBRARY_D" "LIBRARY_D" NULL block
+/* 14 */ NULL "LIBRARY_D" NULL "LIBRARY_D" block
+/* 15 */ "LIBRARY_D" NULL NULL "LIBRARY_L" block
+/* 16 */ "LIBRARY_D" NULL "LIBRARY_D" "LIBRARY_D" block
+/* 17 */ "LIBRARY_D" NULL "LIBRARY_D" NULL block
+/* 18 */ "LIBRARY_D" "LIBRARY_D" NULL NULL block
+/* 19 */ NULL NULL NULL "LIBRARY_DOOR_D" block
+
+"
+......00010202000102..00010200
+....03......04......04......05
+030206......07......07......05
+08..........................05
+09..........................0A
+03..........................05
+..0B0C......0D......0D......05
+08..........04......04......05
+09..........0E0F0F1003......0E
+03..........0E......03......0E
+..0B0C......110202..03......0E
+08................0503......0E
+09................0E03......0E
+03................0E03......0E
+..0B0C......120B0F..03......0E
+08..............0E..03......0E
+09..............0E0013......0E
+03..............14..........0E
+..0B0C......150F03..........0E
+08..........05..03..........0E
+09..........110013......1617..
+03..........................0E
+..0F18......................19
+....03......................0E
+....100F0F0F0F0F0F0F0F0F0F0F0E
+" defmap
+
+/* room 12 (Abbysal Falling) */ 
+
+0 18 5 20 12 NULL new_room
+
+22 1376 1440 2 1 NULL gate
+-1 160 864 2 7 NULL gate
+-1 160 416 2 12 NULL gate
+16 160 160 2 18 { "BRAIN" item_taken } gate
+
+"BRAIN" 160 416 item
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 02 */ NULL "STONE_WALL_L" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_WALL_L" block
+/* 04 */ NULL "STONE_WALL_D" NULL NULL block
+/* 05 */ NULL NULL NULL "STONE_WALL_D" block
+/* 06 */ "TRAP_DOOR_L" NULL NULL NULL block
+/* 07 */ NULL NULL "DARK_STONE_L" NULL block
+/* 08 */ NULL "DARK_STONE_L" NULL NULL block
+/* 09 */ "STONE_WALL_D" NULL NULL NULL block
+/* 0A */ NULL NULL NULL "DARK_STONE_L" block
+/* 0B */ NULL NULL "CEILING_HOLE_RED" NULL block
+/* 0C */ NULL "DARK_STONE_D" NULL NULL block
+/* 0D */ NULL NULL NULL "DARK_STONE_D" block
+/* 0E */ "LAVA_L" NULL NULL NULL block
+/* 0F */ "MONSTER_DOOR_L" NULL NULL NULL block
+
+"
+..000100..
+02......03
+02......03
+02......03
+02......03
+04......05
+04......05
+04......05
+04..06..05
+0407070705
+080909090A
+08..0B..0A
+08......0A
+08......0A
+0C......0D
+0C......0D
+0C......0D
+0C......0D
+0C......0D
+..0E0F0E..
+" defmap
+
+/* room 13 (Entrance to Bestiario) */ 
+
+18 114 10 10 13 NULL new_room
+
+22 1760 1440 7 1 NULL gate
+32 288 160 1 6 NULL gate
+10 992 160 4 8 NULL gate
+
+/* 00 */ NULL "STONE_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "STONE_WALL_L" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 03 */ NULL "STONE_WALL_D" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_D" block
+/* 05 */ "RED_WALL_L" NULL NULL "RED_WALL_D" block
+/* 06 */ "RED_WALL_L" "RED_WALL_D" NULL NULL block
+/* 07 */ NULL NULL "RED_WALL_L" "RED_WALL_D" block
+/* 08 */ NULL "RED_WALL_D" "RED_WALL_L" NULL block
+/* 09 */ NULL "STONE_DOOR_D" NULL NULL block
+/* 0A */ "STONE_WALL_L" NULL NULL NULL block
+/* 0B */ "STONE_DOOR_L" NULL NULL NULL block
+/* 0C */ NULL NULL NULL "STONE_WALL_L" block
+
+"
+00010101010101020101
+03................04
+03................04
+03................04
+03......0506......04
+03......0708......04
+09................04
+03................04
+03................04
+0A0A0A0A0B0A0A0A0A0C
+" defmap
+
+/* room 14 (Purgatory) */ 
+
+18 114 25 15 14 NULL new_room
+
+15 1504 1440 20 1 NULL gate
+3 1760 160 5 5 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_D" NULL block
+/* 01 */ NULL NULL "STONE_WALL_L" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 03 */ NULL "STONE_WALL_D" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_D" block
+/* 05 */ NULL "STONE_WALL_L" NULL NULL block
+/* 06 */ NULL NULL NULL "STONE_WALL_L" block
+/* 07 */ NULL "STONE_GRILL_D" "STONE_GRILL_D" NULL block
+/* 08 */ NULL NULL "STONE_GRILL_D" "STONE_GRILL_D" block
+/* 09 */ NULL NULL "STONE_WINDOW_L" NULL block
+/* 0A */ NULL "STONE_WALL_L" "STONE_WALL_L" NULL block
+/* 0B */ NULL NULL NULL "STONE_WINDOW_L" block
+/* 0C */ NULL "STONE_DOOR_L" NULL NULL block
+/* 0D */ NULL "STONE_GRILL_D" NULL NULL block
+/* 0E */ "STONE_GRILL_D" NULL NULL "STONE_GRILL_D" block
+/* 0F */ "STONE_WALL_D" NULL NULL NULL block
+/* 10 */ "STONE_WINDOW_L" NULL NULL NULL block
+/* 11 */ "STONE_WALL_L" "STONE_WALL_L" NULL NULL block
+/* 12 */ "STONE_WALL_L" NULL NULL "STONE_WALL_L" block
+/* 13 */ "STONE_WALL_L" NULL NULL NULL block
+/* 14 */ NULL NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 15 */ NULL NULL "STONE_GRILL_D" NULL block
+/* 16 */ NULL "STONE_WALL_D" "STONE_WALL_D" NULL block
+/* 17 */ NULL NULL NULL "STONE_GRILL_D" block
+/* 18 */ "STONE_GRILL_D" NULL NULL NULL block
+
+"
+................00000000..............01020101....
+..............03......04............05......06....
+..............03......04............05......06....
+........05000007......080009010901090A......0B....
+........05..................................06....
+........0C..................................0B....
+........05..................................06....
+........0D........0E0F0F0F1011......1213101306....
+........03........04........05......14000000150000
+..00000016........04........05..................17
+03................04........03..................04
+03................04........03..................17
+03................04........03..................04
+..0F0F0F0F0F0F0F0F..........03..................17
+............................0F0F0F0F0F0F0F0F180F04
+" defmap
+
+/* room 15 (The Inner Yard) */ 
+
+18 136 30 25 15 NULL new_room
+
+4 1248 1440 16 1 NULL gate
+-1 544 736 4 11 NULL gate
+-1 224 736 7 11 NULL gate
+-1 1120 800 15 12 NULL gate
+-1 928 800 16 12 NULL gate
+-1 1248 1184 19 15 NULL gate
+-1 1248 928 19 17 NULL gate
+-1 1696 1184 23 18 NULL gate
+-1 1438 1184 25 18 NULL gate
+14 1312 160 23 23 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 02 */ NULL "STONE_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_WALL_D" block
+/* 04 */ "STONE_WALL_L" NULL NULL "STONE_WALL_D" block
+/* 05 */ "STONE_WALL_L" NULL NULL NULL block
+/* 06 */ "STONE_WALL_L" "STONE_WALL_D" NULL NULL block
+/* 07 */ NULL NULL "TREE_D" NULL block
+/* 08 */ NULL "STONE_WALL_L" NULL NULL block
+/* 09 */ NULL "JAIL_L" NULL NULL block
+/* 0A */ NULL NULL NULL "JAIL_L" block
+/* 0B */ NULL NULL NULL "TREE_D" block
+/* 0C */ NULL NULL NULL "STONE_DOOR_D" block
+/* 0D */ NULL "STONE_DOOR_L" NULL NULL block
+/* 0E */ NULL "JAIL_DOOR_L" NULL NULL block
+/* 0F */ NULL NULL NULL "JAIL_DOOR_L" block
+/* 10 */ NULL NULL "JAIL_L" NULL block
+/* 11 */ NULL "JAIL_L" "JAIL_L" NULL block
+/* 12 */ "JAIL_L" NULL NULL "JAIL_L" block
+/* 13 */ "JAIL_L" NULL NULL NULL block
+/* 14 */ "TREE_D" NULL NULL NULL block
+/* 15 */ "STONE_WALL_D" NULL "STONE_WALL_D" NULL block
+/* 16 */ "STONE_DOOR_D" NULL "STONE_DOOR_D" NULL block
+/* 17 */ "TREE_D" NULL "STONE_WALL_D" NULL block
+/* 18 */ NULL NULL "STONE_WALL_D" NULL block
+/* 19 */ NULL "STONE_WALL_D" "STONE_WALL_D" NULL block
+/* 1A */ NULL "STONE_DOOR_D" NULL NULL block
+/* 1B */ NULL NULL "STONE_WALL_L" "STONE_WALL_D" block
+/* 1C */ NULL "STONE_WALL_D" "STONE_WALL_L" NULL block
+/* 1D */ "STONE_WALL_D" NULL NULL NULL block
+/* 1E */ "STONE_DOOR_L" NULL NULL NULL block
+/* 1F */ "STONE_DOOR_D" "STONE_DOOR_D" "STONE_DOOR_D" "STONE_DOOR_D" block
+/* 20 */ "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" block
+
+"
+..00000000000000000000000000000001000000000000000000000000..
+02........................................................03
+02........................................................03
+02........................................................03
+02........................................................03
+02........0405050505050505050505050505050505050506........03
+02........03....................................02........03
+02........03....................................02........03
+02........03..000000000000000000000007070707....02........03
+02........0308................090A..........0B..02........03
+02........0308................090A..........0B..02........03
+02........0C0D................090A..........0B..02........03
+02........0308................0E0F..........0B..02........03
+02........0308..............10110A..........0B..02........03
+02........0308............091213............0B..02........03
+02........0308............090A..............0B..02........03
+02........03..050505050505050505141415161517181819........03
+02........03......................02............20........03
+02........03......................02............1F........03
+02........1B00000000000000000000001C20202020202020........03
+02........................................................03
+02........................................................03
+02........................................................03
+02........................................................03
+..050505050505050505050505050505050505050505051E0505050505..
+" defmap
+
+/* room 16 (Kingdom of Dholes Entrance) */ 
+
+184 112 5 10 16 NULL new_room
+
+12 160 1120 2 1 { "BRAIN" item_taken } gate
+8 1760 224 1 5 { "FEET" item_taken } gate
+18 160 480 3 7 NULL gate
+
+/* 00 */ NULL NULL "LAVA_D" NULL block
+/* 01 */ NULL NULL "MONSTER_DOOR_D" NULL block
+/* 02 */ NULL "LAVA_L" NULL NULL block
+/* 03 */ NULL NULL NULL "LAVA_D" block
+/* 04 */ NULL "MONSTER_DOOR_L" NULL NULL block
+/* 05 */ NULL NULL NULL "LAVA_HOLE_D" block
+/* 06 */ "LAVA_L" NULL NULL NULL block
+
+"
+..000100..
+02......03
+02......03
+02......03
+02......03
+04......03
+02......03
+02......05
+02......03
+..060606..
+" defmap
+
+/* room 17 (East Wall of Temple) */ 
+
+80 139 20 20 17 { landscape } new_room
+
+24 1312 1056 16 2 { "HAND" item_taken } gate
+4 1440 416 1 15 NULL gate
+43 160 224 16 17 { "GUTS" item_taken } gate
+
+/* 00 */ NULL "GREEK_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 02 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 03 */ NULL NULL NULL "TREE_L" block
+/* 04 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 05 */ NULL NULL "LADDER_FLOOR" NULL block
+/* 06 */ NULL NULL NULL "GREEK_WALL_D" block
+/* 07 */ NULL NULL "TREE_D" "TREE_L" block
+/* 08 */ NULL NULL "TREE_D" NULL block
+/* 09 */ NULL "GREEK_WALL_D" "GREEK_WALL_L" "GREEK_WALL_D" block
+/* 0A */ NULL NULL "GREEK_WALL_L" "GREEK_WALL_D" block
+/* 0B */ NULL NULL NULL "TREE_D" block
+/* 0C */ NULL "TREE_L" NULL NULL block
+/* 0D */ "TREE_L" NULL NULL "TREE_L" block
+/* 0E */ "TREE_L" NULL NULL NULL block
+/* 0F */ NULL "STONE_WALL_L" NULL NULL block
+/* 10 */ NULL "STONE_DOOR_L" NULL NULL block
+/* 11 */ "TREE_D" NULL NULL "TREE_L" block
+/* 12 */ "TREE_D" NULL NULL NULL block
+/* 13 */ "TREE_D" "TREE_D" NULL NULL block
+/* 14 */ NULL "TREE_D" NULL NULL block
+/* 15 */ "TRAP_DOOR_D" NULL NULL NULL block
+
+"
+000101010101010101............020202....
+00................03........04..05..06..
+00................070808080804......06..
+00..........................09......0A..
+00....................................0B
+00....................................0B
+00....................................0B
+00....................................0B
+0C....................0D0E0E0E0E0E0E0E03
+0C....................03................
+0C....................03................
+0C....................03................
+0F....................0708080808080808..
+0F..................................0B..
+0F..................................0B..
+10..................................0B..
+0F....................11121213......0B..
+0F....................03....14......0B..
+0F....................03....14..15..0B..
+121212121212121212121203....12121212....
+" defmap
+
+/* room 18 (Kingdom of Dholes) */ 
+
+184 112 30 25 18 { 255 0 0 fog_color 56 ambient_light } new_room
+
+38 1440 1120 27 1 NULL gate
+19 160 288 28 2 NULL gate
+16 160 480 1 7 NULL gate
+
+/* 00 */ NULL NULL "LAVA_L" NULL block
+/* 01 */ NULL NULL "LAVA_HOLE_L" NULL block
+/* 02 */ NULL "LAVA_D" NULL NULL block
+/* 03 */ NULL "LAVA_D" NULL "LAVA_D" block
+/* 04 */ NULL NULL NULL "LAVA_D" block
+/* 05 */ NULL NULL NULL "LAVA_HOLE_D" block
+/* 06 */ "LAVA_L" NULL NULL NULL block
+/* 07 */ "LAVA_L" "LAVA_D" NULL NULL block
+/* 08 */ "LAVA_L" NULL "LAVA_L" "LAVA_D" block
+/* 09 */ "LAVA_L" NULL "LAVA_L" NULL block
+/* 0A */ NULL "LAVA_HOLE_D" NULL NULL block
+/* 0B */ NULL NULL "LAVA_L" "LAVA_D" block
+/* 0C */ NULL "LAVA_D" "LAVA_L" NULL block
+/* 0D */ NULL "LAVA_D" "LAVA_L" "LAVA_D" block
+/* 0E */ "LAVA_L" NULL NULL "LAVA_D" block
+/* 0F */ "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_D" block
+
+"
+..0000000000000000000000..00000000000000000000000000000100..
+02......................03................................04
+02......................03................................05
+02......................03................................04
+..0606060606060607......03..........080909090907..........04
+..0000000000....02......03....................03..........04
+02..........04..02......03....................03..........04
+0A..........04..02......03....................03..........04
+02..........0B000C......0D0000000000000000000003..........04
+02........................0606060606060606060603..........04
+02............................................03..........04
+02............................................03..........04
+..0606060606060606060607......0E0607..........03..........04
+......................02......04..02..........03..........04
+......................02......04..02..........03..........04
+......................02......04..02..........03..........04
+..000000000000000000..02......04..02..........03..........04
+02..................0402......04..02..........03..........04
+02..................0402......04..02..........03..........04
+02..................0402......04..02..........0D..........04
+02........0F........0B0C......04..02......................04
+02............................04..02......................04
+02............................04..02......................04
+02............................04..02......................04
+..0606060606060606060606060606......0606060606060606060606..
+" defmap
+
+/* room 19 (Passage to the Tower) */ 
+
+184 112 15 10 19 { 255 0 0 fog_color 56 ambient_light } new_room
+
+18 1760 160 1 4 NULL gate
+30 200 608 12 4 NULL gate
+31 352 160 7 8 NULL gate
+
+/* 00 */ NULL NULL "LAVA_L" NULL block
+/* 01 */ NULL "LAVA_D" NULL NULL block
+/* 02 */ NULL NULL NULL "LAVA_D" block
+/* 03 */ NULL "LAVA_D" "LAVA_L" NULL block
+/* 04 */ NULL NULL "LAVA_L" "LAVA_D" block
+/* 05 */ NULL "LAVA_HOLE_D" NULL NULL block
+/* 06 */ NULL NULL NULL "LADDER_CEILING" block
+/* 07 */ "LAVA_L" NULL NULL NULL block
+/* 08 */ "LAVA_L" "LAVA_D" NULL NULL block
+/* 09 */ "LAVA_L" NULL NULL "LAVA_D" block
+/* 0A */ "LAVA_HOLE_L" NULL NULL NULL block
+
+"
+................000000........
+..............01......02......
+..00000000000003......040000..
+01..........................02
+05........................0602
+01..........................02
+..0707070708......0907070707..
+..........01......02..........
+..........01......02..........
+............070A07............
+" defmap
+
+/* room 20 (Viperae Mundi) */ 
+
+160 186 25 25 20 NULL new_room
+
+21 224 160 22 5 NULL gate
+26 160 160 12 23 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 01 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 02 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 04 */ NULL NULL NULL "GREEK_WALL_D" block
+/* 05 */ NULL "GREEK_WINDOW_D" NULL NULL block
+/* 06 */ NULL NULL NULL "GREEK_WINDOW_L" block
+/* 07 */ NULL NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 08 */ NULL NULL "GREEK_WINDOW_D" NULL block
+/* 09 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 0A */ "GREEK_WALL_L" NULL "GREEK_WALL_D" NULL block
+/* 0B */ "GREEK_WALL_L" "GREEK_WALL_D" NULL NULL block
+/* 0C */ "GREEK_WALL_D" NULL NULL NULL block
+/* 0D */ "GREEK_WINDOW_D" NULL NULL NULL block
+/* 0E */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 0F */ NULL NULL NULL "LADDER_CEILING" block
+/* 10 */ NULL NULL NULL "GREEK_DOOR_L" block
+/* 11 */ "GREEK_WALL_L" "GREEK_WALL_D" "GREEK_WALL_D" NULL block
+/* 12 */ "GREEK_WALL_L" NULL NULL "GREEK_WALL_L" block
+/* 13 */ "GREEK_WALL_L" NULL NULL NULL block
+/* 14 */ "GREEK_WALL_L" "GREEK_WALL_L" NULL NULL block
+/* 15 */ NULL NULL "STATUE_L" NULL block
+/* 16 */ NULL "GREEK_WALL_L" "GREEK_WALL_D" NULL block
+/* 17 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" "GREEK_WALL_D" block
+/* 18 */ NULL "STATUE_L" NULL NULL block
+/* 19 */ NULL "GREEK_WINDOW_D" NULL "GREEK_WINDOW_L" block
+/* 1A */ NULL "RED_WALL_D" NULL NULL block
+/* 1B */ "GREEK_WALL_L" NULL NULL "RED_WALL_L" block
+/* 1C */ "GREEK_WALL_L" "GREEK_WALL_D" "RED_WALL_D" NULL block
+/* 1D */ NULL NULL "RED_WALL_D" NULL block
+/* 1E */ "GREEK_WALL_L" NULL "RED_WALL_D" "GREEK_WALL_D" block
+/* 1F */ "GREEK_WALL_L" NULL "RED_WALL_D" NULL block
+/* 20 */ "GREEK_WALL_L" NULL "GREEK_WALL_L" "GREEK_WALL_L" block
+/* 21 */ NULL "RED_WALL_D" NULL "RED_WALL_L" block
+/* 22 */ "STATUE_L" NULL NULL NULL block
+/* 23 */ NULL "GREEK_WALL_L" NULL "RED_WALL_L" block
+/* 24 */ NULL "RED_WALL_D" "RED_WALL_D" "RED_WALL_L" block
+/* 25 */ NULL "GREEK_WALL_D" "GREEK_WALL_L" "GREEK_WALL_L" block
+/* 26 */ "RED_WALL_L" "RED_WALL_D" NULL "RED_WALL_L" block
+/* 27 */ "RED_WALL_L" NULL NULL NULL block
+/* 28 */ "GREEK_DOOR_L" NULL NULL NULL block
+
+"
+..0000000000000000000000000000000001000000000000..
+02..............................0203............04
+02..............................0506............04
+02..............................020700080808000004
+02........090A0A0A0A0A0A0A0B......0C0C0D0D0D0C0C03
+02........................0E..................0F03
+02........................0E....................03
+02........................0E......090A0A0A0A0A0A10
+02........................0E....................04
+02........090A0A0A0A0A0A0A11....................04
+02..............................................04
+02................................12131314......04
+02..........15............15......03....16......04
+020A0A0A0A1113170A0A0A0A1113170A0A0A0002........04
+02....................................0E........04
+18....................................19........04
+02....................................0E........04
+1A......1B1C1D1E1F1F1F1F1C1D1E14......0E......20..
+1A......21..22............22..23......19........04
+1A......21....................23......0E........04
+1A......24....................23......25........04
+1A................26..........23................04
+1A................21..........23................04
+1A................21..........23................04
+..2727272727272727..2713281327131313131313131313..
+" defmap
+
+/* room 21 (Snake-like Passage) */ 
+
+25 161 10 25 21 { 32 ambient_light blink_light } new_room
+
+20 1376 352 2 2 NULL gate
+25 672 672 1 22 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 01 */ NULL "GREEK_WALL_D" "GREEK_WALL_L" NULL block
+/* 02 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 03 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 04 */ NULL "LADDER_FLOOR" NULL NULL block
+/* 05 */ "GREEK_WALL_L" "GREEK_WALL_D" NULL NULL block
+/* 06 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" NULL block
+/* 07 */ "GREEK_WALL_L" "GREEK_WALL_D" "GREEK_WALL_D" NULL block
+/* 08 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 09 */ NULL "GREEK_DOOR_D" NULL NULL block
+/* 0A */ "GREEK_WALL_D" NULL NULL NULL block
+
+"
+..0000000000000000..
+01................02
+0304..............02
+05................02
+030606060607......02
+03................02
+03................02
+03................02
+03......080606060602
+03................02
+03................02
+03................02
+030606060607......02
+03................02
+03................02
+03................02
+03......080606060602
+03................02
+03................02
+03................02
+030606060607......02
+03................02
+09................02
+03................02
+..0A0A0A0A0A0A0A0A..
+" defmap
+
+/* room 22 (Bestiario) */ 
+
+125 138 30 25 22 { landscape } new_room
+
+12 160 160 21 23 NULL gate
+13 480 160 27 23 NULL gate
+
+/* 00 */ NULL "STONE_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "STONE_WALL_D" NULL block
+/* 02 */ NULL NULL "STONE_WALL_L" NULL block
+/* 03 */ NULL "STONE_WALL_D" NULL NULL block
+/* 04 */ NULL "JAIL_L" NULL NULL block
+/* 05 */ NULL NULL NULL "JAIL_L" block
+/* 06 */ NULL NULL NULL "STONE_WALL_L" block
+/* 07 */ "STONE_WALL_L" NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 08 */ "STONE_WALL_L" NULL "STONE_WALL_D" NULL block
+/* 09 */ "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_D" NULL block
+/* 0A */ NULL NULL "JAIL_L" NULL block
+/* 0B */ NULL "JAIL_L" "JAIL_L" NULL block
+/* 0C */ NULL "STONE_OPEN_D" NULL NULL block
+/* 0D */ NULL "STONE_OPEN_D" NULL "STONE_OPEN_L" block
+/* 0E */ NULL NULL NULL "STONE_OPEN_L" block
+/* 0F */ "JAIL_L" NULL NULL NULL block
+/* 10 */ "STONE_WALL_L" "STONE_WALL_D" NULL "STONE_WALL_L" block
+/* 11 */ "STONE_WALL_L" NULL "STONE_WALL_L" "STONE_WALL_L" block
+/* 12 */ "STONE_WALL_L" NULL "STONE_WALL_L" NULL block
+/* 13 */ NULL "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_L" block
+/* 14 */ "STONE_WALL_L" NULL NULL "STONE_WALL_L" block
+/* 15 */ "STONE_WALL_L" "STONE_WALL_D" NULL NULL block
+/* 16 */ NULL "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_L" block
+/* 17 */ NULL "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" block
+/* 18 */ NULL "STONE_WALL_D" NULL "STONE_WALL_L" block
+/* 19 */ "STONE_WALL_D" NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 1A */ "STONE_WALL_D" NULL "STONE_WALL_D" NULL block
+/* 1B */ "STONE_WALL_D" NULL NULL NULL block
+/* 1C */ NULL "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 1D */ "STONE_WALL_L" NULL NULL NULL block
+/* 1E */ "STONE_DOOR_D" NULL NULL NULL block
+
+"
+000101010101010101010101010101010101010101010101010101010102
+03..........................0405..........................06
+03..........................0405..........................06
+03..........................0405..........................06
+03..........................0405......070808080809........06
+03..........0A0A0A0A0A0A0A0A0B05....0C0D0E................06
+03..........0F0F0F0F0F0F0F0F0F......0C0D0E................06
+03..................................0C0D0E................06
+03....................................10..................06
+03..............070808080808080808080803........111212121206
+03....................................13..................06
+03..................................0C0D0E................06
+03..................................0C0D0E................06
+00......14080808080808080815........0C0D0E................06
+03......16................17..........110808080815........06
+03..............................................18........06
+03..............................................18........06
+03..............................................18........06
+03................191A1A1A1A1A1A1A1A1B1A1A1A1A1A03........06
+03..................................1C..........1C........06
+03..................................17..........1C........06
+03..............................................1C........06
+03..............................................1C........06
+03..............................................1C........06
+1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1D1B1E1B1B1D1B1B1E1B..
+" defmap
+
+/* room 23 (Temple Portico) */ 
+
+79 138 20 20 23 { landscape } new_room
+
+25 160 672 10 2 NULL gate
+4 672 160 10 18 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 01 */ NULL "GREEK_WALL_L" NULL NULL block
+/* 02 */ NULL "GREEK_WALL_L" "GREEK_DECO_D" NULL block
+/* 03 */ NULL "GREEK_WALL_D" "GREEK_DOOR_L" "GREEK_WALL_D" block
+/* 04 */ NULL NULL "GREEK_DECO_D" "GREEK_WALL_L" block
+/* 05 */ NULL NULL NULL "GREEK_WALL_D" block
+/* 06 */ NULL "GREEK_WINDOW_D" "GREEK_WINDOW_D" NULL block
+/* 07 */ NULL NULL "GREEK_WINDOW_D" "GREEK_WINDOW_D" block
+/* 08 */ NULL "GREEK_WALL_D" "GREEK_WALL_D" NULL block
+/* 09 */ NULL NULL "GREEK_WALL_D" "GREEK_WALL_D" block
+/* 0A */ NULL NULL "GREEK_DECO_2_L" NULL block
+/* 0B */ NULL NULL "GREEK_COLUMNS_D" NULL block
+/* 0C */ NULL "GREEK_DECO_2_L" "GREEK_COLUMNS_D" NULL block
+/* 0D */ NULL "GREEK_COLUMNS_D" "GREEK_COLUMNS_D" NULL block
+/* 0E */ NULL NULL "GREEK_COLUMNS_D" "GREEK_COLUMNS_D" block
+/* 0F */ NULL NULL "GREEK_COLUMNS_D" "GREEK_DECO_2_L" block
+/* 10 */ NULL "GREEK_WINDOW_D" NULL NULL block
+/* 11 */ NULL NULL NULL "GREEK_WINDOW_L" block
+/* 12 */ NULL NULL "GREEK_COLUMNS_L" NULL block
+/* 13 */ NULL "GREEK_COLUMNS_L" NULL NULL block
+/* 14 */ "GREEK_COLUMNS_D" NULL NULL "GREEK_COLUMNS_D" block
+/* 15 */ "GREEK_COLUMNS_D" NULL "GREEK_DECO_2_L" NULL block
+/* 16 */ "GREEK_COLUMNS_D" NULL NULL NULL block
+/* 17 */ "GREEK_COLUMNS_D" "GREEK_COLUMNS_L" NULL NULL block
+/* 18 */ NULL NULL NULL "GREEK_COLUMNS_D" block
+/* 19 */ NULL "GREEK_DECO_2_L" NULL "GREEK_COLUMNS_D" block
+/* 1A */ "GREEK_DECO_2_L" NULL NULL "GREEK_DECO_2_L" block
+/* 1B */ "GREEK_DECO_2_L" NULL NULL NULL block
+/* 1C */ "GREEK_DECO_2_L" "GREEK_DECO_2_L" NULL NULL block
+/* 1D */ NULL "GREEK_COLUMNS_L" NULL "GREEK_DECO_2_L" block
+/* 1E */ NULL NULL "GREEK_DECO_2_L" "GREEK_DECO_2_L" block
+/* 1F */ NULL "GREEK_DECO_2_L" "GREEK_DECO_2_L" NULL block
+/* 20 */ NULL NULL "GREEK_COLUMNS_L" "GREEK_COLUMNS_D" block
+/* 21 */ "GREEK_DECO_2_L" NULL "GREEK_COLUMNS_L" NULL block
+/* 22 */ NULL "GREEK_COLUMNS_L" "GREEK_COLUMNS_L" NULL block
+/* 23 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 24 */ "GREEK_DECO_D" "GREEK_WALL_D" NULL "GREEK_WALL_D" block
+/* 25 */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_D" block
+/* 26 */ "GREEK_WALL_D" NULL NULL NULL block
+/* 27 */ "GREEK_WALL_L" NULL NULL NULL block
+/* 28 */ "GREEK_DOOR_D" NULL NULL NULL block
+
+"
+..000000000000000000..0000000000000000..
+01................020304..............05
+01..............06......07............05
+01............08..........09..........05
+01....0A0A0A06..............070A0A0A..05
+010B0C0B0B0D..................0E0B0B0F05
+01..10............................11..05
+01..10............................11..05
+01..10........12121212121212......11..05
+01..10......131415151615151718....11..05
+01..10......13191A1B..1B1C1D18....11..05
+01..10......1318..........1318....11..05
+01..10......13191E0A..0A1F1D18....11..05
+01..10......132021211221212218....11..05
+01..10........16161616161616......11..05
+01..10............................11..05
+01..10............................11..05
+01..10........232405..232405......11..05
+01..10........232505..232505......11..05
+..262626262626262726282627262626262626..
+" defmap
+
+/* room 24 (Keepers Chamber) */ 
+
+160 186 30 20 24 NULL new_room
+
+-1 1248 544 16 8 NULL gate
+-1 992 544 18 8 NULL gate
+-1 1760 544 24 8 NULL gate
+-1 1504 544 26 8 NULL gate
+26 1440 480 1 11 NULL gate
+17 1056 224 20 17 { "HAND" item_taken } gate
+
+"HAND" 736 544 item
+
+/* 00 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 01 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 02 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 03 */ NULL "STONE_CANDLE_D" NULL NULL block
+/* 04 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 05 */ NULL "GREEK_WINDOW_D" NULL NULL block
+/* 06 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 07 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" NULL block
+/* 08 */ "GREEK_WALL_L" NULL NULL NULL block
+/* 09 */ "GREEK_WALL_L" "GREEK_WALL_D" NULL NULL block
+/* 0A */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 0B */ NULL "GREEK_WALL_D" "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 0C */ NULL "JAIL_L" NULL "JAIL_L" block
+/* 0D */ "GREEK_WALL_L" "GREEK_WALL_L" "GREEK_WALL_L" "GREEK_WALL_L" block
+/* 0E */ NULL "JAIL_DOOR_L" NULL "JAIL_DOOR_L" block
+/* 0F */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_D" block
+/* 10 */ "GREEK_WALL_L" "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 11 */ NULL "GREEK_DOOR_D" NULL NULL block
+/* 12 */ NULL NULL "GREEK_WINDOW_D" NULL block
+/* 13 */ "GREEK_WINDOW_L" NULL NULL NULL block
+/* 14 */ NULL "GREEK_WALL_D" "GREEK_WALL_D" "GREEK_WALL_D" block
+/* 15 */ "GREEK_WALL_L" "GREEK_WALL_D" "GREEK_WALL_D" "GREEK_WALL_D" block
+/* 16 */ NULL "GREEK_WINDOW_L" NULL NULL block
+/* 17 */ NULL NULL NULL "GREEK_WINDOW_L" block
+/* 18 */ "GREEK_WALL_L" "GREEK_WALL_L" NULL NULL block
+/* 19 */ "LADDER_CEILING" NULL NULL NULL block
+/* 1A */ "GREEK_WALL_L" "GREEK_WALL_L" NULL "GREEK_WALL_L" block
+/* 1B */ NULL "GREEK_WALL_L" NULL NULL block
+
+"
+000101010101010101010101010101010101010101010101010101010102
+0304......................................................02
+0305......................................................02
+0304......................................................02
+0304......060707070807070707070707080707070707070709......02
+0304..............0A..............0A..............0A......02
+0305..............0B..............0A..............0A......02
+0304..............0C..............0A..............0B......02
+040707070709......0C......0D......0E..............0E......02
+04........0F......0C..............0A..............10......02
+04........0F......10..............0A..............0A......02
+11........0F......0B010112011201010A..............0A......02
+04........0F......0808081308130808020707070707070704......02
+04........0F......................0A..............0A......02
+04........140101010101010101......0A..............0A......02
+04........080808080808080815......0A..............0B......02
+04................................0A......................02
+04................................0A......1617............02
+04................................0A18..191A02............02
+1B0808080808080808080808080808080808080808080808080808080808
+" defmap
+
+/* room 25 (Cross of Hell) */ 
+
+25 138 13 13 25 NULL new_room
+
+21 160 1440 11 10 NULL gate
+23 672 224 2 11 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 01 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 02 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 03 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 04 */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 05 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" NULL block
+/* 06 */ "GREEK_WALL_L" "GREEK_WALL_D" "GREEK_WALL_D" NULL block
+/* 07 */ NULL "GREEK_WALL_D" "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 08 */ "GREEK_WALL_L" "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 09 */ "GREEK_WALL_L" NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 0A */ "GREEK_WALL_L" NULL NULL NULL block
+/* 0B */ NULL NULL NULL "GREEK_DOOR_L" block
+/* 0C */ NULL "GREEK_WALL_L" NULL NULL block
+/* 0D */ "GREEK_DOOR_L" NULL NULL NULL block
+
+"
+0001010101010101..01010102
+03..............04......02
+03..............04......02
+03..............04......02
+..05050506......07......02
+03......................02
+03......................02
+03......................02
+03......08......090505050A
+03......04..............02
+03......04..............0B
+03......04..............02
+0C0A0D0A..0A0A0A0A0A0A0A0A
+" defmap
+
+/* room 26 (6 6 6 ) */ 
+
+160 186 26 12 26 NULL new_room
+
+20 800 1440 2 1 NULL gate
+-1 672 480 7 7 NULL gate
+-1 416 480 9 7 NULL gate
+-1 1184 480 15 7 NULL gate
+-1 928 480 17 7 NULL gate
+24 160 736 23 7 NULL gate
+
+/* 00 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 01 */ NULL NULL "GREEK_DOOR_D" NULL block
+/* 02 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 04 */ NULL NULL "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 05 */ NULL "GREEK_WALL_D" NULL "GREEK_WALL_L" block
+/* 06 */ "GREEK_WALL_L" "GREEK_WALL_D" "GREEK_WALL_D" "GREEK_WALL_L" block
+/* 07 */ NULL "GREEK_DOOR_D" NULL "GREEK_DOOR_L" block
+/* 08 */ NULL NULL NULL "GREEK_DOOR_L" block
+/* 09 */ "GREEK_WALL_L" NULL NULL NULL block
+
+"
+..000100..........000000..........000000............
+02......03......02......03......02......03..........
+02......03......02......03......02......03..........
+02......0400000002......0400000002......04000000....
+02..............05..............05..............03..
+02..............05..............05..............03..
+02..............05..............05..............03..
+02......06......07......06......07......06......08..
+02..............05..............05..............03..
+02..............05..............05..............03..
+02..............05..............05..............03..
+..090909090909090909090909090909090909090909090909..
+" defmap
+
+/* room 27 (Garden of Delights) */ 
+
+53 6 37 27 27 { landscape } new_room
+
+/* -1 864 160 9 2 NULL gate
+-1 544 160 12 2 NULL gate
+-1 1184 160 14 2 NULL gate
+-1 864 160 17 2 NULL gate
+-1 1568 160 20 2 NULL gate
+-1 1248 160 22 2 NULL gate */
+4 160 416 35 11 NULL gate
+/* -1 1440 1184 22 15 NULL gate */
+35 288 224 1 17 NULL gate
+/* -1 1440 928 22 17 NULL gate */
+
+/* 00 */ NULL NULL "TREE_L" NULL block
+/* 01 */ NULL "TREE_D" NULL NULL block
+/* 02 */ NULL NULL NULL "TREE_D" block
+/* 03 */ NULL "TREE_L" NULL NULL block
+/* 04 */ NULL NULL NULL "TREE_L" block
+/* 05 */ NULL "TREE_D" NULL "TREE_D" block
+/* 06 */ NULL "GARDEN_DOOR_D" NULL NULL block
+/* 07 */ NULL NULL NULL "GARDEN_DOOR_D" block
+/* 08 */ "TREE_L" "TREE_L" "TREE_L" "TREE_L" block
+/* 09 */ "TREE_L" NULL "TREE_L" "TREE_L" block
+/* 0A */ "TREE_L" "TREE_D" "TREE_L" NULL block
+/* 0B */ "TREE_L" NULL NULL "TREE_L" block
+/* 0C */ "TREE_L" NULL "TREE_L" NULL block
+/* 0D */ "TREE_L" NULL "TREE_L" "TREE_D" block
+/* 0E */ NULL "TREE_D" "TREE_L" "TREE_D" block
+/* 0F */ "TREE_L" NULL NULL NULL block
+/* 10 */ "TREE_L" "TREE_D" NULL "TREE_D" block
+/* 11 */ NULL "TREE_D" NULL "TREE_L" block
+/* 12 */ NULL "TREE_D" "TREE_L" NULL block
+/* 13 */ "TREE_L" "TREE_L" NULL "TREE_L" block
+/* 14 */ "TREE_L" "TREE_D" NULL NULL block
+/* 15 */ NULL "TREE_L" NULL "TREE_D" block
+/* 16 */ NULL NULL "TREE_L" "TREE_D" block
+/* 17 */ NULL "TREE_D" "TREE_L" "TREE_L" block
+/* 18 */ "TREE_L" "TREE_D" "TREE_L" "TREE_D" block
+/* 19 */ "TREE_L" NULL NULL "TREE_D" block
+/* 1A */ NULL "TREE_L" "TREE_L" NULL block
+/* 1B */ "GARDEN_DOOR_L" NULL "GARDEN_DOOR_L" NULL block
+/* 1C */ NULL "GARDEN_DOOR_L" NULL NULL block
+/* 1D */ "TREE_L" "TREE_L" NULL NULL block
+
+"
+..0000000000000000000000000000000000000000000000000000000000000000000000..
+01....................08........08........08..........05................02
+01....................................................05................02
+01....................08........08........08..........050000000000......02
+01000000090A......0B0C08........08......0D000C0A......0E0F0F0F0F10......02
+010F0F0F0F0F......11..................................0102......05......02
+01................11..................................0102......05......02
+01................11..................................0102....0D12......02
+01........13......11......0D0C0C0F0C0C0C0C0C0C0C14....0102..............02
+010C0C0C0C03......11............05..............05....0102..............02
+01........15......11............05..............05....0102..............16
+01........15......17000000......05..............05......18......18......07
+01........15......0F0F0F10......0E......10......05....0102..............19
+..14......15............05..............05......05....0102..............02
+..01......15............05..............05......05....0102..............02
+0312......160C0C0A......0E00000000......05......05....0102....0D14......02
+1A......................0F0F0F0F1402....020C1B0C01....0102......05......02
+1C..............................0102....05......05....0102......05......02
+1D..............................0102....05......05....0102......05......02
+0114......190C0C0C14......10....0102....05......05......190F0F0F01......02
+..01......05......05......160C0C0A02....0E......05......1600000012......02
+..01......05......05............................05......................02
+..01......0E......05............................05......................02
+..01..............05............................05......................02
+..01..............020F0F0F14......190F14......19..0F0F0F14......190F0F0F..
+..01..............02......01......02..01......02........01......02........
+..0F0F0F0F0F0F0F0F..........0F0F0F......0F0F0F............0F0F0F..........
+" defmap
+
+/* room 30 (The Tower) */ 
+
+80 18 20 20 30 { landscape } new_room
+
+45 2336 480 10 1 NULL gate
+/* -1 608 544 9 6 NULL gate
+-1 608 352 9 7 NULL gate */
+19 750 288 2 9 NULL gate
+/* -1 672 800 10 10 NULL gate
+-1 672 608 10 11 NULL gate */
+
+/* 00 */ NULL "STONE_WALL_D" NULL NULL block
+/* 01 */ NULL NULL "STONE_WALL_D" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 03 */ NULL "STONE_WALL_L" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_L" block
+/* 05 */ NULL "STONE_WALL_L" "STONE_WALL_D" NULL block
+/* 06 */ NULL NULL "STONE_WALL_D" "STONE_WALL_L" block
+/* 07 */ "STONE_WALL_D" NULL NULL "STONE_WALL_L" block
+/* 08 */ "STONE_WALL_D" NULL NULL NULL block
+/* 09 */ "STONE_DOOR_D" NULL NULL NULL block
+/* 0A */ "STONE_WALL_D" "STONE_WALL_L" NULL NULL block
+/* 0B */ NULL NULL NULL "STONE_WALL_D" block
+/* 0C */ NULL "LADDER_FLOOR" NULL NULL block
+/* 0D */ "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" "STONE_WALL_D" block
+
+"
+........000101010101020101010101........
+........03....................04........
+....000105....................060101....
+....03............................04....
+....03............................04....
+....03............................060101
+....03........010D..0D0101............04
+..0105......00070D..0D0D0D0B..........04
+03..........000D........0D0B..........04
+030C........000D........0D0B..........04
+03..........00060D0D..0D050B..........04
+..080A........080808..0808............04
+....03................................04
+....03............................07080B
+....03............................04....
+....03............................04....
+....03............................04....
+....08080A....................07080B....
+........03....................04........
+........08080808080808080808080B........
+" defmap
+
+/* room 31 (South Corridor) */ 
+
+184 112 10 25 31 { 255 0 0 fog_color 56 ambient_light } new_room
+
+19 480 480 5 1 NULL gate
+
+"EYES" 352 1440 item
+
+/* 00 */ NULL NULL "LAVA_L" NULL block
+/* 01 */ NULL NULL "LAVA_HOLE_L" NULL block
+/* 02 */ NULL "LAVA_D" NULL NULL block
+/* 03 */ NULL NULL NULL "LAVA_D" block
+/* 04 */ NULL "LAVA_D" "LAVA_L" NULL block
+/* 05 */ "LAVA_L" NULL NULL "LAVA_D" block
+/* 06 */ "LAVA_L" NULL NULL NULL block
+/* 07 */ NULL NULL "LAVA_L" "LAVA_D" block
+/* 08 */ "STONE_WALL_L" NULL "STONE_WALL_L" "STONE_WALL_D" block
+/* 09 */ "STONE_WALL_L" "STONE_WALL_D" "STONE_WALL_L" NULL block
+
+"
+........000100......
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+......02......03....
+..000004......03....
+02............03....
+02............03....
+02............03....
+02........0506......
+02........07000000..
+02................03
+02................03
+02................03
+02......0809......03
+02................03
+02................03
+02................03
+..0606060606060606..
+" defmap
+
+/* room 32 (The Well) */ 
+
+18 114 7 5 32 NULL new_room
+
+33 1376 928 2 2 NULL gate
+13 160 416 5 2 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL "STONE_WALL_D" NULL NULL block
+/* 02 */ NULL NULL NULL "STONE_WALL_D" block
+/* 03 */ NULL "TRAP_DOOR_L" NULL NULL block
+/* 04 */ NULL NULL NULL "STONE_DOOR_D" block
+/* 05 */ "STONE_WALL_L" NULL NULL NULL block
+
+"
+..0000000000..
+01..........02
+0103........04
+01..........02
+..0505050505..
+" defmap
+
+/* room 33 (The Sewer) */ 
+
+18 104 25 25 33 NULL new_room
+
+34 352 480 2 2 NULL gate
+32 224 160 22 14 NULL gate
+
+/* 00 */ NULL NULL "STONE_WATER_L" NULL block
+/* 01 */ NULL "STONE_WATER_D" NULL NULL block
+/* 02 */ NULL NULL NULL "STONE_WATER_D" block
+/* 03 */ NULL "WHIRL_FLOOR" NULL NULL block
+/* 04 */ "STONE_WATER_L" "STONE_WATER_L" "STONE_WATER_L" NULL block
+/* 05 */ "STONE_WATER_L" "STONE_WATER_D" NULL "STONE_WATER_D" block
+/* 06 */ "STONE_WATER_L" NULL NULL NULL block
+/* 07 */ "STONE_WATER_L" NULL "STONE_WATER_L" "STONE_WATER_D" block
+/* 08 */ "STONE_WATER_L" NULL "STONE_WATER_L" NULL block
+/* 09 */ NULL "STONE_WATER_D" "STONE_WATER_L" NULL block
+/* 0A */ "STONE_WATER_L" NULL NULL "STONE_WATER_D" block
+/* 0B */ "STONE_WATER_L" "STONE_WATER_D" NULL NULL block
+/* 0C */ NULL NULL "STONE_WATER_L" "STONE_WATER_D" block
+/* 0D */ NULL NULL NULL "LADDER_CEILING" block
+/* 0E */ NULL NULL "STONE_WATER_D" NULL block
+/* 0F */ NULL "STONE_WATER_D" "STONE_WATER_D" NULL block
+/* 10 */ NULL "STONE_WATER_D" NULL "STONE_WATER_D" block
+
+"
+..0000000000000000000000000000000000000000000000..
+01..............................................02
+0103............................................02
+01..............................................02
+0104000000000000000000000000000000......05......02
+01..06060606060606060606060606060607080809......02
+01..............................................02
+01..............................................02
+01..............................................02
+01................................0A060606060606..
+01................0A06060B........02..............
+01................02....01........02..............
+01................02....01........0C000000000000..
+01................02....01......................02
+01................02....01....................0D02
+01................02....01......................02
+01................02....01......0A06060606060606..
+01................02....01......02................
+01................020E0E0F......02................
+01................10............02................
+..060606060606060601............02................
+..................01............02................
+..................01............02................
+....................060606060606..................
+..................................................
+" defmap
+
+/* room 34 (The Sink) */ 
+
+177 177 15 15 34 { under_water } new_room
+
+33 224 160 6 7 NULL gate
+
+"SKULL" 800 416 item
+
+/* 00 */ NULL NULL "DROWN_STONE_L" NULL block
+/* 01 */ NULL "DROWN_STONE_D" NULL NULL block
+/* 02 */ NULL NULL NULL "DROWN_STONE_D" block
+/* 03 */ "DROWN_STONE_L" NULL "DROWN_STONE_L" "DROWN_STONE_D" block
+/* 04 */ "DROWN_STONE_L" NULL "DROWN_STONE_L" NULL block
+/* 05 */ "DROWN_STONE_L" "DROWN_STONE_D" NULL NULL block
+/* 06 */ NULL "DROWN_STONE_D" NULL "DROWN_STONE_D" block
+/* 07 */ NULL NULL NULL "WHIRL_CEILING" block
+/* 08 */ NULL "DROWN_STONE_D" "DROWN_STONE_L" NULL block
+/* 09 */ "DROWN_STONE_L" NULL NULL NULL block
+
+"
+..00000000000000000000000000..
+01..........................02
+01..........................02
+01..........................02
+01..........................02
+01..........030405..........02
+01..............06..........02
+01............0706..........02
+01..............06..........02
+01..........030408..........02
+01..........................02
+01..........................02
+01..........................02
+01..........................02
+..09090909090909090909090909..
+" defmap
+
+/* room 35 (West Side of Garden) */ 
+
+53 6 7 20 35 { landscape } new_room
+
+27 160 1120 5 3 NULL gate
+36 480 288 5 16 NULL gate
+
+/* 00 */ NULL NULL "TREE_L" NULL block
+/* 01 */ NULL NULL "TREE_D" NULL block
+/* 02 */ NULL "TREE_D" NULL NULL block
+/* 03 */ NULL NULL NULL "TREE_L" block
+/* 04 */ NULL NULL "TREE_D" "TREE_L" block
+/* 05 */ NULL NULL NULL "GARDEN_DOOR_L" block
+/* 06 */ "TREE_D" NULL NULL "TREE_L" block
+/* 07 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 08 */ NULL NULL NULL "GREEK_DOOR_L" block
+/* 09 */ "TREE_D" NULL NULL NULL block
+/* 0A */ "GREEK_WALL_D" NULL NULL NULL block
+
+"
+..000000000001
+02..........03
+02..........04
+02..........05
+02..........06
+02..........03
+02..........03
+02..........03
+02..........03
+02..........03
+02..........03
+02..........03
+02..........03
+02..........07
+02..........07
+02..........07
+02..........08
+02..........07
+02..........07
+0909090A0A0A..
+" defmap
+
+/* room 36 (Temple by the Sea) */ 
+
+24 160 20 20 36 NULL new_room
+
+35 288 1056 6 4 NULL gate
+37 544 160 16 16 NULL gate
+
+/* 00 */ NULL "GREEK_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 02 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 03 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 04 */ NULL NULL NULL "GREEK_WALL_L" block
+/* 05 */ NULL NULL "SEA_L" NULL block
+/* 06 */ NULL "GREEK_DOOR_D" NULL NULL block
+/* 07 */ NULL "SEA_L" NULL NULL block
+/* 08 */ NULL "GREEK_WALL_D" "GREEK_WALL_D" NULL block
+/* 09 */ NULL "GREEK_WINDOW_L" NULL NULL block
+/* 0A */ NULL "GREEK_COLUMNS_D" NULL NULL block
+/* 0B */ NULL NULL "GREEK_WINDOW_L" NULL block
+/* 0C */ NULL "GREEK_WINDOW_D" NULL NULL block
+/* 0D */ "GREEK_WINDOW_D" NULL NULL "GREEK_WINDOW_L" block
+/* 0E */ "GREEK_WINDOW_D" NULL NULL NULL block
+/* 0F */ "GREEK_WINDOW_D" "GREEK_WINDOW_D" NULL NULL block
+/* 10 */ NULL NULL NULL "GREEK_WINDOW_L" block
+/* 11 */ NULL NULL NULL "GREEK_WALL_D" block
+/* 12 */ NULL NULL "GREEK_WINDOW_D" "GREEK_WINDOW_L" block
+/* 13 */ NULL NULL "GREEK_WINDOW_D" NULL block
+/* 14 */ NULL "GREEK_WINDOW_D" "GREEK_WINDOW_D" NULL block
+/* 15 */ "GREEK_WINDOW_L" "GREEK_WINDOW_D" NULL NULL block
+/* 16 */ "GREEK_COLUMNS_D" NULL NULL NULL block
+/* 17 */ "GREEK_WALL_D" NULL NULL "GREEK_WINDOW_L" block
+/* 18 */ "GREEK_WALL_D" NULL NULL "GREEK_WINDOW_D" block
+/* 19 */ "GREEK_WALL_D" NULL NULL NULL block
+/* 1A */ "GREEK_WALL_D" "GREEK_WALL_L" NULL NULL block
+/* 1B */ "GREEK_WALL_D" NULL NULL "GREEK_WALL_L" block
+/* 1C */ "GREEK_DOOR_D" NULL NULL NULL block
+/* 1D */ "GREEK_DECO_2_D" NULL NULL NULL block
+/* 1E */ NULL NULL NULL "TREE_D" block
+/* 1F */ NULL "TREE_D" NULL NULL block
+/* 20 */ "SEA_L" NULL NULL NULL block
+/* 21 */ "TREE_D" NULL NULL NULL block
+
+"
+..........000101010101010102020202020202
+..........03..........................04
+..........03..........................04
+..........03..........................04
+..05......06..........................04
+07........03..........................04
+07..02010108..........................04
+07090A................................04
+07090A................................04
+07090A........0B0B0B0B0B0B0B0B........04
+07090A......0C0D0E0E0E0E0E0E0F10......04
+07090A......0C10............0C10......11
+07090A......0C10............0C10......11
+07090A......0C121313131313131410......11
+07090A........0E0E0E0E0E0E0E0E........11
+07090A................................11
+07090A................................11
+070C1516161617181919191A190E191B1C191911
+07..0E1D1D1D0E1E1E....1F......1E........
+072020202020201E........212121..........
+" defmap
+
+/* room 37 (West Entrance to the Castle) */ 
+
+11 6 16 20 37 { landscape } new_room
+
+36 1056 992 8 1 NULL gate
+3 160 416 14 16 NULL gate
+
+/* 00 */ NULL "GREEK_WALL_D" NULL NULL block
+/* 01 */ NULL NULL "GREEK_WALL_D" NULL block
+/* 02 */ NULL NULL "GREEK_DOOR_D" NULL block
+/* 03 */ NULL NULL "TREE_L" NULL block
+/* 04 */ NULL NULL NULL "TREE_L" block
+/* 05 */ NULL "TREE_D" NULL NULL block
+/* 06 */ "TREE_D" NULL NULL "TREE_L" block
+/* 07 */ "TREE_D" NULL "TREE_D" NULL block
+/* 08 */ "TREE_D" "TREE_L" "TREE_D" NULL block
+/* 09 */ "TREE_D" NULL NULL NULL block
+/* 0A */ "TREE_D" "TREE_D" NULL NULL block
+/* 0B */ NULL "TREE_L" NULL "TREE_L" block
+/* 0C */ NULL "TREE_L" "TREE_D" "TREE_L" block
+/* 0D */ "TREE_D" "TREE_L" NULL "TREE_L" block
+/* 0E */ NULL NULL "SEA_L" NULL block
+/* 0F */ NULL "TREE_D" "SEA_L" NULL block
+/* 10 */ NULL "SEA_L" NULL NULL block
+/* 11 */ NULL NULL "GREEK_DECO_D" NULL block
+/* 12 */ "GREEK_DECO_D" NULL NULL NULL block
+/* 13 */ "GREEK_DECO_D" "GREEK_DECO_D" NULL NULL block
+/* 14 */ NULL NULL NULL "GREEK_DECO_D" block
+/* 15 */ "TREE_D" NULL "TREE_D" "TREE_L" block
+/* 16 */ NULL "TREE_L" "TREE_D" NULL block
+/* 17 */ NULL NULL NULL "STONE_WALL_L" block
+/* 18 */ NULL "GREEK_DECO_D" NULL NULL block
+/* 19 */ NULL NULL NULL "STONE_DOOR_L" block
+/* 1A */ "SEA_L" NULL NULL NULL block
+/* 1B */ "STONE_WALL_L" NULL NULL NULL block
+
+"
+00010101010101010201010101010103
+00............................04
+00............................04
+00............................04
+05............06070708........04
+..090A........0B..............04
+....05........0B..............04
+....05........0C..............04
+....05................0D......04
+....05................0B......04
+..0E0F................0B......04
+10..051111............0B......04
+10....121314....15070716......17
+10......1814..................17
+10......1814..................17
+10......1814..................17
+10......1814..................19
+10......1814..................17
+10......1814..................17
+..1A1A1A1A09090909090909091B1B17
+" defmap
+
+/* room 38 (Suplice Chamber) */ 
+
+184 112 25 20 38 { 255 0 0 fog_color 56 ambient_light } new_room
+
+39 992 1120 17 1 NULL gate
+18 1760 160 22 18 NULL gate
+
+/* 00 */ NULL NULL "LAVA_D" NULL block
+/* 01 */ NULL NULL "LAVA_HOLE_D" NULL block
+/* 02 */ NULL "LAVA_L" NULL NULL block
+/* 03 */ NULL NULL NULL "LAVA_L" block
+/* 04 */ "LAVA_D" "LAVA_L" NULL "LAVA_L" block
+/* 05 */ NULL "LAVA_L" NULL "LAVA_L" block
+/* 06 */ "LAVA_D" NULL NULL NULL block
+/* 07 */ "LAVA_D" "LAVA_L" NULL NULL block
+/* 08 */ NULL NULL "LAVA_D" "LAVA_L" block
+/* 09 */ NULL "LAVA_L" "LAVA_D" NULL block
+/* 0A */ "LAVA_D" NULL "LAVA_D" NULL block
+/* 0B */ "LAVA_D" NULL NULL "LAVA_L" block
+/* 0C */ "LAVA_HOLE_D" NULL NULL NULL block
+
+"
+..000000000000........00000000000001000000000000..
+02............03....02..........................03
+02............03....02..........................03
+02............03....02..........................03
+02............03....02......04..........04......03
+02............03....02......05..........05......03
+..060607......08000009......080A0A0A0A0A09......03
+......02........................................03
+......02........................................03
+......02........................................03
+......02......0B0607............................03
+......02......03..02............................03
+..000009......03....0606060606060606060606060606..
+02............0800000000000000000000000000000000..
+02..............................................03
+02..............................................03
+02..............................................03
+02........0B060606060606060606060606060607......03
+02........03............................02......03
+..06060606................................060C06..
+" defmap
+
+/* room 39 (The House in the Hells) */ 
+
+184 112 20 20 39 { 255 0 0 fog_color 56 ambient_light } new_room
+
+40 800 800 1 2 { "SKULL" item_taken } gate
+-1 1056 416 13 6 NULL gate
+-1 800 416 15 6 NULL gate
+/* -1 480 800 7 10 NULL gate
+-1 480 608 7 11 NULL gate */
+38 1120 160 15 18 NULL gate
+
+/* 00 */ NULL "LAVA_D" NULL NULL block
+/* 01 */ NULL NULL "LAVA_L" NULL block
+/* 02 */ NULL NULL NULL "LAVA_D" block
+/* 03 */ NULL "MONSTER_DOOR_D" NULL NULL block
+/* 04 */ NULL NULL "STONE_WALL_D" NULL block
+/* 05 */ NULL "STONE_WALL_D" NULL NULL block
+/* 06 */ "STONE_WALL_L" NULL NULL "STONE_WALL_D" block
+/* 07 */ "STONE_WALL_L" NULL NULL NULL block
+/* 08 */ "STONE_WALL_L" "STONE_WALL_D" NULL "STONE_WALL_D" block
+/* 09 */ NULL NULL NULL "STONE_WALL_D" block
+/* 0A */ NULL "STONE_DOOR_D" NULL "STONE_DOOR_D" block
+/* 0B */ NULL NULL NULL "STONE_DOOR_D" block
+/* 0C */ NULL NULL "STONE_WALL_L" NULL block
+/* 0D */ NULL "STONE_WALL_D" "STONE_WALL_L" "STONE_WALL_D" block
+/* 0E */ "STONE_WALL_D" NULL NULL "STONE_WALL_D" block
+/* 0F */ "STONE_WALL_D" NULL NULL NULL block
+/* 10 */ "STONE_WALL_D" "JAIL_L" NULL NULL block
+/* 11 */ "STONE_WALL_D" NULL NULL "JAIL_L" block
+/* 12 */ NULL "JAIL_L" NULL NULL block
+/* 13 */ NULL NULL NULL "JAIL_L" block
+/* 14 */ "STONE_WALL_L" "STONE_WALL_L" "STONE_WALL_L" "STONE_WALL_D" block
+/* 15 */ "STONE_DOOR_D" NULL "STONE_DOOR_L" NULL block
+/* 16 */ "STONE_DOOR_D" NULL NULL NULL block
+/* 17 */ NULL NULL "JAIL_L" "JAIL_L" block
+/* 18 */ NULL NULL "JAIL_L" NULL block
+/* 19 */ NULL "JAIL_L" "JAIL_L" NULL block
+/* 1A */ "JAIL_L" NULL NULL NULL block
+/* 1B */ "LAVA_L" NULL NULL NULL block
+/* 1C */ "LAVA_HOLE_L" NULL NULL NULL block
+/* 1D */ "STONE_WALL_L" "STONE_WALL_L" "STONE_WALL_L" "STONE_WALL_L" block
+
+"
+0001010101010101010101010101010101010101
+00....................................02
+03....................................02
+00....................................02
+00..........040404040404040404........02
+00........05060707070707070708........02
+00........0509..............0A........02
+00........0509......0C0C0C0C0D........02
+00........0509....050E0F0F1011........02
+00........0509....0509....1213........02
+00........0514..1D0D09....1213........02
+00........1211..0F0F......1213........02
+00........1213............1213........02
+00........1213............1213........02
+00........12171818181818181913........02
+00..........1A1A1A1A1A1A1A1A..........02
+00....................................02
+00....................................02
+00....................................02
+1B1B1B1B1B1B1B1B1B1B1B1B1B1B1B1C1B1B1B02
+" defmap
+
+/* room 40 (Access to the world of Ants) */ 
+
+207 114 15 15 40 NULL new_room
+
+41 480 1120 5 1 NULL gate
+39 160 160 13 12 NULL gate
+
+/* 00 */ NULL NULL "LAVA_L" NULL block
+/* 01 */ NULL NULL "MONSTER_DOOR_L" NULL block
+/* 02 */ NULL "LAVA_D" NULL NULL block
+/* 03 */ NULL NULL NULL "LAVA_D" block
+/* 04 */ "TUNNEL_2_L" NULL NULL "TUNNEL_2_D" block
+/* 05 */ "TUNNEL_2_L" NULL NULL NULL block
+/* 06 */ "TUNNEL_2_L" "TUNNEL_2_D" NULL NULL block
+/* 07 */ NULL NULL NULL "TUNNEL_2_D" block
+/* 08 */ NULL "TUNNEL_2_D" NULL NULL block
+/* 09 */ NULL NULL "TUNNEL_2_L" "TUNNEL_2_D" block
+/* 0A */ NULL NULL "TUNNEL_2_L" NULL block
+/* 0B */ NULL "TUNNEL_2_D" "TUNNEL_2_L" NULL block
+/* 0C */ NULL NULL "LAVA_L" "LAVA_D" block
+/* 0D */ NULL NULL NULL "MONSTER_DOOR_D" block
+/* 0E */ "LAVA_L" NULL NULL NULL block
+
+"
+..000000000100000000..........
+02..................03........
+02..................03........
+02..................03........
+02..................03........
+02..................03........
+02..................03........
+02......040506......03........
+02......07..08......03........
+02......07..08......03........
+02......090A0B......0C000000..
+02..........................03
+02..........................0D
+02..........................03
+..0E0E0E0E0E0E0E0E0E0E0E0E0E..
+" defmap
+
+/* room 41 (The world of Ants) */ 
+
+207 114 20 20 41 { 32 ambient_light } new_room
+
+42 928 864 14 1 NULL gate
+43 1120 224 1 4 NULL gate
+40 352 160 7 18 NULL gate
+
+/* 00 */ NULL NULL "TUNNEL_2_D" NULL block
+/* 01 */ NULL NULL "TUNNEL_HOLE_D" NULL block
+/* 02 */ NULL "TUNNEL_2_L" NULL NULL block
+/* 03 */ NULL "TUNNEL_2_L" "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 04 */ NULL NULL NULL "TUNNEL_2_L" block
+/* 05 */ NULL "TUNNEL_HOLE_L" NULL NULL block
+/* 06 */ "TUNNEL_2_D" "TUNNEL_2_L" NULL "TUNNEL_2_L" block
+/* 07 */ "TUNNEL_2_D" NULL NULL "TUNNEL_2_L" block
+/* 08 */ "TUNNEL_2_D" NULL NULL NULL block
+/* 09 */ "TUNNEL_2_D" "TUNNEL_2_L" NULL NULL block
+/* 0A */ NULL "TUNNEL_2_L" "TUNNEL_2_D" NULL block
+/* 0B */ "TUNNEL_2_D" NULL "TUNNEL_2_D" NULL block
+/* 0C */ NULL "TUNNEL_2_L" NULL "TUNNEL_2_L" block
+/* 0D */ "TUNNEL_2_D" NULL "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 0E */ NULL NULL "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 0F */ "TUNNEL_2_D" "TUNNEL_2_L" "TUNNEL_2_D" NULL block
+/* 10 */ NULL "LAVA_L" NULL NULL block
+/* 11 */ "LAVA_D" NULL NULL NULL block
+/* 12 */ "MONSTER_DOOR_D" NULL NULL NULL block
+
+"
+..0000000000000000..000000000100000000..
+02................03..................04
+02....................................04
+02....................................04
+05........06..............070809......04
+02........0408080808080808....0A......04
+..0B0B0B0B00000000000000000002........04
+02..........................0C........04
+02..........................0C........04
+02..........................03......0D..
+02......0D0B0B0B0809..................04
+02..............0402..................04
+02..............0402..................04
+02..............0E000B0B0B0B0B09......04
+02............................0C......04
+..0B0B0F......................0C......04
+10............................0C......04
+10............................0C......04
+10............................0C......04
+..1111111111111211111111111111..080808..
+" defmap
+
+/* room 42 (Great Lower Chamber) */ 
+
+207 114 20 16 42 { 32 ambient_light } new_room
+
+41 928 160 14 14 NULL gate
+
+"GUTS" 160 480 item
+
+/* 00 */ NULL NULL "TUNNEL_2_L" NULL block
+/* 01 */ NULL "TUNNEL_2_D" NULL NULL block
+/* 02 */ NULL NULL NULL "TUNNEL_2_D" block
+/* 03 */ "TUNNEL_2_L" "TUNNEL_2_D" NULL "TUNNEL_2_D" block
+/* 04 */ NULL "TUNNEL_2_D" NULL "TUNNEL_2_D" block
+/* 05 */ "TUNNEL_2_L" NULL NULL NULL block
+/* 06 */ "TUNNEL_HOLE_L" NULL NULL NULL block
+
+"
+..000000000000000000000000000000000000..
+01....................................02
+01....................................02
+01....................................02
+01......03............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+01......04............................02
+..050505..0505050505050505050605050505..
+" defmap
+
+/* room 43 (Exit to the Surface) */ 
+
+207 114 20 20 43 { 32 ambient_light } new_room
+
+17 1056 1056 2 2 { "GUTS" item_taken } gate
+41 160 288 18 3 NULL gate
+
+/* 00 */ NULL NULL "TUNNEL_2_D" NULL block
+/* 01 */ NULL "TUNNEL_2_L" NULL NULL block
+/* 02 */ NULL NULL "CEILING_HOLE_RED" NULL block
+/* 03 */ NULL "TUNNEL_2_L" NULL "TUNNEL_2_L" block
+/* 04 */ NULL NULL NULL "TUNNEL_2_L" block
+/* 05 */ NULL "TUNNEL_2_L" "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 06 */ NULL NULL NULL "TUNNEL_HOLE_L" block
+/* 07 */ "TUNNEL_2_D" NULL "TUNNEL_2_D" NULL block
+/* 08 */ "TUNNEL_2_D" "TUNNEL_2_L" "TUNNEL_2_D" NULL block
+/* 09 */ "TUNNEL_2_D" NULL "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 0A */ NULL NULL "TUNNEL_2_D" "TUNNEL_2_L" block
+/* 0B */ "TUNNEL_2_D" "TUNNEL_2_L" NULL NULL block
+/* 0C */ "TUNNEL_2_L" "TUNNEL_2_D" NULL "TUNNEL_2_D" block
+/* 0D */ NULL "TUNNEL_2_D" NULL "TUNNEL_2_D" block
+/* 0E */ "TUNNEL_2_D" NULL NULL NULL block
+
+"
+..000000..00000000..000000000000000000..
+01..02..03........03..................04
+01......05........03..................04
+01................03..................06
+01................03..................04
+01................03..................04
+..0707070708......03......090707070707..
+01................03..................04
+01................03..................04
+01................03..................04
+01......090707070701..................04
+01................0A0707070B..........04
+01........................03..........04
+01........................03..........04
+01........................03..........04
+01..........0C............05..........04
+01..........0D........................04
+01..........0D........................04
+01..........0D........................04
+..0E0E0E0E0E..0E0E0E0E0E0E0E0E0E0E0E0E..
+" defmap
+
+/* room 44 (The Beach) */ 
+
+11 92 20 25 44 { landscape } new_room
+
+3 416 480 16 3 NULL gate
+
+"CHEST" 992 1440 item
+
+/* 00 */ NULL NULL "SEA_L" NULL block
+/* 01 */ NULL "SEA_L" NULL NULL block
+/* 02 */ NULL NULL "STONE_WALL_D" NULL block
+/* 03 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 04 */ NULL NULL NULL "STONE_WALL_L" block
+/* 05 */ "STONE_WALL_D" NULL NULL NULL block
+/* 06 */ "STONE_WALL_D" "RED_WALL_L" NULL NULL block
+/* 07 */ "STONE_WALL_D" NULL NULL "RED_WALL_L" block
+/* 08 */ NULL "RED_WALL_L" NULL NULL block
+/* 09 */ NULL NULL NULL "RED_WALL_L" block
+/* 0A */ "SEA_L" NULL NULL NULL block
+/* 0B */ "RED_WALL_L" NULL NULL NULL block
+/* 0C */ "GREEK_WINDOW_D" "GREEK_WINDOW_L" "GREEK_WINDOW_D" "GREEK_WINDOW_L" block
+
+"
+..000000................................
+....01..................................
+....010C02020202020202020202020203020202
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C..............................04
+....010C05050505050505050506......070504
+....01....................08......09....
+....01....................08......09....
+0A05050505................0B0B0B0B09....
+" defmap
+
+/* room 45 (Gallery of Misery) */ 
+
+16 18 40 10 45 NULL new_room
+
+47 544 1440 3 1 NULL gate
+46 1248 160 1 6 NULL gate
+30 672 160 36 8 NULL gate
+
+/* 00 */ NULL "STONE_DOOR_L" NULL NULL block
+/* 01 */ NULL NULL "STONE_WALL_D" NULL block
+/* 02 */ NULL NULL "STONE_DOOR_D" NULL block
+/* 03 */ NULL NULL "STONE_DOOR_L" NULL block
+/* 04 */ NULL "STONE_WALL_L" NULL NULL block
+/* 05 */ NULL NULL "STONE_WALL_D" "STONE_WALL_D" block
+/* 06 */ NULL NULL "STONE_PICTURE_D" NULL block
+/* 07 */ NULL NULL "STONE_CANDLE_D" NULL block
+/* 08 */ NULL "STONE_WALL_D" "STONE_WALL_D" NULL block
+/* 09 */ NULL NULL NULL "STONE_WALL_D" block
+/* 0A */ "STONE_WALL_L" NULL NULL "STONE_WALL_D" block
+/* 0B */ "STONE_PICTURE_L" NULL NULL NULL block
+/* 0C */ "STONE_CANDLE_L" NULL NULL NULL block
+/* 0D */ "STONE_WALL_L" "STONE_WALL_D" NULL NULL block
+/* 0E */ "STONE_DOOR_L" NULL NULL NULL block
+/* 0F */ "STONE_WALL_L" NULL NULL NULL block
+/* 10 */ "STONE_WINDOW_L" NULL NULL NULL block
+/* 11 */ NULL NULL NULL "STONE_DOOR_L" block
+
+"
+000101020101........00010101010101........00010101010101........0001010101010103
+04..........0506070608............0506070608............0506070608............09
+04............................................................................09
+04............................................................................09
+04............................................................................09
+04............................................................................09
+00............................................................................09
+04............................................................................09
+04..........0A0B0C0B0D............0A0B0C0B0D............0A0B0C0B0D............09
+0E0F0F100F0F11........0F100F0F100F11........0F100F0F100F11........0F0F0F0E0F0F11
+" defmap
+
+/* room 46 (The Stables) */ 
+
+77 114 22 40 46 NULL new_room
+
+45 160 416 20 2 NULL gate
+
+"HEART" 224 1504 item
+
+/* 00 */ NULL "RED_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "RED_WALL_L" NULL block
+/* 02 */ NULL NULL NULL "STONE_WALL_D" block
+/* 03 */ NULL NULL NULL "STONE_DOOR_D" block
+/* 04 */ "WOOD_WALL_D" NULL "WOOD_WALL_D" NULL block
+/* 05 */ "WOOD_WALL_D" "WOOD_WALL_L" "WOOD_WALL_D" NULL block
+/* 06 */ "WOOD_WALL_D" NULL "WOOD_WALL_D" "WOOD_WALL_L" block
+/* 07 */ NULL NULL NULL "RED_WALL_D" block
+/* 08 */ NULL "STABLE_D" NULL "STABLE_D" block
+/* 09 */ NULL NULL "WOOD_WALL_D" NULL block
+/* 0A */ NULL "WOOD_WALL_L" "WOOD_WALL_D" "WOOD_WALL_L" block
+/* 0B */ "WOOD_WALL_D" NULL NULL NULL block
+/* 0C */ "WOOD_WALL_D" "WOOD_WALL_L" NULL NULL block
+/* 0D */ "WOOD_WALL_D" NULL NULL "WOOD_WALL_L" block
+/* 0E */ NULL "WOOD_WALL_L" NULL "WOOD_WALL_L" block
+/* 0F */ NULL NULL "STABLE_L" NULL block
+/* 10 */ "STABLE_L" NULL NULL NULL block
+/* 11 */ "WOOD_WALL_D" "WOOD_WALL_L" NULL "WOOD_WALL_L" block
+/* 12 */ "RED_WALL_L" NULL NULL NULL block
+/* 13 */ "RED_WALL_D" NULL NULL NULL block
+/* 14 */ NULL NULL NULL "RED_WALL_L" block
+
+"
+00010101010101010101010101010101010101010101
+00........................................02
+00........................................03
+00........................................02
+..040405............................060404..
+00........................................07
+00..............06040404040405............07
+00........................................07
+00........................................07
+00........................................07
+00......06040405..............060405......07
+00............08..............08..........07
+00............08..............08..........07
+000909090909090A..............0A090909090907
+000B0B0B0B0B0B0B..............0B0B0B0B0B0B07
+00........................................07
+00........................................07
+00......06040404040C......0D04040405......07
+00................0E......0E..............07
+00................08......08..............07
+0009090F090F0909090A......0A0909090F090F0907
+000B0B100B100B110B0B......0B0B110B100B100B07
+00............08..............08..........07
+00............0A..............0A..........07
+00........................................07
+00........................................07
+00........................................07
+12131313131313131313131313131313131313131314
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+............................................
+" defmap
+
+/* room 47 (Ballroom) */ 
+
+175 222 30 25 47 NULL new_room
+
+11 800 1440 1 3 NULL gate
+45 224 160 8 23 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "GREEK_WALL_L" NULL block
+/* 02 */ NULL NULL "STONE_CANDLE_L" NULL block
+/* 03 */ NULL "STONE_WALL_L" NULL NULL block
+/* 04 */ NULL NULL "GREEK_COLUMNS_L" "GREEK_WALL_L" block
+/* 05 */ NULL NULL "GREEK_COLUMNS_L" NULL block
+/* 06 */ NULL "GREEK_WALL_L" "GREEK_COLUMNS_L" NULL block
+/* 07 */ NULL NULL NULL "STONE_WALL_D" block
+/* 08 */ NULL "STONE_DOOR_L" NULL NULL block
+/* 09 */ "STONE_CANDLE_L" "STONE_CANDLE_L" "STONE_CANDLE_L" "STONE_CANDLE_L" block
+/* 0A */ NULL "GREEK_WALL_L" NULL NULL block
+/* 0B */ NULL NULL NULL "GREEK_WALL_D" block
+/* 0C */ "GREEK_WALL_L" "GREEK_COLUMNS_L" NULL NULL block
+/* 0D */ "GREEK_WALL_D" NULL NULL "GREEK_COLUMNS_D" block
+/* 0E */ NULL "STONE_CANDLE_L" NULL NULL block
+/* 0F */ NULL "GREEK_COLUMNS_L" NULL NULL block
+/* 10 */ NULL NULL NULL "GREEK_COLUMNS_D" block
+/* 11 */ NULL NULL NULL "STONE_CANDLE_L" block
+/* 12 */ NULL NULL NULL "STONE_WALL_L" block
+/* 13 */ NULL "GREEK_COLUMNS_L" "GREEK_WALL_L" NULL block
+/* 14 */ NULL NULL "GREEK_WALL_D" "GREEK_COLUMNS_D" block
+/* 15 */ "GREEK_WALL_L" NULL NULL NULL block
+/* 16 */ "STONE_WALL_D" NULL NULL NULL block
+/* 17 */ "STONE_DOOR_D" NULL NULL NULL block
+/* 18 */ "GREEK_WALL_D" NULL NULL NULL block
+
+"
+..00000000000000010101010200020002010101010100000000000000..
+03..................040505050505050506....................07
+03........................................................07
+08..............09......................09................07
+0A01....................................................010B
+0A0C....................................................0D0B
+0E0F....................................................1011
+030F............09......................09..............1012
+0E0F....................................................1011
+030F....................................................1012
+0E0F....................................................1011
+0A13............09......................09..............140B
+0A15....................................................150B
+03........................................................0B
+03........................................................0B
+03..............09......................09................07
+03........................................................07
+03........................................................07
+03........................................................07
+03..............09......................09................07
+03........................................................0B
+03........................................................07
+03........................................................0B
+03........................................................0B
+..16161616161616171616161616161616161616161616161616161818..
+" defmap
+
+/* room 48 (Passage of Laboratory) */ 
+
+0 18 10 7 48 NULL new_room
+
+11 800 288 1 3 NULL gate
+49 160 1376 8 3 NULL gate
+
+/* 00 */ NULL NULL "STONE_WALL_L" NULL block
+/* 01 */ NULL NULL "LIBRARY_D" NULL block
+/* 02 */ NULL "STONE_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "STONE_WALL_D" block
+/* 04 */ NULL "LIBRARY_D" NULL NULL block
+/* 05 */ NULL "LIBRARY_DOOR_D" NULL NULL block
+/* 06 */ NULL NULL NULL "ENTRY_DOOR_D" block
+/* 07 */ "STONE_WALL_L" NULL NULL NULL block
+/* 08 */ "LIBRARY_D" NULL NULL NULL block
+
+"
+..0001010001010100..
+02................03
+04................03
+05................06
+04................03
+02................03
+..0708080708080807..
+" defmap
+
+/* room 49 (Genetic Lab) */ 
+
+175 3 40 28 49 { 255 255 255 fog_color } new_room
+
+50 160 160 38 4 NULL gate
+48 480 224 1 21 NULL gate
+
+"PHOETUS" 2400 800 item
+
+/* 00 */ NULL "ICE_L" NULL NULL block
+/* 01 */ NULL NULL "ICE_D" NULL block
+/* 02 */ NULL NULL "ICE_L" NULL block
+/* 03 */ NULL NULL NULL "ICE_L" block
+/* 04 */ NULL NULL "STONE_WALL_D" "ICE_L" block
+/* 05 */ NULL NULL "STONE_WALL_D" NULL block
+/* 06 */ NULL NULL NULL "STONE_WALL_D" block
+/* 07 */ NULL NULL NULL "ENTRY_DOOR_D" block
+/* 08 */ "STONE_WALL_D" NULL NULL "ICE_L" block
+/* 09 */ "STONE_WALL_D" NULL NULL NULL block
+/* 0A */ NULL NULL "ICE_D" "ICE_L" block
+/* 0B */ NULL "STONE_WALL_D" NULL NULL block
+/* 0C */ NULL "ICE_L" "STONE_WALL_D" NULL block
+/* 0D */ NULL "ENTRY_DOOR_D" NULL NULL block
+/* 0E */ "STONE_WALL_D" "ICE_L" NULL NULL block
+/* 0F */ "ICE_L" NULL NULL NULL block
+/* 10 */ "ICE_D" NULL NULL NULL block
+
+"
+........000101010101010101010101010101010101010101010101010101010102............
+........00........................................................03............
+........00........................................................040505050505..
+........00....................................................................06
+........00....................................................................07
+........00....................................................................06
+........00........................................................08090909090906
+........00........................................................03............
+........00........................................................03............
+........00........................................................03............
+........00........................................................0A010101010102
+........00....................................................................03
+........00....................................................................03
+........00....................................................................03
+........00....................................................................03
+........00....................................................................03
+........00....................................................................03
+........00....................................................................03
+0B0505050C....................................................................03
+0B............................................................................03
+0B............................................................................03
+0D............................................................................03
+0B............................................................................03
+0B............................................................................03
+..0909090E....................................................................03
+........00....................................................................03
+........00....................................................................03
+........0F1010101010101010101010101010101010101010101010101010101010101010101003
+" defmap
+
+/* room 50 (The Time Machine) */ 
+
+176 17 10 5 50 { 32 ambient_light } new_room
+
+49 2400 288 1 2 NULL gate
+-1 0 0 8 2 { $taken_items 10 == { /player_won 1 = } if } gate
+
+/* 00 */ NULL NULL "COMPUTER_WALL" NULL block
+/* 01 */ NULL "STONE_WALL_D" NULL NULL block
+/* 02 */ NULL NULL NULL "COMPUTER_WALL" block
+/* 03 */ NULL "ENTRY_DOOR_D" NULL NULL block
+/* 04 */ NULL NULL NULL "COMPUTER" block
+/* 05 */ "COMPUTER_WALL" NULL NULL NULL block
+
+"
+..0000000000000000..
+01................02
+03................04
+01................02
+..0505050505050505..
+" defmap

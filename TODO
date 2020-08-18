@@ -1,0 +1,37 @@
+Freaks 2.002 TODO / Bug List
+============================
+
+Open Bugs
+---------
+
+ * 1001: Test and fix episode 3.
+
+Pending Enhancements
+--------------------
+
+ * 1008: Use scale2x in bitmaps. For this to work, cell and bitmap
+   sizes must be separated.
+
+Closed
+------
+
+ * 1004: When a demon is killed, its life should not be immediately
+   sucked, only when overpassing its corpse. This way, corpses are
+   useful (Wed, 18 Aug 2004 22:40:00 +0200).
+ * 1000: Test and fix episode 2 (Fri, 20 Aug 2004 11:23:00 +0200).
+ * 1005: Update build system; needs qdgdf bug #1012 fixed.
+   (Wed, 19 Jan 2005 19:31:58 +0100).
+ * 1009: The bitmap-cell separation patches have broken everything.
+   To fix, set back BITMAP_WIDTH and BITMAP_HEIGHT to 64
+   (Fri, 15 Jul 2011 10:37:33 +0200).
+ * 1010: The ladder in "El Torreon" doesn't work back
+   (lun, 14 oct 2019 21:45:15 +0200).
+ * 1002: Epilogues are not implemented (vie, 18 oct 2019 12:53:22 +0200).
+ * 1003: Show a menu with the available languages
+   (vie, 18 oct 2019 12:53:22 +0200).
+ * 1007: Non-ASCII characters are broken
+   (vie, 18 oct 2019 12:53:22 +0200).
+ * 1006: Episode 3 crashes on exit (it was both an error in the raining
+   code and in QDGDF font loading; vie, 18 oct 2019 19:34:32 +0200).
+
+Email bugs to angel@triptico.com

@@ -1,0 +1,11 @@
+/* Episode 0 (main menu) */ 
+
+0 load_map
+
+/* player info */
+
+0 800 1024 100 player_info
+0 set_current_room
+0 0 0 0 0 0 0 0 0 0 set_inventory
+
+/soundtrack "e0/norte7.wav" load_big_sound

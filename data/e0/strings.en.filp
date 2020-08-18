@@ -1,0 +1,46 @@
+/language "English" set
+
+/MSG_MENU_MAIN	{ ";New Game|Load Game|Options|Information|Help|Exit" } set
+/MSG_MENU_GAME	{ "Game Menu;Continue|Save|Information|Exit" } set
+/MSG_MENU_SAVE	{ "Save Game;" } set
+/MSG_MENU_LOAD	{ "Load Game;" } set
+/MSG_MENU_OPTS	{ "Options;English|Spanish|Latin" } set
+/MSG_EMPTY_GAME { "Empty Game" } set
+/MSG_MENU_NEW	{ "New Game;" } set
+/MSG_PICK_ITEM	{ "You've picked up an item!" } set
+/MSG_DOOR_LOCKED { "This door is locked" } set
+/MSG_YOU_DIED	{ "You are dead" } set
+
+/info_text "
+\a
+\a
+\a
+\a
+\a
+Original Game:
+Angel Ortega
+Manuel Zamora
+Antonio Guerrero
+(C) 1993 Lovecraft Dreams Team
+.
+Music:
+Ann Hell
+(Sueño / Requiem / Fuga)
+" set
+
+/help_text "
+\a
+\a
+\a
+\a
+\a
+Game keys
+\a
+up - move forward
+down - move backward
+left - turn left
+right - turn right
+alt+left - strafe left
+alt+right - strafe right
+ctrl - shoot
+" set

@@ -1,0 +1,76 @@
+# -*- Mode: sh
+
+all: $(TARGET)
+
+PROJ=fr2002
+DOCS=
+
+OBJS=map.o render.o game.o fr2002.o fr_tar.o
+
+DIST_TARGET=/tmp/$(PROJ)-$(VERSION)
+
+##################################################################
+
+version:
+	@echo $(VERSION)
+
+.c.o:
+	$(CC) $(CFLAGS) `cat config.cflags` -c $<
+
+dep:
+	gcc -MM *.c -I$(FILP) -I$(QDGDF) | \
+	sed -e 's;filp/;$$(FILP)/;g' -e 's;$(FILP)/;$$(FILP)/;g' \
+	-e 's;qdgdf/;$$(QDGDF)/;g' -e 's;$(QDGDF)/;$$(QDGDF)/;g' > makefile.depend
+
+$(TARGET): $(OBJS) $(FILP)/libfilp.a $(QDGDF)/libqdgdf.a
+	$(CC) $(CFLAGS) $(OBJS) `cat config.ldflags` -o $@
+
+fr.tar: data/*/*
+	$(TAR) cvf $@ data/*/*
+
+fr_tar.o: fr.tar
+	$(LD) -r -b binary fr.tar -o $@
+
+run: $(TARGET)
+	./fr2002
+
+$(FILP)/libfilp.a:
+	( cd $(FILP) ; $(MAKE) )
+
+$(QDGDF)/libqdgdf.a:
+	( cd $(QDGDF) ; $(MAKE) libqdgdf.a )
+
+clean:
+	rm -f $(TARGET) $(LIB) $(OBJS) *.o *.exe tags *.tar.gz *.tar
+	( cd $(FILP) ; $(MAKE) clean )
+	( cd $(QDGDF) ; $(MAKE) clean )
+
+distclean: clean
+	rm -f config.h config.cflags config.ldflags makefile.opts Makefile
+
+realclean: distclean
+	(cd $(FILP) ; $(MAKE) distclean)
+	(cd $(QDGDF) ; $(MAKE) distclean)
+
+realdistclean: realclean
+
+docs:
+	mkdir -p doc
+
+distcopy: distclean
+	mkdir -p $(DIST_TARGET) ; \
+	tar cf - * | (cd $(DIST_TARGET) ; tar xf -)
+
+dist: distcopy
+	(cd $(FILP) ; $(MAKE) distcopy DIST_TARGET=$(DIST_TARGET)/filp ) ; \
+	(cd $(QDGDF) ; $(MAKE) distcopy DIST_TARGET=$(DIST_TARGET)/qdgdf ) ; \
+	(cd /tmp ; tar czf - $(PROJ)-$(VERSION)/* ) > $(PROJ)-$(VERSION).tar.gz ; \
+	rm -rf $(DIST_TARGET)
+
+install:
+	install $(TARGET) $(PREFIX)/bin
+	mkdir -p $(PREFIX)/share/doc/$(PROJ)
+	cp $(DOCS) $(PREFIX)/share/doc/$(PROJ)
+
+Makefile: VERSION makefile.in
+	./config.sh $(CONF_ARGS)

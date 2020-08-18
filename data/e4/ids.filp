@@ -1,0 +1,20 @@
+/* Episode 4 - Descriptions */
+
+/* demons */
+
+/demon_ids (
+	"BIG_BOSS"
+	"LIGHT_GHOST"
+) set
+
+/* walls */
+
+/wall_ids (
+	"ORGANIC_L"
+	"ORGANIC_D"
+) set
+
+/* items */
+
+/item_ids (
+) set

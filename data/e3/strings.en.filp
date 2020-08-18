@@ -1,0 +1,67 @@
+/episode_name "The Pit of Souls" set
+
+/room_names (
+	"Entry to the Pit of Souls"		/* 0 */ 
+	"Throat of Fear"		/* 1 */ 
+	"The Pool of Mutants"		/* 2 */ 
+	"The Forest of Doom"		/* 3 */ 
+	"Northeast of the Pit of Souls" 	/* 4 */ 
+	"Way to the Cemetery"		/* 5 */ 
+	"The Big Trap"		/* 6 */ 
+	"Towards the Within"		/* 7 */ 
+	"Circle of Death"		/* 8 */ 
+	"Hematorium"		/* 9 */ 
+	"The Old Cemetery"		/* 10 */ 
+	"Outside the Dead Town" 	/* 11 */ 
+	"The Crypt"		/* 12 */ 
+	"Sanctuary"		/* 13 */ 
+	"Oratorium"		/* 14 */ 
+	"The Great Beast"		/* 15 */ 
+	"The Dead Town" 	/* 16 */ 
+	"Cathedral of Madness"		/* 17 */ 
+	"East Wing of Cathedral"		/* 18 */ 
+	"Ending Chamber"		/* 19 */ 
+	"The Dungeons"		/* 20 */ 
+	"West Wing of Cathedral"		/* 21 */ 
+	"South Wing of Cathedral"		/* 22 */ 
+	"Terror Portico"		/* 23 */ 
+	"Ending Antechamber"		/* 24 */ 
+	""		/* 25 */ 
+) set
+
+/end_text
+"
+
+
+
+Crossed the Idol, you approached
+the Palace of Dream. Here the
+nightmares gather to frighten the
+world and draw their plans
+of confusion...
+
+It will be a hard final battle." set
+
+/info_text "
+The Pit of Souls - Episode III
+Freaks Original Episodes
+.
+Maps:
+Angel Ortega
+.
+Artwork:
+Angel Ortega
+.
+Music:
+Ann Hell
+(The Antagonist)
+" set
+
+/full_inv_text " 
+All the idol jewels are yours.
+ 
+Now search the exit...
+ 
+but remember that not
+everything is as it seems.
+ " set

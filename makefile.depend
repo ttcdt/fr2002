@@ -1,0 +1,7 @@
+fr2002.o: fr2002.c config.h $(FILP)/filp.h $(QDGDF)/qdgdf_video.h \
+  $(QDGDF)/qdgdf_audio.h render.h map.h game.h
+game.o: game.c config.h $(FILP)/filp.h $(QDGDF)/qdgdf_video.h \
+  $(QDGDF)/qdgdf_audio.h render.h map.h game.h
+map.o: map.c config.h $(FILP)/filp.h $(QDGDF)/qdgdf_video.h $(QDGDF)/qdgdf_audio.h \
+  render.h map.h game.h
+render.o: render.c config.h $(QDGDF)/qdgdf_video.h render.h map.h game.h

@@ -1,0 +1,34 @@
+/episode_name "Palace of Dream" set
+
+/room_names (
+	"Palace of Dream"		/* 0 */ 
+) set
+
+/end_text "Finally, the Apprentice
+has been slayed.
+
+You feel the bitter taste
+of vengeance...
+
+But it'll be worse to be dead.
+
+Don't miss new phases of Freaks!
+and future
+Lovecraft Dreams Team's productions." set
+
+/info_text "
+The Palace of Dream - Episode IV
+Freaks Original Episodes
+.
+Maps:
+Angel Ortega
+.
+Artwork:
+Angel Ortega
+.
+Music:
+Ann Hell
+(Never Never Never)
+" set
+
+/full_inv_text "" set

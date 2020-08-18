@@ -1,0 +1,99 @@
+/episode_name "The Rebirth" set
+
+/room_names (
+	"Access to the world of Freaks!"		/* 0 */ 
+	"Den of the Ghouls"		/* 1 */ 
+	"Passage of Tortures"		/* 2 */ 
+	"Purgatory Passage"		/* 3 */ 
+	"Yard of Temple"		/* 4 */ 
+	"Underwater Cellar"		/* 5 */ 
+	"Antechamber of Pain"		/* 6 */ 
+	"Cavern of Templars"		/* 7 */ 
+	"Subterranean Passage"		/* 8 */ 
+	"Down to the Passage"		/* 9 */ 
+	"Passage of Beasts"		/* 10 */ 
+	"Library"		/* 11 */ 
+	"Abyssal Falling"		/* 12 */ 
+	"Entrance to Bestiary"	       /* 13 */ 
+	"Purgatory"		/* 14 */ 
+	"The Inner Yard"		/* 15 */ 
+	"Kingdom of Dholes Entrance"		/* 16 */ 
+	"East Wall of Temple"		/* 17 */ 
+	"Kingdom of Dholes"		/* 18 */ 
+	"Passage to the Tower"		/* 19 */ 
+	"Viperae Mundi" 	/* 20 */ 
+	"Snake-like Passage"		/* 21 */ 
+	"Bestiary"	       /* 22 */ 
+	"Temple Portico"		/* 23 */ 
+	"Keepers Chamber"		/* 24 */ 
+	"Cross of Hell" 	/* 25 */ 
+	"6 6 6 "		/* 26 */ 
+	"Garden of Delights"		/* 27 */ 
+	""
+	""
+	"The Tower"		/* 30 */ 
+	"South Corridor"		/* 31 */ 
+	"The Well"		/* 32 */ 
+	"The Sewer"		/* 33 */ 
+	"The Sink"		/* 34 */ 
+	"West Side of Garden"		/* 35 */ 
+	"Temple by the Sea"		/* 36 */ 
+	"West Entrance to the Castle"		/* 37 */ 
+	"Scaffold Chamber"		 /* 38 */ 
+	"The House in the Hells"		/* 39 */ 
+	"Access to the world of Ants"		/* 40 */ 
+	"The world of Ants"		/* 41 */ 
+	"Great Lower Chamber"		/* 42 */ 
+	"Exit to the Surface"		/* 43 */ 
+	"The Beach"		/* 44 */ 
+	"Gallery of Misery"		/* 45 */ 
+	"The Stables"		/* 46 */ 
+	"Ballroom"		/* 47 */ 
+	"Passage of Laboratory" 	/* 48 */ 
+	"Genetic Lab"		/* 49 */ 
+	"The Time Machine"		/* 50 */ 
+) set
+
+/end_text
+"Once crossed the Gate, you just
+discover that The Apprentice is no
+longer part of of this world; his last
+creation, the Time Machine, has carried
+his evil to the future. You had
+recovered your dominion, but it doesn't
+matter to you...
+
+Your hate to him grows to infinite, now
+that you see the chance of vengeance
+you thought so near is lost...
+
+Without doubt, without fearing what is
+waiting for you on the other side, you
+activate the Time Machine following
+his tracks to the Future." set
+
+/info_text "
+The Rebirth - Episode I
+Freaks Original Episodes
+.
+Maps:
+Angel Ortega
+Antonio Guerrero
+Manuel Zamora
+.
+Artwork:
+Angel Ortega
+Antonio Guerrero
+.
+Music:
+Ann Hell
+(Solsticio de Invierno II)
+" set
+
+/full_inv_text " 
+You just got enough critical mass
+to regenerate your body's substance...
+ 
+Now you can go
+and catch The Apprentice...
+ " set

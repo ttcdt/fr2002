@@ -1,0 +1,27 @@
+/language "Latin" set
+
+/MSG_MENU_MAIN	{ ";Novus Ludus|Gravidare Ludus|Optioni|Commentarium|Auxilium|Exire" } set
+/MSG_MENU_GAME	{ "Ludi Menu;Pergere|Reservare|Commentarium|Exire" } set
+/MSG_MENU_SAVE	{ "Reservare Ludus;" } set
+/MSG_MENU_LOAD	{ "Gravidare Ludus;" } set
+/MSG_MENU_OPTS	{ "Optioni;Anglorum|Hispanorum|Latin" } set
+/MSG_EMPTY_GAME { "Vacuus Ludus" } set
+/MSG_MENU_NEW	{ "Novus Ludus;" } set
+/MSG_YOU_DIED	{ "Tu mortus es" } set
+
+/info_text "
+\a
+\a
+\a
+\a
+\a
+Archetypus Ludus:
+Angel Ortega
+Manuel Zamora
+Antonio Guerrero
+(C) 1993 Lovecraft Dreams Team
+.
+Cantus:
+Ann Hell
+(Sueño / Requiem / Fuga)
+" set

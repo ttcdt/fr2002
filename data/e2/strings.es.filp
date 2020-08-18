@@ -1,0 +1,92 @@
+/episode_name "Espacio Abierto" set
+
+/room_names (
+	"Sala de Máquinas"		/* 0 */ 
+	"Corredor A"		/* 1 */ 
+	"Corredor B"		/* 2 */ 
+	"Almacén de Combustible"		/* 3 */ 
+	"Almacén de Instrumental"		/* 4 */ 
+	"Entrada a la Sala de M quinas" 	/* 5 */ 
+	"Conducto de Aire I"		/* 6 */ 
+	"Control de Energía"		/* 7 */ 
+	"Galería de Tránsito"		/* 8 */ 
+	"Esclusa de Presión Negativa"		/* 9 */ 
+	"Esclusa de Presión Positiva"		/* 10 */ 
+	"Cubierta I"		/* 11 */ 
+	"Elevadores / Planta II"		/* 12 */ 
+	"Elevadores / Planta I" 	/* 13 */ 
+	"Elevadores / Planta III"		/* 14 */ 
+	"Sotano"		/* 15 */ 
+	"Pasillo A01"		/* 16 */ 
+	"Area A02"		/* 17 */ 
+	"Pasillo A03"		/* 18 */ 
+	"Colector Central"		/* 19 */ 
+	"Entrada a la Cueva de los Malloks"		/* 20 */ 
+	"Aspagonio"		/* 21 */ 
+	"El Vórtice"		/* 22 */ 
+	"Extremo del Vórtice"		/* 23 */ 
+	"Area de Descanso"		/* 24 */ 
+	"Acceso A"		/* 25 */ 
+	"Reactor Central"		/* 26 */ 
+	"Acceso B"		/* 27 */ 
+	"Entrada al Reactor"		/* 28 */ 
+	"Cámara Hiperbárica"		/* 29 */ 
+	"Acceso C69"		/* 30 */ 
+	"Snorkel"		/* 31 */ 
+	"Acceso a la Biocomputadora"		/* 32 */ 
+	"La Biocomputadora"		/* 33 */ 
+	"El Núcleo"		/* 34 */ 
+	"Almacén de chatarra"		/* 35 */ 
+	"El Museo"		/* 36 */ 
+	"Entrada al Complejo X" 	/* 37 */ 
+	"Complejo X - II"		/* 38 */ 
+	"Complejo X - III"		/* 39 */ 
+	"Complejo X - IV"		/* 40 */ 
+	"Complejo X - V"		/* 41 */ 
+	"Complejo X - VI"		/* 42 */ 
+	"Complejo X - VII"		/* 43 */ 
+) set
+
+/end_text
+"La Base Espacial queda vacía tras entrar
+en el Núcleo y destruirlo. Todos los
+sistemas se desconectan y el inmenso
+recinto queda sumido en la oscuridad.
+
+Sabes que por primera vez el Aprendiz
+ha sentido miedo de tí y ha visto su fin
+demasiado cerca...
+
+Pero su magia le ha vuelto a ayudar
+huyendo de este mundo hacia el único
+lugar donde puede ser aceptado, allí
+donde las almas perdidas vagan buscando
+un cuerpo material...
+
+El Pozo de las Almas..." set
+
+/info_text "
+Espacio Abierto - Episodio II
+Episodios Originales de Freaks
+.
+Mapas:
+Angel Ortega
+Antonio Guerrero
+Manuel Zamora
+.
+Gráficos:
+Angel Ortega
+Antonio Guerrero
+.
+Música:
+Ann Hell
+(The Outpost)
+" set
+
+/full_inv_text " 
+Ya has obtenido todas las tarjetas
+y las esferas de energía...
+ 
+Ahora sube al último piso
+y entra en la Biocomputadora.
+ " set

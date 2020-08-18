@@ -1,0 +1,11 @@
+*.o
+.config.log
+Makefile
+config.cflags
+config.h
+config.ldflags
+fr2002
+fr2002.log
+fr2002.o
+makefile.opts
+fr.tar

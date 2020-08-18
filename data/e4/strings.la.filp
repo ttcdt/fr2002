@@ -1,0 +1,5 @@
+/episode_name "Palatium Somni" set
+
+/room_names (
+	"Palatium Somni"	       /* 0 */ 
+) set

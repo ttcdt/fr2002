@@ -1,0 +1,10 @@
+/p_shoot_sound "e1/rocket.wav" load_sound
+/d_hurt_sound "e1/hit01.wav" load_sound
+/p_hurt_sound "e1/ugh.wav" load_sound
+/d_die_sound "e1/ddie.wav" load_sound
+/p_die_sound "e1/pdie.wav" load_sound
+/b_crash_sound "e1/hit03.wav" load_sound
+/pick_item_sound "e1/pick.wav" load_sound
+/pick_life_sound "e1/pop.wav" load_sound
+
+/soundtrack "e4/never.wav" load_big_sound

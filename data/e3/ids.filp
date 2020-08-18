@@ -1,0 +1,70 @@
+/* Episode 3 - Descriptions */
+
+/* demons */
+
+/demon_ids (
+	"ROBERT"
+	"MUTANT"
+	"SWAMP_TREE"
+	"FANG"
+	"MANTIS"
+	"GOLDEN_GHOUL"
+	"TOMB"
+	"ZOMBIE"
+	"LIGHT_GHOST"
+	"BRAIN_BEAST"
+) set
+
+/* walls */
+
+/wall_ids (
+	"BONES_L"
+	"BONES_D"
+	"BONES_BLOOD_L"
+	"BONES_BLOOD_D"
+	"BONES_DOOR_L"
+	"BONES_DOOR_D"
+	"BONES_BLOOD_DOOR_L"
+	"BONES_BLOOD_DOOR_D"
+	"VINES_L"
+	"VINES_D"
+	"VINES_DOOR_L"
+	"VINES_DOOR_D"
+	"STONE_BLOOD_L"
+	"STONE_BLOOD_D"
+	"STONE_DEAD_1_L"
+	"STONE_DEAD_1_D"
+	"GOLD_WALL_L"
+	"GOLD_WALL_D"
+	"GOLD_DOOR_L"
+	"GOLD_DOOR_D"
+	"STONE_DEAD_2"
+	"STONE_DEAD_3"
+	"CHAPEL_L"
+	"CHAPEL_D"
+	"STONE_DOOR_1_L"
+	"STONE_DOOR_1_D"
+	"STONE_WINDOW_L"
+	"STONE_WINDOW_D"
+	"STONE_WALL_L"
+	"STONE_WALL_D"
+	"STONE_DOOR_2_L"
+	"STONE_DOOR_2_D"
+	"STATUE_1"
+	"STATUE_2"
+) set
+
+/* items */
+
+/item_ids (
+	"IDOL_1"
+	"IDOL_2"
+	"IDOL_3"
+	"CROSS"
+	"STICK"
+	"CROWN"
+	"MEDAL"
+	"BELT"
+	"BOOT_1"
+	"BOOT_2"
+) set

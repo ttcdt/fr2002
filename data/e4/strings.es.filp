@@ -1,0 +1,34 @@
+/episode_name "El Palacio del Sueño" set
+
+/room_names (
+	"El Palacio del Sueño"		/* 0 */ 
+) set
+
+/end_text "Finalmente, el Aprendiz
+ha sido eliminado.
+
+Sientes el sabor amargo
+de la venganza...
+
+Pero peor sería estar muerto.
+
+No te pierdas nuevas fases
+de Freaks! y las futuras producciones
+del Lovecraft Dreams Team." set
+
+/info_text "
+El Palacio del Sueño - Episodio IV
+Episodios Originales de Freaks
+.
+Mapas:
+Angel Ortega
+.
+Gráficos:
+Angel Ortega
+.
+Música:
+Ann Hell
+(Never Never Never)
+" set
+
+/full_inv_text "" set

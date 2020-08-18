@@ -1,0 +1,94 @@
+/* main menu: special 'episode' */
+
+/room_names ( ) =
+
+/* episode startup */
+
+/root "$data_dir/e1" =
+
+"$root/ids.filp" load
+"$root/pal.bin" load_palette
+"$root/font.bin" load_font
+
+{ "$data_dir/e0/strings.en.filp" load } eval pop
+{ "$data_dir/e0/strings.$lang.filp" load } eval pop
+
+"$data_dir/e1/walls.bin" load_walls
+
+49 set_accum_buffer
+
+/* room */
+
+18 0 22 19 0 { lightning blink_light } new_room
+
+[
+{
+	/rnd_wall_1 "BONES_D" =
+	/rnd_wall_2 "BONES_L" =
+	/rnd_wall_3 "STONE_DEAD_3" =
+	/rnd_wall_4 "STONE_DEAD_2" =
+}
+{
+	/rnd_wall_1 "GREEK_WALL_D" =
+	/rnd_wall_2 "GREEK_WALL_L" =
+	/rnd_wall_3 "GREEK_DECO_D" =
+	/rnd_wall_4 "GREEK_DECO_L" =
+}
+{
+	/rnd_wall_1 "VINES_D" =
+	/rnd_wall_2 "VINES_L" =
+	/rnd_wall_3 "VINES_DOOR_D" =
+	/rnd_wall_4 "VINES_DOOR_L" =
+}
+{
+	/rnd_wall_1 "STONE_WALL_D" =
+	/rnd_wall_2 "STONE_WALL_L" =
+	/rnd_wall_3 "STONE_CANDLE_D" =
+	/rnd_wall_4 "STONE_CANDLE_L" =
+}
+
+4 rnd 1 + index exec
+
+/* 00 */ NULL NULL $rnd_wall_1 NULL block
+/* 01 */ NULL NULL $rnd_wall_1 NULL block
+/* 02 */ NULL NULL $rnd_wall_2 NULL block
+/* 03 */ NULL $rnd_wall_3 NULL NULL block
+/* 04 */ NULL NULL NULL $rnd_wall_1 block
+/* 05 */ NULL $rnd_wall_2 NULL NULL block
+/* 06 */ $rnd_wall_1 NULL NULL NULL block
+/* 07 */ $rnd_wall_1 $rnd_wall_2 NULL NULL block
+/* 08 */ $rnd_wall_2 NULL NULL NULL block
+/* 09 */ $rnd_wall_1 NULL NULL $rnd_wall_2 block
+/* 0A */ $rnd_wall_1 NULL NULL $rnd_wall_4 block
+/* 0B */ $rnd_wall_1 $rnd_wall_1 NULL NULL block
+/* 0C */ NULL NULL NULL $rnd_wall_3 block
+/* 0D */ NULL $rnd_wall_4 NULL NULL block
+/* 0E */ NULL NULL NULL $rnd_wall_1 block
+/* 0F */ NULL $rnd_wall_1 NULL NULL block
+/* 10 */ NULL $rnd_wall_2 NULL NULL block
+/* 11 */ NULL NULL NULL $rnd_wall_3 block
+/* 12 */ $rnd_wall_3 NULL NULL NULL block
+/* 13 */ $rnd_wall_2 NULL NULL NULL block
+/* 14 */ $rnd_wall_2 NULL NULL NULL block
+
+"
+..0001000100010001000202020202000000000000..
+03........................................04
+05........................................04
+03........................................04
+..06060607080809060607......0A06060B......04
+....03..........0C..0D......0E....0F......04
+....03..........0C..10......11....0F......04
+....03..........0C..0D......0E....0F......04
+......1212121212....10......11....0F......04
+....................0D......0E....0F......04
+....................10......11......060606..
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+....................10......11..............
+....................0D......0E..............
+......................131413................
+" defmap

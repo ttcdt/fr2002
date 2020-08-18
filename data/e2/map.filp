@@ -1,0 +1,2277 @@
+/* Episode 2 - defmap */ 
+
+/* episode startup */
+
+/root "$data_dir/e$episode" =
+
+"$data_dir/e1/ids.filp" load
+
+/item_ids (
+	"GREEN_CARD"
+	"BLUE_CARD"
+	"RED_CARD"
+	"GOLD_CARD"
+	"GREY_CARD"
+	"GREEN_BALL"
+	"BLUE_BALL"
+	"RED_BALL"
+	"GOLD_BALL"
+	"GREY_BALL"
+) set
+
+"$root/pal.bin" load_palette
+
+{ "$root/strings.en.filp" load } eval pop
+{ "$root/strings.$lang.filp" load } eval pop
+
+"$data_dir/e1/walls.bin" load_walls
+"$data_dir/e1/demons.bin" load_demons
+"$root/items.bin" load_items
+"$root/font.bin" load_font
+"$root/landscape.pcx" load_landscape
+"$root/dbull.bin" "$root/pbull.bin" load_bullets
+"$root/sounds.filp" load
+
+0 set_accum_buffer
+
+/* room 0 (Engine Room) */ 
+
+0 185 20 20 0 { 255 0 0 fog_color } new_room
+
+1 160 480 3 1 NULL gate
+2 160 480 15 1 NULL gate
+3 2400 160 1 5 NULL gate
+4 160 160 17 5 NULL gate
+
+/* 00 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 01 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 02 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 03 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 04 */ "MECH_WALL_1_L" NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 05 */ "MECH_WALL_1_L" NULL "MECH_WALL_1_L" NULL block
+/* 06 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 07 */ "MECH_WALL_1_L" "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 08 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 09 */ NULL "MECH_WALL_1_D" NULL "MECH_WALL_1_D" block
+/* 0A */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 0B */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 0C */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 0D */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 0E */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 0F */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" "MECH_WALL_1_D" block
+
+"
+..0000010000000000000000000000010000....
+02..................................03..
+02..................................03..
+02..................................03..
+02......04050607......04060507......03..
+08..........09..........09..........0A..
+02..........09..........09..........03..
+02..........09..........09..........03..
+..060B......09..........09......0C06....
+....02......0D0B......0C0E......03......
+....02........09......09........03......
+....02........09......09........03......
+....02........09......09........03......
+......0B......0F......0F......0C........
+......02......................03........
+......02......................03........
+......02......................03........
+........0606060606060606060606..........
+........................................
+........................................
+" defmap
+
+/* room 1 (Corridor A) */ 
+
+20 22 5 10 1 NULL new_room
+
+5 1120 1120 2 1 NULL gate
+0 224 160 2 8 NULL gate
+
+/* 00 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 01 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 02 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 05 */ "HEXA_WALL_2_L" NULL NULL NULL block
+
+"
+..00010001
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+04050405..
+" defmap
+
+/* room 2 (Corridor B) */ 
+
+20 22 5 10 2 NULL new_room
+
+7 672 1120 2 1 { "GREEN_CARD" item_taken } gate
+0 992 160 2 8 NULL gate
+
+/* 00 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 01 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 02 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 05 */ "HEXA_WALL_2_L" NULL NULL NULL block
+
+"
+..00010001
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+04050405..
+" defmap
+
+/* room 3 (Fuel Storage) */ 
+
+0 185 40 28 3 { 128 ambient_light } new_room
+
+0 160 352 38 2 NULL gate
+-1 928 1376 11 21 NULL gate
+-1 672 1376 13 21 NULL gate
+
+"GREEN_BALL" 352 1376 item
+
+/* 00 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 01 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 03 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 04 */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 05 */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 06 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 07 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 08 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 09 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 0A */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 0B */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 0C */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 0D */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 0E */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 10 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 11 */ "HEXA_WALL_1_L" "MECH_WALL_1_D" "MECH_WALL_1_L" "HEXA_WALL_1_D" block
+/* 12 */ "HEXA_WALL_1_L" NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 13 */ NULL "HEXA_WALL_1_D" NULL "MECH_WALL_1_D" block
+/* 14 */ NULL "MECH_DOOR_1_D" NULL "MECH_DOOR_1_D" block
+/* 15 */ "MECH_WALL_1_L" "MECH_WALL_1_D" "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 16 */ "MECH_WALL_1_L" NULL "HEXA_WALL_1_L" "MECH_WALL_1_D" block
+
+"
+..0000000000000000000000000000000000000000000000000000000000000000000000000000..
+01............................................................................02
+01............................................................................03
+01............................................................................02
+01......040505050505050506......040505050505050506......0405050505050506......02
+01......07..............08......07..............08......07............08......02
+01......07..............08......07..............08......07............08......02
+01......07..............08......07..............08......07............08......02
+01......090A0A0A0A0A0A0A0B......090A0A0A0A0A0A0A0B......090A0A0A0A0A0A0B......02
+01............................................................................02
+01............................................................................02
+01............................................................................02
+01......040505050505050506......0C0D0D0D0D0D0D0D0E......0405050505050506......02
+01......07..............08......02..............01......07............08......02
+01......07..............08......02..............01......07............08......02
+01......090A0A0A0A0A0A0A0B......0F0000000000000010......090A0A0A0A0A0A0B......02
+01............................................................................02
+01............................................................................02
+01........000000000000........................................................02
+01......110505050505051206......040505050505050506......0405050505050506......02
+01....0107..............13......07..............08......07............08......02
+01....0107..............14......07..............08......07............08......02
+01....0107..............13......07..............08......07............08......02
+01......150A0A0A0A0A0A160B......090A0A0A0A0A0A0A0B......090A0A0A0A0A0A0B......02
+01........0D0D0D0D0D0D........................................................02
+01............................................................................02
+01............................................................................02
+..0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D..
+" defmap
+
+/* room 4 (Instrument Storage) */ 
+
+0 177 40 28 4 { 0 0 200 fog_color 128 ambient_light } new_room
+
+0 1056 352 1 2 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_1_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 02 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 04 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 05 */ "HEXA_WALL_3_L" NULL NULL "HEXA_WALL_3_D" block
+/* 06 */ "HEXA_WALL_3_L" NULL NULL NULL block
+/* 07 */ "HEXA_WALL_3_L" "HEXA_WALL_3_D" NULL NULL block
+/* 08 */ NULL NULL NULL "HEXA_WALL_3_D" block
+/* 09 */ NULL "HEXA_WALL_3_D" NULL NULL block
+/* 0A */ NULL NULL "HEXA_WALL_3_L" "HEXA_WALL_3_D" block
+/* 0B */ NULL NULL "HEXA_WALL_3_L" NULL block
+/* 0C */ NULL "HEXA_WALL_3_D" "HEXA_WALL_3_L" NULL block
+/* 0D */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 0E */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 0F */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 10 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 11 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 12 */ NULL NULL NULL "HEXA_WALL_1_L" block
+
+"
+00010101010101010101010101010101010101010101010101010101010101010101010101010101
+02............................................................................03
+04............................................................................03
+02............................................................................03
+02......050606060606060607......050606060606060607......0506060606060607......03
+02......08..............09......08..............09......08............09......03
+02......08..............09......08..............09......08............09......03
+02......08..............09......08..............09......08............09......03
+02......0A0B0B0B0B0B0B0B0C......0A0B0B0B0B0B0B0B0C......0A0B0B0B0B0B0B0C......03
+02............................................................................03
+02............................................................................03
+02............................................................................03
+02......050606060606060607..........0D0E0E0E0F..........0506060606060607......03
+02......08..............09......0D0E..........0E0F......08............09......03
+02......08..............09......1001..........0111......08............09......03
+02......0A0B0B0B0B0B0B0B0C..........1001010111..........0A0B0B0B0B0B0B0C......03
+02............................................................................03
+02............................................................................03
+02............................................................................03
+02......050606060606060607......050606060606060607......0506060606060607......03
+02......08..............09......08..............09......08............09......03
+02......08..............09......08..............09......08............09......03
+02......08..............09......08..............09......08............09......03
+02......0A0B0B0B0B0B0B0B0C......0A0B0B0B0B0B0B0B0C......0A0B0B0B0B0B0B0C......03
+02............................................................................03
+02............................................................................03
+02............................................................................03
+0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E12
+" defmap
+
+/* room 5 (Engine Room Entrance) */ 
+
+20 22 20 20 5 NULL new_room
+
+8 1056 1632 17 1 { "GREEN_CARD" item_taken } gate
+6 160 224 12 2 NULL gate
+1 160 160 17 18 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 03 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 05 */ NULL NULL NULL "TRAP_DOOR_CEILING_OPEN" block
+/* 06 */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 07 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 08 */ NULL NULL NULL "HEXA_WALL_2_L" block
+/* 09 */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 0A */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 0B */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 0C */ "HEXA_DOOR_L" NULL NULL NULL block
+
+"
+0001010101010101010101010101....01020101
+03..........................0403......04
+03........................050403......04
+03..........................0403......04
+03......060707070707070707070803......04
+03......04....................03......04
+03......04....................03......04
+03......09010101010101010101010A......04
+03....................................04
+03....................................04
+03....................................04
+03......06070707070707070707070B......04
+03......04....................03......04
+03......04....................03......04
+03......04....................03......04
+03......09010101010101010101010A......04
+03....................................04
+03....................................04
+03....................................04
+07070707070707070707070707070707070C0708
+" defmap
+
+/* room 6 (Air Pipe I) */ 
+
+0 0 40 28 6 { 0 0 255 fog_color } new_room
+
+5 736 160 2 4 NULL gate
+7 736 672 36 11 NULL gate
+
+/* 00 */ NULL NULL "BLACK_1" NULL block
+/* 01 */ NULL "BLACK_2" NULL NULL block
+/* 02 */ NULL NULL NULL "BLACK_2" block
+/* 03 */ "BLACK_1" NULL NULL "BLACK_2" block
+/* 04 */ "BLACK_1" NULL NULL NULL block
+/* 05 */ "BLACK_1" "BLACK_1" NULL NULL block
+/* 06 */ "BLACK_1" "BLACK_2" NULL NULL block
+/* 07 */ "BLACK_1" NULL "BLACK_1" "BLACK_2" block
+/* 08 */ "BLACK_1" NULL "BLACK_1" NULL block
+/* 09 */ "BLACK_1" "BLACK_2" "BLACK_1" NULL block
+/* 0A */ "TRAP_DOOR_FLOOR_OPEN" NULL NULL NULL block
+/* 0B */ NULL "BLACK_1" NULL NULL block
+/* 0C */ NULL NULL "BLACK_1" "BLACK_2" block
+/* 0D */ NULL "BLACK_2" "BLACK_1" NULL block
+/* 0E */ NULL "BLACK_1" "BLACK_1" NULL block
+/* 0F */ NULL NULL "TRAP_DOOR_FLOOR_OPEN" NULL block
+
+"
+..000000000000000000000000000000......0000000000000000000000000000000000000000..
+01..............................02..01........................................02
+01..............................02..01........................................02
+01..............................02..01........................................02
+01......030405......030406......02..01......0306......070808080808080809......02
+01..0A..02..0B......02..01......0C000D......0201..............................02
+..040404....0B......02..01..................0201..............................02
+..00000000000E......02..01..................0201..............................02
+01..................02..01..................02..0808080809......030406......03..
+01..................02....0406......03040404..01................02....080808....
+01..................02..00000D......0C000000..01................02..01..0F..0C..
+01......030404040404..01....................0201................0C000D........02
+01......0C00000000....01....................0201......0304040409..............02
+01................02..01....................0201......02....01................02
+01................02..01......03040406......0C0D......02....01................02
+01................02..01......02....01................0C00000008040406......03..
+..0404040404040404....01......02....01..........................02..01......02..
+......................01......02....01..........................0C000D......0C..
+..000000000000000000000D......0C00000D......0709..............................02
+01....................................................0306....................02
+01....................................................0201....................02
+01..........00000000000000............................0201......07080809......02
+01......0306040404040404040306......070808080808080808000D....................02
+01......0C0D..............0C0D................................................02
+01............................................................................02
+01..............................................................0306..........02
+01..................................0304040404040404040404040404..01..........02
+..0404040404040404040404040404040404................................0404040404..
+" defmap
+
+/* room 7 (Energy Control) */ 
+
+20 22 20 20 7 NULL new_room
+
+/* -1 672 544 10 6 NULL gate
+-1 672 352 10 7 NULL gate
+-1 352 608 3 9 NULL gate
+-1 160 608 4 9 NULL gate */
+6 2336 800 11 11 NULL gate
+2 160 160 10 18 { "GREEN_CARD" item_taken } gate
+
+"GREEN_CARD" 544 544 item
+
+/* 00 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 01 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 02 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 03 */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 05 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 06 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 07 */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 08 */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 09 */ NULL NULL NULL "HEXA_DOOR_D" block
+/* 0A */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 0B */ "TRAP_DOOR_CEILING_CLOSE" NULL "HEXA_WALL_2_L" NULL block
+/* 0C */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 0D */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+
+"
+..000000000000000000000000000000000000..
+01....................................02
+01....................................02
+01......000000000000000000000000......02
+01....0103040404040404040404040502....02
+01....0102....................0102....02
+01....0102....00000D..0D00....0102....02
+01....0102..0103040D..0D0502..0102....02
+01....0D0D..0102........0102..0102....02
+01..........0102........0102..0102....02
+01....0D0D..010A0000....0102..0102....02
+01....0102....04040502..0102..0102....02
+01....0102........010A0B0C02..0102....02
+01....0102..........040404....0102....02
+01....0102....................0102....02
+01....010A000000000000000000000C02....02
+01......040404040404040404040404......02
+01....................................02
+01....................................02
+..040404040404040404070404040404040404..
+" defmap
+
+/* room 8 (Transit Gallery) */ 
+
+0 0 40 28 8 { landscape } new_room
+
+11 480 1120 13 1 NULL gate
+11 1376 1120 27 1 NULL gate
+10 1120 160 1 12 NULL gate
+9 160 160 38 12 NULL gate
+5 1120 160 16 26 NULL gate
+
+/* 00 */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 03 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 04 */ NULL NULL "HEXA_DOOR_D" NULL block
+/* 05 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 06 */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 07 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 08 */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 09 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 0A */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 0B */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 0C */ NULL NULL NULL "HEXA_WALL_2_L" block
+/* 0D */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 0E */ "HEXA_WALL_2_D" "HEXA_WALL_2_D" NULL NULL block
+/* 0F */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 10 */ NULL "WINDOW_D" NULL NULL block
+/* 11 */ NULL NULL NULL "WINDOW_D" block
+/* 12 */ NULL NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" block
+/* 13 */ "HEXA_WALL_2_L" "WINDOW_D" NULL NULL block
+/* 14 */ NULL NULL "WINDOW_L" "WINDOW_D" block
+/* 15 */ NULL "WINDOW_D" "WINDOW_L" NULL block
+/* 16 */ "HEXA_WALL_2_L" NULL NULL "WINDOW_D" block
+/* 17 */ NULL "WINDOW_L" NULL NULL block
+/* 18 */ NULL NULL NULL "WINDOW_L" block
+/* 19 */ "WINDOW_L" "WINDOW_D" NULL NULL block
+/* 1A */ NULL NULL "WINDOW_L" NULL block
+/* 1B */ "WINDOW_L" NULL NULL "WINDOW_D" block
+/* 1C */ "WINDOW_L" NULL NULL NULL block
+/* 1D */ NULL NULL "WINDOW_L" "WINDOW_L" block
+/* 1E */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 1F */ NULL NULL NULL "HEXA_DOOR_D" block
+/* 20 */ NULL NULL "WINDOW_D" NULL block
+/* 21 */ "WINDOW_D" NULL NULL NULL block
+/* 22 */ "WINDOW_D" "WINDOW_L" NULL NULL block
+/* 23 */ "WINDOW_D" NULL NULL "WINDOW_D" block
+/* 24 */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_D" NULL block
+/* 25 */ NULL NULL "HEXA_WALL_2_D" "HEXA_WALL_2_D" block
+/* 26 */ "HEXA_WALL_2_D" NULL NULL "HEXA_WALL_2_D" block
+/* 27 */ "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL NULL block
+/* 28 */ "HEXA_WALL_2_D" NULL NULL "HEXA_WALL_2_L" block
+
+"
+..............0001010101010201010101010101010101010103040301....................
+..................05060707080707090A..............0B0C....0C....................
+..................050A..........050A..............0B0C....0C....................
+0D0E..............0500..........0F0A..............1011....1203030303............
+..05................1314......1516................1011..1718........0A..........
+..05..................19141A151B..................1011..1718........0001........
+..05....................1C1C1C....................1011..1718............0A......
+..05..............................................1011..1718............0A......
+..05..............................................1011..1718............0A......
+..05..............................................1011..1718............0A......
+050F011A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1A1511..171D1A1A1A1A1A01000101..
+05..071C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C1C......1C1C1C1C1C1C07......0A
+1E............................................................................1F
+05..01202020202020202020202020......202020202020202020202020202020202001......0A
+..090721212121212121212121212218..102321212121212121212121212121212121070607070C
+..05........................1718..1011..................................0A......
+0324........................1718..1011..................................0A......
+............................1718..1011..................................0A......
+............................1718..1011..................................25030303
+............................1718..1011..........................................
+............................1718..1011..........................................
+............................1718..1011..........................................
+............................0511..100A..........................................
+............................0511..100A..........................................
+............................0511..100A..........................................
+............................0511....260D0D0D0D27................................
+................280D0D0D0D0D0E......0A........0B................................
+................0C..........07070807..........0B................................
+" defmap
+
+/* room 9 (Negative Pressure Lock) */ 
+
+20 22 20 5 9 NULL new_room
+
+8 2400 800 1 2 NULL gate
+/* -1 736 160 9 2 NULL gate
+-1 544 160 10 2 NULL gate */
+20 160 864 18 2 { "BLUE_CARD" item_taken } gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 05 */ NULL NULL NULL "HEXA_DOOR_D" block
+/* 06 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 07 */ NULL NULL NULL "HEXA_WALL_2_L" block
+/* 08 */ "HEXA_WALL_2_L" "HEXA_DOOR_D" "HEXA_WALL_2_L" "HEXA_DOOR_D" block
+
+"
+00010101010101010101010101010101010101..
+02................08..................03
+04....................................05
+02................08..................03
+..06060606060606060606060606060606060607
+" defmap
+
+/* room 10 (Positive Pressure Lock) */ 
+
+20 19 20 5 10 NULL new_room
+
+29 1760 1376 1 2 { "RED_BALL" item_taken } gate
+/* -1 736 160 9 2 NULL gate
+-1 544 160 10 2 NULL gate */
+8 160 800 18 2 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ NULL "SICE_DOOR_L" NULL NULL block
+/* 05 */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 06 */ NULL NULL NULL "HEXA_DOOR_D" block
+/* 07 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 08 */ NULL NULL NULL "HEXA_WALL_2_L" block
+/* 09 */ "HEXA_WALL_2_L" "HEXA_DOOR_D" "HEXA_WALL_2_L" "HEXA_DOOR_D" block
+
+"
+00010101010101010101010101010101010101..
+02................09..................03
+04....................................06
+02................09..................03
+..07070707070707070707070707070707070708
+" defmap
+
+/* room 11 (Deck I) */ 
+
+20 22 30 20 11 NULL new_room
+
+12 352 1440 14 1 NULL gate
+8 864 160 7 18 NULL gate
+8 1760 160 21 18 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 03 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 05 */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 06 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 07 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 08 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 09 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" NULL block
+/* 0A */ "HEXA_WALL_1_L" "HEXA_WALL_1_L" NULL NULL block
+/* 0B */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 0C */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 0D */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 0E */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 0F */ "HEXA_WALL_2_L" NULL "HEXA_WALL_2_L" NULL block
+/* 10 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 11 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 12 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 13 */ "HEXA_WALL_2_L" NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 14 */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_L" block
+/* 15 */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 16 */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 17 */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 18 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 19 */ NULL NULL "WINDOW_D" NULL block
+/* 1A */ "WINDOW_L" NULL NULL NULL block
+/* 1B */ NULL NULL "WINDOW_L" NULL block
+/* 1C */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 1D */ "WINDOW_D" NULL NULL NULL block
+/* 1E */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 1F */ NULL NULL NULL "HEXA_WALL_2_L" block
+
+"
+000101010101010101010101010102010101010101010101010101010101
+03........................................................04
+03........................................................04
+03........................................................04
+03......05060607......080909090A09090B......05060607......04
+03......04....03............0C0D............04....03......04
+03......04....03............0C0D............04....03......04
+03......04....03............0C0D............04....03......04
+03......0E01010F0F0F10......1112......130F0F14010115......04
+03........................................................04
+03........................................................04
+03........................................................04
+03......16171717171717181919191919191617171717171718......04
+03......0C............0D1A1A1A1A1A1A0C............0D......04
+03......0C............0D1B1B1B1B1B1B0C............0D......04
+03......111C1C1C1C1C1C121D1D1D1D1D1D111C1C1C1C1C1C12......04
+03........................................................04
+03........................................................04
+03........................................................04
+060606060606061E060606060606060606060606061E060606060606061F
+" defmap
+
+/* room 12 (Lifters / II Floor) */ 
+
+16 18 10 25 12 NULL new_room
+
+25 160 480 5 1 NULL gate
+14 352 352 6 5 NULL gate
+13 352 1120 6 17 NULL gate
+11 928 160 5 23 NULL gate
+
+/* 00 */ NULL "STARS" NULL NULL block
+/* 01 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 03 */ NULL NULL "HEXA_DOOR_D" NULL block
+/* 04 */ NULL NULL "HEXA_WALL_1_D" NULL block
+/* 05 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 06 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 07 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 08 */ NULL NULL "HEXA_WALL_2_D" "HEXA_WALL_1_D" block
+/* 09 */ NULL "WINDOW_D" NULL NULL block
+/* 0A */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 0B */ NULL "EARTH" NULL NULL block
+/* 0C */ NULL NULL NULL "LIFT_DOOR_UP" block
+/* 0D */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 0E */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_D" NULL block
+/* 0F */ "HEXA_WALL_2_D" NULL NULL "HEXA_WALL_1_D" block
+/* 10 */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 11 */ "HEXA_WALL_1_D" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 12 */ NULL NULL NULL "LIFT_DOOR_DOWN" block
+/* 13 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 14 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 15 */ "HEXA_DOOR_D" NULL NULL NULL block
+
+"
+00....0102030204....
+00....01......05....
+00....01......05....
+00010607......0802..
+0009..........0A..0A
+0B09..........0C..0A
+0009..........0A..0A
+00..0D0E......0F100A
+00..0001......05....
+00..0009......05....
+00..0001......05....
+....0009......05....
+00..0001......05....
+00..0009......05....
+00..0001......05....
+00010611......0802..
+0009..........0A..0A
+0009..........12..0A
+0009..........0A..0A
+00..0D13......0F100A
+00....01......05....
+00....01......05....
+......01......05....
+......14......0A....
+......101015100A....
+" defmap
+
+/* room 13 (Lifters / I Floor) */ 
+
+16 18 10 25 13 NULL new_room
+
+12 352 352 6 5 NULL gate
+15 224 1248 6 17 NULL gate
+19 1312 160 5 23 NULL gate
+
+/* 00 */ NULL "STARS" NULL NULL block
+/* 01 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 03 */ NULL NULL "HEXA_WALL_1_D" NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 05 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 06 */ NULL NULL "HEXA_WALL_2_D" "HEXA_WALL_1_D" block
+/* 07 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 08 */ NULL "WINDOW_D" NULL NULL block
+/* 09 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 0A */ NULL "EARTH" NULL NULL block
+/* 0B */ NULL NULL NULL "LIFT_DOOR_UP" block
+/* 0C */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 0D */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_D" NULL block
+/* 0E */ "HEXA_WALL_2_D" NULL NULL "HEXA_WALL_1_D" block
+/* 0F */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 10 */ "HEXA_WALL_1_D" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 11 */ NULL NULL NULL "LIFT_DOOR_DOWN" block
+/* 12 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 13 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 14 */ "HEXA_DOOR_D" NULL NULL NULL block
+
+"
+00....0102020203....
+00....01......04....
+00....01......04....
+00010205......0607..
+0008..........09..09
+0A08..........0B..09
+0008..........09..09
+00..0C0D......0E0F09
+00..0001......04....
+00..0008......04....
+00..0001......04....
+....0008......04....
+00..0001......04....
+00..0008......04....
+00..0001......04....
+00010210......0607..
+0008..........09..09
+0008..........11..09
+0008..........09..09
+00..0C12......0E0F09
+00....01......04....
+00....01......04....
+......01......04....
+......13......09....
+......0F0F140F09....
+" defmap
+
+/* room 14 (Lifters / III Floor) */ 
+
+104 177 10 25 14 NULL new_room
+
+32 160 160 6 5 { "GREY_CARD" item_taken } gate
+12 352 1120 6 17 NULL gate
+26 800 160 5 23 NULL gate
+
+/* 00 */ NULL "STARS" NULL NULL block
+/* 01 */ NULL "HEXA_WALL_3_D" NULL NULL block
+/* 02 */ NULL NULL "HEXA_WALL_3_L" NULL block
+/* 03 */ NULL NULL "HEXA_WALL_3_D" NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_3_D" block
+/* 05 */ NULL "HEXA_WALL_3_D" "HEXA_WALL_3_L" NULL block
+/* 06 */ NULL NULL "HEXA_WALL_2_D" "HEXA_WALL_3_D" block
+/* 07 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 08 */ NULL "WINDOW_D" NULL NULL block
+/* 09 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 0A */ NULL "EARTH" NULL NULL block
+/* 0B */ NULL NULL NULL "LIFT_DOOR_UP" block
+/* 0C */ "HEXA_WALL_3_L" NULL NULL NULL block
+/* 0D */ "HEXA_WALL_3_L" "HEXA_WALL_3_D" NULL NULL block
+/* 0E */ "HEXA_WALL_2_D" NULL NULL "HEXA_WALL_3_D" block
+/* 0F */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 10 */ NULL NULL NULL "LIFT_DOOR_DOWN" block
+/* 11 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 12 */ "HEXA_DOOR_D" NULL NULL NULL block
+
+"
+00....0102020203....
+00....01......04....
+00....01......04....
+00010205......0607..
+0008..........09..09
+0A08..........0B..09
+0008..........09..09
+00..0C0D......0E0F09
+00....01......04....
+00....01......04....
+00....01......04....
+......01......04....
+00....01......04....
+00....01......04....
+00....01......04....
+00010205......0607..
+0008..........09..09
+0008..........10..09
+0008..........09..09
+00..0C0D......0E0F09
+00....01......04....
+00....01......04....
+......01......04....
+......11......09....
+......0F0F120F09....
+" defmap
+
+/* room 15 (Cellar) */ 
+
+16 18 40 25 15 NULL new_room
+
+24 352 544 24 3 NULL gate
+16 160 160 38 10 NULL gate
+
+/* 00 */ NULL "LIFT_DOOR_DOWN" NULL NULL block
+/* 01 */ NULL NULL "METAL_WALL" NULL block
+/* 02 */ NULL NULL "METAL_LIGHT" NULL block
+/* 03 */ NULL NULL "LIFT_DOOR_DOWN" NULL block
+/* 04 */ NULL "METAL_WALL" NULL NULL block
+/* 05 */ NULL NULL NULL "METAL_WALL" block
+/* 06 */ NULL "METAL_LIGHT" NULL NULL block
+/* 07 */ NULL NULL NULL "METAL_LIGHT" block
+/* 08 */ "METAL_WALL" NULL NULL "METAL_WALL" block
+/* 09 */ "METAL_WALL" NULL NULL NULL block
+/* 0A */ "METAL_LIGHT" NULL NULL NULL block
+/* 0B */ "METAL_WALL" "METAL_WALL" NULL NULL block
+/* 0C */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 0D */ "HEXA_WALL_2_L" NULL NULL "METAL_WALL" block
+/* 0E */ "LIFT_DOOR_UP" NULL NULL NULL block
+/* 0F */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 10 */ "METAL_WALL" "METAL_WALL" NULL "HEXA_WALL_2_L" block
+/* 11 */ "METAL_WALL" NULL "METAL_WALL" "METAL_WALL" block
+/* 12 */ "METAL_WALL" NULL "METAL_WALL" NULL block
+/* 13 */ "METAL_WALL" "METAL_WALL" "METAL_WALL" NULL block
+/* 14 */ NULL "METAL_WALL" "METAL_WALL" NULL block
+/* 15 */ "HEXA_WALL_2_L" NULL "METAL_WALL" "METAL_WALL" block
+/* 16 */ "HEXA_WALL_2_L" NULL "METAL_WALL" NULL block
+/* 17 */ NULL NULL "METAL_WALL" "METAL_WALL" block
+/* 18 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 19 */ NULL "METAL_WALL" "METAL_WALL" "METAL_WALL" block
+/* 1A */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 1B */ "METAL_WALL" NULL NULL "HEXA_WALL_2_L" block
+/* 1C */ NULL NULL NULL "HEXA_WALL_2_L" block
+/* 1D */ NULL NULL NULL "LIFT_DOOR_DOWN" block
+/* 1E */ NULL NULL "METAL_WALL" "HEXA_WALL_2_L" block
+/* 1F */ "LIFT_DOOR_DOWN" NULL NULL NULL block
+
+"
+00010201010102010101010101010101010101010101010101010101010101010102010101020103
+04............................................................................05
+06............................................................................07
+04............................................................................05
+04......08090A09090A09090A09090A09090A0B....0C0D0E0F10......111212121213......05
+04......07............040102010101010214......15161606........................05
+06......170101010101..04..........................0504........................07
+04................05..04..........................0506........................05
+04................170114..........................0504......08090909090B......05
+04............................080A0909090A0B......0506......05........04......05
+04......080B..................07040102010114......1714......05........04......18
+04......0506..................0504..........................05........04......05
+04......0509090A0909090B......0506..........................05........04......05
+04......05............04......0504..........................05........04......05
+04......1702010201020114......0706......0809090909090B......170101010114......05
+04....................19......1714......1701020101..04........................05
+04..............................................05..06........................05
+04........1A1A1A................................07..04........................05
+06........1B090B1C..............................05..09090A090909090A090B......07
+04........1D..041C....08090A090909090A090B......05....................04......05
+04........1E01141C....17010201010101020114......170102010101010101020114......05
+04........0F0F0F..............................................................05
+06............................................................................07
+04............................................................................05
+1F090A0909090909090909090909090909090909090909090909090909090909090A0909090A091D
+" defmap
+
+/* room 16 (Passage A01) */ 
+
+16 18 40 7 16 NULL new_room
+
+15 2400 672 1 2 NULL gate
+17 608 160 36 5 NULL gate
+
+/* 00 */ NULL "METAL_LIGHT" NULL NULL block
+/* 01 */ NULL NULL "METAL_WALL" NULL block
+/* 02 */ NULL NULL "METAL_LIGHT" NULL block
+/* 03 */ NULL "METAL_WALL" NULL NULL block
+/* 04 */ NULL NULL NULL "METAL_WALL" block
+/* 05 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 06 */ NULL NULL NULL "METAL_LIGHT" block
+/* 07 */ "METAL_LIGHT" NULL NULL NULL block
+/* 08 */ "METAL_WALL" NULL NULL NULL block
+/* 09 */ "METAL_WALL" "METAL_LIGHT" NULL NULL block
+/* 0A */ "MECH_DOOR_1_D" NULL NULL NULL block
+
+"
+00010102010102010102010102010102010102010102010102010102010102010102010102010102
+03............................................................................04
+05............................................................................06
+03............................................................................04
+07080808070808070808070808070808070808070808070808070808070808070809..........06
+..................................................................03..........04
+..................................................................0708080A080806
+" defmap
+
+/* room 17 (Area A02) */ 
+
+16 18 20 20 17 NULL new_room
+
+16 2336 288 9 1 NULL gate
+18 160 800 18 11 NULL gate
+
+/* 00 */ NULL "METAL_LIGHT" NULL NULL block
+/* 01 */ NULL NULL "METAL_WALL" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_1_D" NULL block
+/* 03 */ NULL NULL "METAL_LIGHT" NULL block
+/* 04 */ NULL "METAL_WALL" NULL NULL block
+/* 05 */ NULL NULL NULL "METAL_WALL" block
+/* 06 */ NULL NULL NULL "METAL_LIGHT" block
+/* 07 */ "METAL_WALL" NULL NULL "METAL_WALL" block
+/* 08 */ "METAL_WALL" NULL NULL NULL block
+/* 09 */ "METAL_WALL" "METAL_WALL" NULL NULL block
+/* 0A */ NULL "METAL_LIGHT" "METAL_WALL" NULL block
+/* 0B */ NULL NULL "METAL_WALL" "METAL_LIGHT" block
+/* 0C */ NULL NULL "METAL_WALL" "METAL_WALL" block
+/* 0D */ NULL "METAL_WALL" "METAL_WALL" NULL block
+/* 0E */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 0F */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 10 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 11 */ "METAL_LIGHT" NULL NULL NULL block
+
+"
+0001010101010101010201010101010101010103
+04....................................05
+00....................................06
+04....................................05
+04......07080809......0708080809......05
+00......0604010A......0B01030100......06
+04......0500................0504......05
+04......0C0D................0C0D......05
+00....................................06
+04................0E0F................05
+04....................................05
+00......0709................0709......10
+04......0600................0500......05
+04......05080809......0711080504......05
+00......06....00......06......00......06
+04......0C01010D......0C0101010D......05
+04....................................05
+00....................................06
+04....................................05
+1108110808110808110808110808110808110806
+" defmap
+
+/* room 18 (Passage A03) */ 
+
+16 18 28 28 18 NULL new_room
+
+17 1120 736 1 12 NULL gate
+
+"BLUE_CARD" 1376 1184 item
+
+/* 00 */ NULL "METAL_WALL" NULL NULL block
+/* 01 */ NULL NULL "METAL_WALL" NULL block
+/* 02 */ NULL NULL "METAL_LIGHT" NULL block
+/* 03 */ NULL "METAL_WALL" "METAL_WALL" NULL block
+/* 04 */ NULL NULL NULL "METAL_LIGHT" block
+/* 05 */ NULL NULL NULL "METAL_WALL" block
+/* 06 */ "METAL_WALL" NULL NULL NULL block
+/* 07 */ "METAL_LIGHT" NULL NULL NULL block
+/* 08 */ "METAL_WALL" "METAL_WALL" NULL NULL block
+/* 09 */ "METAL_WALL" NULL NULL "METAL_WALL" block
+/* 0A */ NULL "METAL_LIGHT" NULL NULL block
+/* 0B */ NULL NULL "METAL_WALL" "METAL_WALL" block
+/* 0C */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 0D */ "METAL_LIGHT" "METAL_WALL" NULL NULL block
+/* 0E */ "METAL_WALL" "METAL_LIGHT" NULL NULL block
+/* 0F */ NULL "METAL_LIGHT" NULL "METAL_WALL" block
+/* 10 */ NULL "METAL_WALL" NULL "METAL_WALL" block
+/* 11 */ NULL "METAL_LIGHT" "METAL_WALL" "METAL_WALL" block
+
+"
+........................................0001020102010101
+........0002010201020102010201020102010203............04
+........00............................................05
+........00............................................04
+........00............................................05
+........06060706070607060708......0907060706070607060705
+..........................0A......05....................
+..........................00......04....................
+..........................0A......05....................
+..........................00......05....................
+0001010201010201010201010203......04....................
+00................................0B01010101010101010101
+0C....................................................05
+00....................................................05
+..0706060706060706060706060D..........................04
+..............01010101....00......0906060606060E......05
+............00......05....0A......05....01010103......04
+............00......05....00......05..00......0F......05
+............00......05....00......04..00......10......04
+............00......05....0A......05..00......0F......05
+............00......05....00......05..00......10......04
+............00......05....00......04..00......0F......05
+............00......05....00......05..00......10......04
+............00......0B020103......05..00......11......05
+............00....................04..00..............04
+............00....................05..00..............05
+............00....................05..00..............05
+............060606070606060607060605..060606060606060605
+" defmap
+
+/* room 19 (Central Collector) */ 
+
+18 20 40 28 19 { 0 64 0 fog_color } new_room
+
+13 352 1440 20 1 NULL gate
+-1 1504 480 18 7 NULL gate
+-1 1120 480 22 7 NULL gate
+27 224 160 31 26 NULL gate
+
+/* 00 */ NULL "MECH_WALL_2_D" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_2_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_2_L" NULL block
+/* 03 */ NULL NULL "MECH_WALL_2_D" NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_2_D" block
+/* 05 */ "MECH_WALL_2_L" NULL NULL "MECH_WALL_2_D" block
+/* 06 */ "MECH_WALL_2_L" "MECH_WALL_2_D" NULL NULL block
+/* 07 */ "MECH_WALL_2_L" NULL "MECH_WALL_2_L" "MECH_WALL_2_D" block
+/* 08 */ "MECH_WALL_2_L" NULL "MECH_WALL_2_L" NULL block
+/* 09 */ "MECH_WALL_2_L" NULL NULL NULL block
+/* 0A */ "MECH_WALL_2_L" "MECH_WALL_2_L" NULL NULL block
+/* 0B */ "MECH_WALL_2_L" "MECH_WALL_2_D" "MECH_WALL_2_L" NULL block
+/* 0C */ NULL NULL NULL "MECH_WALL_2_L" block
+/* 0D */ NULL NULL NULL "MECH_DOOR_2_D" block
+/* 0E */ NULL "MECH_DOOR_2_D" NULL NULL block
+/* 0F */ NULL NULL "MECH_WALL_2_L" "MECH_WALL_2_D" block
+/* 10 */ NULL "MECH_WALL_2_D" "MECH_WALL_2_L" NULL block
+/* 11 */ NULL NULL "MECH_WALL_2_L" "MECH_WALL_2_L" block
+/* 12 */ NULL "MECH_WALL_2_L" NULL NULL block
+/* 13 */ "MECH_DOOR_2_L" NULL NULL NULL block
+
+"
+00010101010101010101010101010101010101010201010101010101010101010101010101010103
+00............................................................................04
+00............................................................................04
+00............................................................................04
+00................0506......070808080808090A080808080B......0506..............04
+00................0400................04..00................0400..............04
+00......05090909090C00................04..00................04..09090906......04
+00......04..........00................0D..0E................04........00......04
+00......0F010101010100................04..00................04..01010110......04
+00................0400................04..00................0400..............04
+00................0F10......0708080808110108080808080B......0F10..............04
+00............................................................................04
+00............................................................................04
+00............................................................................04
+1208080808080808080808080808080B..................070808080808080808080808080811
+00............................................................................04
+00............................................................................04
+00............................................................................04
+00......05090909090906......07080808080909090A0808080B......050909090906......04
+00......04..........00..............04......00..............04........00......04
+00......04..........00..............04......00..............04........00......04
+00......04..........00..............04......00..............04........00......04
+00......04..........0909090906......04......00......050909090C........00......04
+00......0F01010101010101010110......0F01010110......0F010101010101010110......04
+00............................................................................04
+00............................................................................04
+00............................................................................04
+09090909090909090909090909090909090909090909090909090909090909130909090909090904
+" defmap
+
+/* room 20 (Entrance to the Cave of Malloks) */ 
+
+186 187 30 20 20 { 128 ambient_light } new_room
+
+9 1120 160 1 13 NULL gate
+21 160 800 28 16 NULL gate
+
+/* 00 */ NULL NULL "MALLOK_WALL_L" NULL block
+/* 01 */ NULL "MALLOK_WALL_D" NULL NULL block
+/* 02 */ NULL "MALLOK_WALL_D" NULL "MALLOK_WALL_D" block
+/* 03 */ NULL NULL NULL "MALLOK_WALL_D" block
+/* 04 */ NULL "MALLOK_WALL_D" "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 05 */ "MALLOK_WALL_L" NULL NULL "MALLOK_WALL_D" block
+/* 06 */ "MALLOK_WALL_L" NULL NULL NULL block
+/* 07 */ "MALLOK_WALL_L" "MALLOK_WALL_D" NULL NULL block
+/* 08 */ "MALLOK_WALL_L" "MALLOK_WALL_D" NULL "MALLOK_WALL_D" block
+/* 09 */ NULL NULL "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 0A */ NULL "MALLOK_WALL_D" "MALLOK_WALL_L" NULL block
+/* 0B */ "MALLOK_WALL_L" NULL "MALLOK_WALL_L" NULL block
+/* 0C */ "MALLOK_WALL_L" NULL "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 0D */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 0E */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 0F */ NULL NULL NULL "MALLOK_DOOR_D" block
+
+"
+..0000000000000000..00000000000000000000000000000000000000..
+01................02......................................03
+01................04......................................03
+01..............0103......................................03
+01......0506060607........0507........08..................03
+01......090000000A........0301........02......0507........03
+01........................03..0B0B0B0B0A......0301........03
+01......................0C000A................0900060B0B0B..
+01................................................02......03
+01......05060607..................................04......03
+01......03....01..........................................03
+01......09000000060606060606060607........................03
+0D..............03......00000000..07......08..............03
+0E..............0900000A........0301......0307............03
+0D..............................0301......030A00000000000003
+01..............................0301......04..06060606060603
+..06060607......................0301......................0F
+..........060607................0301......................03
+..............01..........050606..01......................03
+................0606060606..........0606060606060606060606..
+" defmap
+
+/* room 21 (Aspagony) */ 
+
+186 187 25 25 21 { 128 ambient_light } new_room
+
+20 1760 1056 1 12 NULL gate
+22 416 160 12 23 NULL gate
+
+"GREY_BALL" 1376 800 item
+
+/* 00 */ NULL NULL "MALLOK_WALL_L" NULL block
+/* 01 */ NULL "MALLOK_WALL_D" NULL NULL block
+/* 02 */ NULL NULL "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 03 */ NULL NULL NULL "MALLOK_WALL_D" block
+/* 04 */ NULL "MALLOK_WALL_D" "MALLOK_WALL_L" NULL block
+/* 05 */ "MALLOK_WALL_L" "MALLOK_WALL_D" NULL NULL block
+/* 06 */ "MALLOK_WALL_L" NULL NULL "MALLOK_WALL_D" block
+/* 07 */ "MALLOK_WALL_L" "MALLOK_WALL_D" "MALLOK_WALL_L" NULL block
+/* 08 */ "MALLOK_WALL_L" NULL "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 09 */ "MALLOK_WALL_L" NULL NULL NULL block
+/* 0A */ NULL "MALLOK_DOOR_D" NULL NULL block
+/* 0B */ "MALLOK_DOOR_L" NULL NULL NULL block
+
+"
+..000000..............000000..............000000..
+01......02..........01......03..........04......03
+01........02........01......03........04........03
+01..........02......01......03......04..........03
+01............02....01......03....04............03
+..05............02..01......03..04............06..
+....05............0204......0204............06....
+......05..................................06......
+........05..............................06........
+..0000000007..........................0800000000..
+01..............................................03
+01....................060905....................03
+0A..................08......07..................03
+01....................020004....................03
+01..............................................03
+..0909090907..........................0809090909..
+........04..............................02........
+......04..................................02......
+....04............0605......0605............02....
+..04............06..01......03..05............02..
+01............06....01......03....05............03
+01..........06......01......03......05..........03
+01........06........01......03........05........03
+01......06..........01......03..........05......03
+..090909..............090B09..............090909..
+" defmap
+
+/* room 22 (The Vortex) */ 
+
+186 187 25 25 22 { 128 ambient_light } new_room
+
+21 800 1440 6 1 NULL gate
+-1 800 800 18 1 NULL gate
+-1 800 800 1 7 NULL gate
+-1 800 800 23 7 NULL gate
+-1 800 800 1 17 NULL gate
+23 160 224 23 17 NULL gate
+-1 800 800 6 23 NULL gate
+-1 800 800 18 23 NULL gate
+
+/* 00 */ NULL NULL "MALLOK_WALL_L" NULL block
+/* 01 */ NULL NULL "MALLOK_DOOR_L" NULL block
+/* 02 */ NULL "MALLOK_WALL_D" NULL NULL block
+/* 03 */ NULL NULL NULL "MALLOK_WALL_D" block
+/* 04 */ NULL "MALLOK_WALL_D" "MALLOK_WALL_L" NULL block
+/* 05 */ NULL NULL "MALLOK_WALL_L" "MALLOK_WALL_D" block
+/* 06 */ NULL "MALLOK_DOOR_D" NULL NULL block
+/* 07 */ NULL NULL NULL "MALLOK_DOOR_D" block
+/* 08 */ "MALLOK_WALL_L" NULL NULL NULL block
+/* 09 */ "MALLOK_WALL_L" "MALLOK_WALL_D" NULL NULL block
+/* 0A */ "MALLOK_WALL_L" NULL NULL "MALLOK_WALL_D" block
+/* 0B */ "MALLOK_DOOR_L" NULL NULL NULL block
+
+"
+..........000100..................000100..........
+........02......03..............02......03........
+........02......03..............02......03........
+........02......03..............02......03........
+........02......03..............02......03........
+..00000004......050000000000000004......05000000..
+02..............................................03
+06..............................................07
+02..............................................03
+..08080809......0A0809......0A0809......0A080808..
+........02......050004......050004......03........
+........02..............................03........
+........02..............................03........
+........02..............................03........
+........02......0A0809......0A0809......03........
+..00000004......050004......050004......05000000..
+02..............................................03
+06..............................................07
+02..............................................03
+..08080809......0A0808080808080809......0A080808..
+........02......03..............02......03........
+........02......03..............02......03........
+........02......03..............02......03........
+........02......03..............02......03........
+..........080B08..................080B08..........
+" defmap
+
+/* room 23 (Voxtex Edge) */ 
+
+186 187 40 7 23 { 28 ambient_light } new_room
+
+22 1440 1120 1 3 NULL gate
+
+"BLUE_BALL" 2272 224 item
+
+/* 00 */ NULL NULL "MALLOK_WALL_L" NULL block
+/* 01 */ NULL "MALLOK_WALL_D" "MALLOK_WALL_L" NULL block
+/* 02 */ NULL NULL NULL "MALLOK_WALL_D" block
+/* 03 */ NULL "MALLOK_WALL_D" NULL NULL block
+/* 04 */ NULL "MALLOK_DOOR_D" NULL NULL block
+/* 05 */ "MALLOK_WALL_L" NULL NULL NULL block
+/* 06 */ "MALLOK_WALL_L" "MALLOK_WALL_D" NULL NULL block
+
+"
+..................................................................000000000000..
+..0000000000000000000000000000000000000000000000000000000000000001............02
+03............................................................................02
+04............................................................................02
+03............................................................................02
+..0505050505050505050505050505050505050505050505050505050505050506............02
+..................................................................050505050505..
+" defmap
+
+/* room 24 (Rest Area) */ 
+
+16 18 25 25 24 { 128 ambient_light } new_room
+
+25 480 352 5 9 NULL gate
+
+"GOLD_BALL" 352 992 item
+
+/* 00 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 01 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 03 */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 04 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 05 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" NULL block
+/* 06 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 07 */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 08 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 09 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 0A */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 0B */ NULL NULL "HEXA_WALL_1_D" NULL block
+/* 0C */ "HEXA_WALL_1_L" "HEXA_WALL_2_L" NULL NULL block
+/* 0D */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 0E */ "LIFT_DOOR_UP" NULL NULL NULL block
+/* 0F */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL "HEXA_WALL_2_L" block
+/* 10 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 11 */ NULL "HEXA_WALL_1_D" NULL "HEXA_WALL_2_L" block
+/* 12 */ NULL "HEXA_WALL_1_L" NULL NULL block
+/* 13 */ "HEXA_WALL_2_L" NULL "HEXA_WALL_1_L" NULL block
+/* 14 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_D" NULL block
+/* 15 */ NULL "HEXA_WALL_1_D" NULL "HEXA_WALL_1_D" block
+/* 16 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 17 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_D" NULL block
+/* 18 */ "HEXA_WALL_1_D" NULL "HEXA_WALL_1_L" NULL block
+
+"
+......000000000000000000000000000000000000000000..
+....01..........................................02
+....01..........................................02
+....01..........................................02
+....01......030405050506......030707070704......02
+....01......0201..............02........01......02
+....01......0809..............02........01......02
+....01........................02........01......02
+....01................0A05050508000B....01......02
+....01............................02....01......02
+......0C0D0E0D0F..................02....01......02
+......10......11..................02....01......02
+....120013131305050505050506......08000014......02
+....01..................................15......02
+....01..................................15......02
+....01..................................16......02
+....01................0A0505051704..............02
+....01........................0201..............02
+....01......0304..............0201..............02
+....01......0201..............02..07070704......02
+....01......081805050506......080000000009......02
+....01..........................................02
+....01..........................................02
+....01..........................................02
+......070707070707070707070707070707070707070707..
+" defmap
+
+/* room 25 (Access A) */ 
+
+16 18 10 10 25 NULL new_room
+
+12 352 160 2 8 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 05 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 06 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 07 */ "LIFT_DOOR_UP" NULL NULL NULL block
+/* 08 */ "HEXA_DOOR_L" NULL NULL NULL block
+/* 09 */ NULL NULL NULL "HEXA_WALL_2_L" block
+
+"
+00010101010101010101
+02................03
+02................03
+02................03
+02......0405......03
+02......0302......03
+02......0302......03
+02......030506070603
+02......0302......03
+060608060906060606..
+" defmap
+
+/* room 26 (Central Reactor) */ 
+
+104 177 25 25 26 { 0 0 255 fog_color } new_room
+
+14 352 1440 12 1 NULL gate
+28 224 160 12 23 NULL gate
+
+"RED_BALL" 800 672 item
+
+/* 00 */ NULL "HEXA_WALL_3_D" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_3_L" NULL block
+/* 02 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 03 */ NULL NULL "HEXA_DOOR_L" NULL block
+/* 04 */ NULL NULL "HEXA_WALL_3_D" NULL block
+/* 05 */ NULL NULL NULL "HEXA_WALL_3_D" block
+/* 06 */ "HEXA_WALL_3_L" "HEXA_WALL_3_D" NULL "HEXA_WALL_3_D" block
+/* 07 */ "HEXA_WALL_3_L" NULL NULL "HEXA_WALL_3_D" block
+/* 08 */ "HEXA_WALL_3_L" "HEXA_WALL_3_D" NULL NULL block
+/* 09 */ NULL "HEXA_WALL_3_D" "HEXA_WALL_3_L" NULL block
+/* 0A */ NULL NULL "HEXA_WALL_3_L" "HEXA_WALL_3_D" block
+/* 0B */ "HEXA_WALL_3_L" NULL "HEXA_WALL_3_L" "HEXA_WALL_3_D" block
+/* 0C */ "HEXA_WALL_3_L" "HEXA_WALL_3_D" "HEXA_WALL_3_L" NULL block
+/* 0D */ NULL NULL NULL "WINDOW_L" block
+/* 0E */ NULL "WINDOW_D" NULL NULL block
+/* 0F */ NULL NULL NULL "WINDOW_D" block
+/* 10 */ NULL "WINDOW_L" NULL NULL block
+/* 11 */ "HEXA_WALL_3_D" NULL NULL NULL block
+/* 12 */ "HEXA_WALL_3_L" NULL NULL NULL block
+/* 13 */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 14 */ "HEXA_DOOR_L" NULL NULL NULL block
+
+"
+00010101010101010101010203020101010101010101010104
+00..............................................05
+00..............................................05
+00..............................................05
+00......................06......................05
+00....................07..08....................05
+00..................07......08..................05
+00................07..010101..08................05
+00..............07..09......0A..08..............05
+00............07..09..........0A..08............05
+00..........07..09..............0A..08..........05
+00........07..00..................05..08........05
+00......0B....00..................05....0C......05
+00........0A..00..................05..09........05
+00..........0A..08..............07..09..........05
+00............0A..08..........07..09............05
+00..............0A010C......0B0109..............05
+00................0500......0500................05
+00................0D0E......0F10................05
+00................0D0E......0F10................05
+00................0D0E......0F10................05
+00................0D0E......0F10................05
+00................0D0E......0F10................05
+00................0500......0500................05
+11121212121212121212121314131212121212121212121205
+" defmap
+
+/* room 27 (Access B) */ 
+
+18 20 10 10 27 NULL new_room
+
+19 2016 1632 3 1 NULL gate
+28 224 480 2 7 NULL gate
+
+/* 00 */ NULL "MECH_WALL_2_D" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_2_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_2_L" NULL block
+/* 03 */ NULL NULL "MECH_WALL_2_D" NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_2_D" block
+/* 05 */ "MECH_WALL_2_L" NULL NULL NULL block
+/* 06 */ "MECH_WALL_2_L" "MECH_WALL_2_D" NULL NULL block
+/* 07 */ NULL "MECH_WALL_2_D" "MECH_WALL_2_L" NULL block
+/* 08 */ NULL "TRAP_DOOR_CEILING_OPEN" NULL NULL block
+/* 09 */ "MECH_WALL_2_D" NULL NULL NULL block
+
+"
+00010102010101010103
+00................04
+00................04
+00................04
+..0505050506......04
+000101010107......04
+00................04
+0008..............04
+00................04
+09050505050505050504
+" defmap
+
+/* room 28 (Entrance to Reactor) */ 
+
+198 197 10 10 28 NULL new_room
+
+26 800 1440 3 1 { "BLUE_BALL" item_taken } gate
+27 224 480 2 7 NULL gate
+
+/* 00 */ NULL "MECH_WALL_3_D" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_3_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_3_L" NULL block
+/* 03 */ NULL NULL "MECH_WALL_3_D" NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_3_D" block
+/* 05 */ "MECH_WALL_3_L" NULL NULL NULL block
+/* 06 */ "MECH_WALL_3_L" "MECH_WALL_3_D" NULL NULL block
+/* 07 */ NULL "MECH_WALL_3_D" "MECH_WALL_3_L" NULL block
+/* 08 */ NULL "TRAP_DOOR_FLOOR_OPEN" NULL NULL block
+/* 09 */ "MECH_WALL_3_D" NULL NULL NULL block
+
+"
+00010102010101010103
+00................04
+00................04
+00................04
+..0505050506......04
+000101010107......04
+00................04
+0008..............04
+00................04
+09050505050505050504
+" defmap
+
+/* room 29 (Hyperbaric Chamber) */ 
+
+25 24 30 28 29 { 255 255 fog_color } new_room
+
+30 160 1120 4 1 NULL gate
+30 1632 1120 25 1 NULL gate
+10 160 160 28 21 { "RED_BALL" item_taken } gate
+
+/* 00 */ NULL "ICE_L" NULL NULL block
+/* 01 */ NULL NULL "ICE_L" NULL block
+/* 02 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 03 */ NULL NULL "SICE_DOOR_L" NULL block
+/* 04 */ NULL "ICE_D" NULL NULL block
+/* 05 */ NULL NULL NULL "ICE_D" block
+/* 06 */ NULL "ICE_D" "ICE_L" NULL block
+/* 07 */ NULL NULL "ICE_L" "ICE_D" block
+/* 08 */ "ICE_L" NULL NULL "ICE_D" block
+/* 09 */ "ICE_L" NULL NULL NULL block
+/* 0A */ NULL NULL NULL "ICE_L" block
+/* 0B */ "ICE_L" "ICE_D" NULL NULL block
+/* 0C */ "ICE_L" "ICE_D" NULL "ICE_D" block
+/* 0D */ NULL "ICE_D" "ICE_L" "ICE_D" block
+/* 0E */ NULL "ICE_D" NULL "ICE_D" block
+/* 0F */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 10 */ "ICE_L" "ICE_L" NULL NULL block
+/* 11 */ NULL NULL "ICE_L" "ICE_L" block
+/* 12 */ NULL NULL NULL "SICE_DOOR_D" block
+/* 13 */ "ICE_L" NULL "ICE_L" "ICE_D" block
+/* 14 */ "ICE_L" NULL "ICE_L" NULL block
+
+"
+00010102030201010101....................00010101020302010101
+04................05....................04................05
+04................05....................04................05
+04................05..........000101010106................05
+04................05..........04..........................05
+04................05..........04..........................05
+04................05..........04..........................05
+04................05..........04..........................05
+04................07010101010106..........................05
+04........................................08090909090909090A
+04........................................05................
+04........................................05................
+04..........080909090B......0101010C......05................
+04..........05......04....040809090D......070101010101010101
+04..........05......04....0405............................05
+04..........05......0909090B..............................05
+04..........0701010101010106..............................05
+04....................................08090B......0C......05
+04....................................05..04......0E......05
+04....................................05..04......0E......0F
+04................................0810110106......0E......0F
+090909090B................080909090A04............0E......12
+........04................05........04............0E......0F
+........04..........131414110101010106............0D......0F
+........04................................................05
+........04................................................05
+........04................................................05
+........09090909090909090909090909090909090909090909090909..
+" defmap
+
+/* room 30 (Access C69) */ 
+
+18 17 30 20 30 { 128 ambient_light } new_room
+
+35 2144 160 2 4 { "RED_CARD" item_taken } gate
+31 2144 1632 28 4 { "GREY_BALL" item_taken } gate
+29 288 160 2 18 NULL gate
+29 1632 160 25 18 NULL gate
+
+/* 00 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 01 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 03 */ NULL NULL "HEXA_WALL_1_D" NULL block
+/* 04 */ NULL "HEXA_WALL_1_L" NULL NULL block
+/* 05 */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 06 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 07 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 08 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 09 */ NULL NULL "LIFT_DOOR_DOWN" NULL block
+/* 0A */ NULL NULL NULL "SICE_DOOR_D" block
+/* 0B */ NULL "WINDOW_D" NULL NULL block
+/* 0C */ NULL NULL NULL "WINDOW_L" block
+/* 0D */ NULL "WINDOW_L" NULL NULL block
+/* 0E */ NULL NULL NULL "WINDOW_D" block
+/* 0F */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 10 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 11 */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 12 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 13 */ "HEXA_WALL_1_L" NULL "HEXA_WALL_1_L" NULL block
+/* 14 */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 15 */ NULL "HEXA_WALL_1_L" NULL "HEXA_WALL_1_D" block
+/* 16 */ NULL "HEXA_WALL_1_D" NULL "HEXA_WALL_1_D" block
+/* 17 */ NULL "HEXA_WALL_1_D" NULL "HEXA_WALL_1_L" block
+/* 18 */ "SICE_DOOR_L" NULL NULL NULL block
+/* 19 */ NULL NULL NULL "HEXA_WALL_1_L" block
+
+"
+..00000000....................................010202020203..
+....................0402020202..............0105........0603
+....................01......07..............01............07
+0800090000..........01......060202020202020301............07
+01......07..........01....................0605............0A
+01......07..........01..................0B0C0D0E..........07
+01......07..........01....................0F10............07
+01......07..........01......0F1111111111110701............07
+01......06020202020205......060202020202020205..........0F07
+01..................................................12130602
+01........................................................07
+01........................................................07
+01......0F1110......0F111111111110......0F1110............07
+01......07..01......07..........01......07..01............07
+01......07..01......060202......01......07..0414..........07
+01......07..01............15020205......07..01............07
+01......07..01............16............07..01............07
+01......07..01............16............07..01............07
+01......07..1111111111111117............07..01..........0F07
+1111181119................1111111111111119..11111118111107..
+" defmap
+
+/* room 31 (Snorkel) */ 
+
+17 19 40 28 31 { 255 255 255 fog_color } new_room
+
+30 1760 288 32 25 NULL gate
+
+"RED_CARD" 928 800 item
+
+/* 00 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 04 */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 05 */ NULL NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 06 */ "HEXA_WALL_2_L" NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 07 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" "HEXA_WALL_2_L" NULL block
+/* 08 */ "HEXA_WALL_2_L" NULL "HEXA_WALL_2_L" NULL block
+/* 09 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" "HEXA_WALL_2_D" NULL block
+/* 0A */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL "HEXA_WALL_2_D" block
+/* 0B */ NULL "HEXA_WALL_2_D" NULL "HEXA_WALL_2_D" block
+/* 0C */ NULL "HEXA_WALL_2_D" "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 0D */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 0E */ "HEXA_WALL_2_L" NULL NULL "HEXA_WALL_2_D" block
+/* 0F */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 10 */ "HEXA_WALL_2_L" "HEXA_WALL_2_D" NULL NULL block
+/* 11 */ "HEXA_WALL_2_D" NULL "HEXA_WALL_2_L" "HEXA_WALL_2_D" block
+/* 12 */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 13 */ NULL "SICE_DOOR_D" NULL NULL block
+
+"
+..................0001010101010101010102........................................
+..................00..................03........................................
+..................00..................03........................................
+..........0001010104..................05010101010101010102......................
+..........00............................................03......................
+..........00............................................03......................
+..0001010104............................................03......................
+..00....................................................050101010102............
+..00..........................0607......060809....................03............
+..00................0A07....................0B....................03............
+..00................0B......................0C....................05010101010102
+..00................0B........................................................03
+..00................0B..............0D........................................03
+..00................0B........................................................03
+..00................0B............................................0E0F10......03
+..00................1107..........................................03..00......03
+..00......................................0E10....................03..00......03
+..00......................................0300....................03..00......03
+..120F0F0F10..............................0300............0E0F0F0F03..00......03
+..........00........................0608080504............03..........00......03
+..........00..............................................03..........00......03
+..........00..............................................03..........00......03
+..........00..............................................03..........00......03
+..........120F0F0F10............................0E0F0F0F0F03..0001010104......03
+..................00............................03............00..............03
+..................00............................03............13..............03
+..................00............................03............00..............03
+..................120F0F0F0F0F0F0F0F0F0F0F0F0F0F03............120F0F0F0F0F0F0F03
+" defmap
+
+/* room 32 (Access to the Biocomputer) */ 
+
+104 177 5 25 32 NULL new_room
+
+33 1248 160 2 23 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_3_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_3_L" NULL block
+/* 02 */ NULL "HEXA_WALL_3_D" NULL NULL block
+/* 03 */ NULL NULL NULL "HEXA_WALL_3_D" block
+/* 04 */ NULL NULL NULL "SICE_DOOR_L" block
+/* 05 */ "HEXA_WALL_3_L" NULL NULL NULL block
+/* 06 */ "CIRCUIT_DOOR_L" NULL NULL NULL block
+/* 07 */ NULL NULL NULL "HEXA_WALL_3_L" block
+
+"
+0001010101
+02......03
+02......04
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+02......03
+0505060507
+" defmap
+
+/* room 33 (The Biocomputer) */ 
+
+188 186 40 28 33 { 0 255 0 fog_color } new_room
+
+32 160 1440 19 1 NULL gate
+34 160 160 19 26 NULL gate
+
+/* 00 */ NULL "CIRCUIT_WALL_D" NULL NULL block
+/* 01 */ NULL NULL "CIRCUIT_WALL_L" NULL block
+/* 02 */ NULL NULL "CIRCUIT_WALL_D" NULL block
+/* 03 */ NULL NULL "CIRCUIT_DOOR_L" NULL block
+/* 04 */ NULL NULL NULL "CIRCUIT_WALL_D" block
+/* 05 */ NULL NULL "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" block
+/* 06 */ NULL "CIRCUIT_WALL_D" "CIRCUIT_WALL_L" NULL block
+/* 07 */ "CIRCUIT_WALL_L" NULL "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" block
+/* 08 */ "CIRCUIT_WALL_L" NULL "CIRCUIT_WALL_L" NULL block
+/* 09 */ "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" "CIRCUIT_WALL_L" NULL block
+/* 0A */ "CIRCUIT_WALL_L" NULL NULL NULL block
+/* 0B */ "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" NULL NULL block
+/* 0C */ "CIRCUIT_WALL_L" NULL NULL "CIRCUIT_WALL_D" block
+/* 0D */ NULL "CIRCUIT_WALL_D" NULL "CIRCUIT_WALL_D" block
+/* 0E */ "CIRCUIT_WALL_D" NULL NULL NULL block
+/* 0F */ NULL "CIRCUIT_WALL_D" "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" block
+/* 10 */ NULL "CIRCUIT_WALL_L" NULL NULL block
+/* 11 */ "CIRCUIT_DOOR_L" NULL NULL NULL block
+
+"
+000101010101010101010101010102....0001030102....00010101010101010101010101010102
+00..........................04....00......04....00............................04
+00..........................04....00......04....00............................04
+00..........................05010200......04000106............................04
+00......07080808080809..........0400......0400..........0708080808080809......04
+00..............................0400......0400................................04
+00..............................0506......0506................................04
+00............................................................................04
+..0A0A0A0A0A0B......0C0A0B..........................0C0A0B......0C0A0A0A0A0A0A04
+............00......04..00..........................04..00......04..............
+............00......050106......0C0A0A0A0A0A0B......050106......04..............
+............00..................04..........00..................04..............
+............00..................05010102010106..................04..............
+............00........................0D........................04..............
+............0E0A0A0A0B................0F................0C0A0A0A04..............
+0001010101010101010106..................................050101010101010101010102
+00..........................0C0B..............0C0B............................04
+00..........................0506010101010101010506............................04
+00..............................0A0A0A0A0A0A0A................................04
+00......0C0A0A0A0A0A0B..................................0C0A0A0A0A0A0A0B......04
+00......04..0001010106..................................050101010102..00......04
+00......04..00..............0C0A0A0B......0C0A0A0B................04..00......04
+00......04..00..............04100106......05010200................04..00......04
+00......050106..............0400..............0400................050106......04
+00..................0C0A0A0A0400..............040E0A0A0A0A0B..................04
+00..................04........00..............04..........00..................04
+00..................04........00..............04..........00..................04
+0E0A0A0A0A0A0A0A0A0A04........0E0A0A0A110A0A0A04..........0E0A0A0A0A0A0A0A0A0A04
+" defmap
+
+/* room 34 (The Core) */ 
+
+0 0 5 28 34 { 255 0 0 fog_color }  new_room
+
+33 1248 1632 2 1 NULL gate
+-1 0 0 2 11 { $taken_items 10 == { /player_won 1 = } if true } gate
+
+/* 00 */ NULL "CIRCUIT_WALL_L" NULL NULL block
+/* 01 */ NULL NULL "CIRCUIT_WALL_L" NULL block
+/* 02 */ NULL NULL "CIRCUIT_DOOR_L" NULL block
+/* 03 */ NULL "CIRCUIT_WALL_D" NULL NULL block
+/* 04 */ NULL NULL NULL "CIRCUIT_WALL_D" block
+/* 05 */ "CIRCUIT_WALL_L" "CIRCUIT_WALL_D" NULL NULL block
+/* 06 */ "GLASS_1" NULL NULL NULL block
+/* 07 */ "CIRCUIT_WALL_L" NULL NULL "CIRCUIT_WALL_D" block
+/* 08 */ "CORE" NULL NULL NULL block
+
+"
+0001020101
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+03......04
+0305060704
+..03..04..
+..03..04..
+..030804..
+..03..04..
+..03..04..
+..03..04..
+..03..04..
+....06....
+..........
+..........
+..........
+..........
+..........
+..........
+..........
+" defmap
+
+/* room 35 (Junk warehouse) */ 
+
+16 18 37 30 35 { 128 ambient_light } new_room
+
+36 1760 480 1 3 NULL gate
+
+/* 00 */ NULL "METAL_WALL" NULL NULL block
+/* 01 */ NULL NULL "METAL_WALL" NULL block
+/* 02 */ NULL "METAL_WALL" "METAL_WALL" NULL block
+/* 03 */ NULL NULL "MECH_DOOR_1_D" NULL block
+/* 04 */ NULL "METAL_WALL" NULL "METAL_WALL" block
+/* 05 */ NULL NULL NULL "METAL_WALL" block
+/* 06 */ NULL "METAL_LIGHT" NULL "METAL_LIGHT" block
+/* 07 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 08 */ NULL NULL NULL "METAL_LIGHT" block
+/* 09 */ "METAL_WALL" NULL "METAL_WALL" NULL block
+/* 0A */ "METAL_LIGHT" NULL "METAL_LIGHT" NULL block
+/* 0B */ "METAL_WALL" "METAL_WALL" "METAL_WALL" NULL block
+/* 0C */ "METAL_WALL" "METAL_WALL" NULL "METAL_WALL" block
+/* 0D */ NULL "METAL_LIGHT" NULL "METAL_WALL" block
+/* 0E */ "METAL_WALL" NULL "METAL_WALL" "METAL_WALL" block
+/* 0F */ "METAL_WALL" "METAL_WALL" "METAL_WALL" "METAL_WALL" block
+/* 10 */ NULL "METAL_WALL" NULL "METAL_LIGHT" block
+/* 11 */ NULL "METAL_LIGHT" "METAL_WALL" "METAL_LIGHT" block
+/* 12 */ NULL "METAL_WALL" "METAL_WALL" "METAL_WALL" block
+/* 13 */ "METAL_WALL" NULL NULL NULL block
+
+"
+00010101010101010101010102010101010101010101010101010101010102010103010101
+00......................04..................................04..........05
+00......................04..................................06..........05
+07......................04..................................04..........08
+00......................04..................................04..........05
+00......................04..................................06..........05
+..0909090A090B..........04..........0C..........0C..........04..........08
+00......................04..........04..........0D..........04..........05
+00......................04..........04..........04..........06..........05
+00......................06..........06..........04..........04..........08
+00......................04..........04..........06..........04..........05
+00......................04..........04..........04..........06..........05
+00..........0E09090909090F09090A090902..........04..........04..........08
+00......................04......................0D..........04..........05
+00......................04......................10..........11..........05
+00......................04......................04......................08
+00......................04......................0D......................05
+00......................04......................04......................05
+0009090A09090B..........04..........0E090A09090912..........0C..........08
+00..........04..........04......................04..........04..........05
+00..........04..........04......................0D..........06..........05
+00..........06..........04......................04..........04..........08
+00..........04..........04......................10..........04..........05
+00..........04..........04......................0D..........06..........05
+00..........12..........0E09090909090B..........04..........12..........08
+00..............................................04......................05
+00..............................................06......................05
+00..............................................04......................05
+00..............................................04......................05
+13131313131313131313131313131313131313131313131313131313131313131313131305
+" defmap
+
+/* room 36 (The Museum) */ 
+
+18 17 30 15 36 { 128 ambient_light } new_room
+
+37 1120 224 1 3 NULL gate
+37 1120 608 1 7 NULL gate
+35 160 224 28 7 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_2_L" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_2_L" NULL block
+/* 02 */ NULL NULL "HEXA_WALL_2_D" NULL block
+/* 03 */ NULL "HEXA_WALL_2_D" NULL NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_2_D" block
+/* 05 */ NULL "HEXA_DOOR_D" NULL NULL block
+/* 06 */ NULL NULL "GLASS_2_L" NULL block
+/* 07 */ NULL "METAL_WALL" NULL NULL block
+/* 08 */ "GLASS_2_L" NULL NULL NULL block
+/* 09 */ NULL NULL NULL "METAL_WALL" block
+/* 0A */ NULL "MECH_DOOR_1_L" NULL NULL block
+/* 0B */ NULL NULL NULL "MECH_DOOR_1_L" block
+/* 0C */ "HEXA_WALL_2_D" NULL NULL NULL block
+/* 0D */ "HEXA_WALL_2_L" NULL NULL NULL block
+/* 0E */ NULL NULL NULL "HEXA_WALL_2_L" block
+
+"
+000101010101010101010101010101010101010101010101010101010102
+03........................................................04
+03........................................................04
+05........................................................04
+03........................................................04
+030606060606060606060606060606060606060606060606060606060604
+070808080808080808080808080808080808080808080808080808080809
+0A........................................................0B
+07........................................................09
+030808080808080808080808080808080808080808080808080808080804
+03........................................................04
+03........................................................04
+03........................................................04
+03........................................................04
+0C0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0D0E
+" defmap
+
+/* room 37 (Entrance to X Complex) */ 
+
+18 17 20 20 37 { 128 ambient_light } new_room
+
+38 1248 1632 8 1 NULL gate
+36 160 224 18 3 NULL gate
+36 160 480 18 9 NULL gate
+
+/* 00 */ NULL "HEXA_WALL_1_D" NULL NULL block
+/* 01 */ NULL NULL "HEXA_WALL_1_L" NULL block
+/* 02 */ NULL NULL "HEXA_WALL_1_D" NULL block
+/* 03 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 04 */ NULL NULL NULL "HEXA_WALL_1_D" block
+/* 05 */ NULL "HEXA_WALL_1_D" NULL "HEXA_WALL_1_D" block
+/* 06 */ NULL NULL NULL "MECH_DOOR_1_L" block
+/* 07 */ "HEXA_WALL_1_L" NULL NULL "HEXA_WALL_1_D" block
+/* 08 */ "HEXA_WALL_1_L" NULL NULL NULL block
+/* 09 */ NULL NULL "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 0A */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" NULL block
+/* 0B */ NULL "HEXA_WALL_1_D" "HEXA_WALL_1_L" "HEXA_WALL_1_D" block
+/* 0C */ "HEXA_WALL_1_D" NULL NULL NULL block
+/* 0D */ "HEXA_WALL_1_L" "HEXA_WALL_1_D" NULL NULL block
+/* 0E */ "GLASS_2_L" NULL NULL NULL block
+
+"
+0001010102..0001030102..................
+00......04..00......040101010101010101..
+00......04..00......05................04
+00......04..00......05................06
+00......04..00......05................04
+00......04..00......05......070808080804
+00......04..00......05......04..........
+00......09010A......0B......0901010101..
+00....................................04
+00....................................06
+00....................................04
+0C08080808080808080D0E0E0E07080808080804
+..................00......04............
+..................00......04............
+..................00......04............
+..................00......04............
+..................00......04............
+..................00......04............
+..................00......04............
+..................0C08080804............
+" defmap
+
+/* room 38 (X Complex - II) */ 
+
+0 17 40 28 38 { 255 0 0 fog_color } new_room
+
+40 1440 800 1 2 NULL gate
+37 544 160 19 26 NULL gate
+
+"GOLD_CARD" 2272 608 item
+
+/* 00 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 01 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 02 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 03 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 04 */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 05 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 06 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 07 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 08 */ NULL "MECH_WALL_1_L" NULL NULL block
+/* 09 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 0A */ "MECH_WALL_1_L" NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 0B */ "MECH_WALL_1_L" NULL "MECH_WALL_1_L" NULL block
+/* 0C */ NULL "MECH_WALL_1_D" NULL "MECH_WALL_1_D" block
+/* 0D */ "MECH_WALL_1_D" NULL "MECH_WALL_1_L" NULL block
+/* 0E */ "MECH_WALL_1_L" NULL "MECH_WALL_1_D" NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_L" block
+/* 10 */ "MECH_WALL_1_L" "MECH_WALL_1_L" NULL NULL block
+/* 11 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL "MECH_WALL_1_D" block
+/* 12 */ NULL NULL NULL "MECH_WALL_1_L" block
+/* 13 */ "MECH_DOOR_1_L" NULL NULL NULL block
+
+"
+..000000000000000000000000..............................................000000..
+01........................02..........................................01......02
+03........................0400000000000000000000000000000000000000000005......02
+01............................................................................02
+..060606060606060607..........................................................02
+..................01..........................................................02
+080000000000000000000607......090606060606060607......0A0B0B0B0B0B0B0B0B0B0B0B04
+01................02..01......02..............01................0C............02
+01................02..01......040000000000000001................0C............02
+01................02..01....................0201................0C............02
+01................02..01....................0201................0C............02
+01................02..01....................04000B0B0B0B0B0B0B0B05............02
+01................02..01......09060607........................................02
+01................040005......02....01........................................02
+01............................02....01........................................02
+01............................0201000D0B0B0B0B0B0B0E06060606060607............02
+01............................0201................02............01............02
+01................090607......0405................02............01............02
+01................02..01..........................040000000000000B0B0B0B0B0B0B0F
+01................02..01......................................................02
+01................02..01......................................................02
+100B0B0B0B0B0B0B0B0F0005......090607......11..................................02
+01............................02..01......0C..................................02
+01............................02..01......0C..................................02
+01............................02..01......0C..................................02
+01............................02..01......0C..................................02
+01............................02..01......0C..................................02
+06060606060606060606060606060612..0606130612060606060606060606060606060606060612
+" defmap
+
+/* room 39 (X Complex - III) */ 
+
+0 17 40 10 39 { 255 0 0 fog_color } new_room
+
+43 160 800 38 4 NULL gate
+25 288 160 16 7 { "GREY_CARD" item_taken } gate
+
+"GREY_CARD" 224 288 item
+
+/* 00 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 02 */ NULL NULL "MECH_WALL_1_D" NULL block
+/* 03 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 05 */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 06 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 07 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 08 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 09 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 0A */ "MECH_WALL_1_L" NULL "HEXA_WALL_1_D" "MECH_WALL_1_D" block
+/* 0B */ "MECH_WALL_1_L" NULL "HEXA_WALL_1_D" NULL block
+/* 0C */ NULL NULL NULL "LIFT_DOOR_UP" block
+/* 0D */ NULL NULL NULL "HEXA_WALL_1_L" block
+/* 0E */ "MECH_WALL_1_D" NULL NULL NULL block
+/* 0F */ "HEXA_WALL_1_D" NULL NULL NULL block
+
+"
+....000101010101010101010101010101010101010101010102............................
+000103............................................04............................
+00................................................050101010101010101010101010102
+00............................................................................04
+00....................060708..................................................09
+00....................050103..................................................04
+00................................0A0B0B0B07070707070707070707070707070707070704
+00................................0C......0D....................................
+0E0708............................04......0D....................................
+....0E0707070707070707070707070707040F0F0F0D....................................
+" defmap
+
+/* room 40 (X Complex - IV) */ 
+
+0 17 25 25 40 { 255 0 0 fog_color } new_room
+
+42 800 1440 12 1 NULL gate
+41 1440 800 1 12 NULL gate
+38 160 160 23 12 NULL gate
+
+/* 00 */ NULL "MECH_WALL_1_L" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 03 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 05 */ NULL NULL "MECH_WALL_1_D" NULL block
+/* 06 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_D" NULL block
+/* 07 */ NULL NULL "MECH_WALL_1_D" "MECH_WALL_1_D" block
+/* 08 */ NULL "GLASS_2_L" NULL NULL block
+/* 09 */ NULL NULL NULL "GLASS_2_L" block
+/* 0A */ "MECH_WALL_1_D" NULL NULL NULL block
+/* 0B */ "MECH_WALL_1_D" "MECH_WALL_1_D" NULL NULL block
+/* 0C */ "MECH_WALL_1_D" NULL NULL "MECH_WALL_1_D" block
+/* 0D */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 0E */ NULL NULL "GLASS_2_L" NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 10 */ NULL "GLASS_2_L" "GLASS_2_L" NULL block
+/* 11 */ NULL NULL "GLASS_2_L" "GLASS_2_L" block
+/* 12 */ "GLASS_2_L" NULL NULL NULL block
+/* 13 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 14 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 15 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 16 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 17 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 18 */ "GLASS_2_L" "GLASS_2_L" NULL NULL block
+/* 19 */ "GLASS_2_L" NULL NULL "GLASS_2_L" block
+/* 1A */ NULL NULL NULL "MECH_WALL_1_L" block
+/* 1B */ "MECH_DOOR_1_L" NULL NULL NULL block
+
+"
+....................0001020101....................
+....................03......04....................
+....................03......04....................
+....................03......04....................
+........03050505050506......07050505050505........
+........03..........08......09..........04........
+........0A0A0A0A0A0A0B......0C0A0A0A0A0A04........
+....................03......04....................
+....................03......04....................
+........030505......06......07......030505........
+000101010D0E0F01010D1009..08110F01010D0E0F01010101
+03..................12......12..................04
+13..............................................14
+03..................0E......0E..................04
+151515151612171515161809..08191715151612171515151A
+........0A0A04......0B......0C......0A0A04........
+....................03......04....................
+....................03......04....................
+........03050505050506......07050505050505........
+........03..........08......09..........04........
+........0A0A0A0A0A0A0B......0C0A0A0A0A0A04........
+....................0312121204....................
+....................03......04....................
+....................03......04....................
+....................15151B151A....................
+" defmap
+
+/* room 41 (X Complex - V) */ 
+
+0 17 25 25 41 { 255 0 0 fog_color } new_room
+
+43 800 1440 12 1 NULL gate
+40 160 800 23 12 NULL gate
+
+/* 00 */ NULL "MECH_WALL_1_L" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 03 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 05 */ NULL NULL "MECH_WALL_1_D" NULL block
+/* 06 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_D" NULL block
+/* 07 */ NULL NULL "MECH_WALL_1_D" "MECH_WALL_1_D" block
+/* 08 */ NULL "GLASS_2_L" NULL NULL block
+/* 09 */ NULL NULL NULL "GLASS_2_L" block
+/* 0A */ "MECH_WALL_1_D" NULL NULL NULL block
+/* 0B */ "MECH_WALL_1_D" "MECH_WALL_1_D" NULL NULL block
+/* 0C */ "MECH_WALL_1_D" NULL NULL "MECH_WALL_1_D" block
+/* 0D */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 0E */ NULL NULL "GLASS_2_L" NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 10 */ NULL "GLASS_2_L" "GLASS_2_L" NULL block
+/* 11 */ NULL NULL "GLASS_2_L" "GLASS_2_L" block
+/* 12 */ "GLASS_2_L" NULL NULL NULL block
+/* 13 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 14 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 15 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 16 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 17 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 18 */ "GLASS_2_L" "GLASS_2_L" NULL NULL block
+/* 19 */ "GLASS_2_L" NULL NULL "GLASS_2_L" block
+/* 1A */ NULL NULL NULL "MECH_WALL_1_L" block
+/* 1B */ "MECH_DOOR_1_L" NULL NULL NULL block
+
+"
+....................0001020101....................
+....................03......04....................
+....................03......04....................
+....................03......04....................
+........03050505050506......07050505050505........
+........03..........08......09..........04........
+........0A0A0A0A0A0A0B......0C0A0A0A0A0A04........
+....................03......04....................
+....................03......04....................
+........030505......06......07......030505........
+000101010D0E0F01010D1009..08110F01010D0E0F01010101
+03....08............12......12..................04
+13....08........................................14
+03....08............0E......0E..................04
+151515151612171515161809..08191715151612171515151A
+........0A0A04......0B......0C......0A0A04........
+....................03......04....................
+....................03......04....................
+........03050505050506......07050505050505........
+........03..........08......09..........04........
+........0A0A0A0A0A0A0B......0C0A0A0A0A0A04........
+....................0312121204....................
+....................03......04....................
+....................03......04....................
+....................15151B151A....................
+" defmap
+
+/* room 42 (X Complex - VI) */ 
+
+0 17 25 25 42 { 255 0 0 fog_color } new_room
+
+43 1440 800 1 12 NULL gate
+40 800 160 12 23 NULL gate
+
+/* 00 */ NULL "MECH_WALL_1_L" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 03 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 05 */ NULL NULL "GLASS_2_L" NULL block
+/* 06 */ NULL NULL "MECH_WALL_1_D" NULL block
+/* 07 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_D" NULL block
+/* 08 */ NULL NULL "MECH_WALL_1_D" "MECH_WALL_1_D" block
+/* 09 */ NULL "GLASS_2_L" NULL NULL block
+/* 0A */ NULL NULL NULL "GLASS_2_L" block
+/* 0B */ "MECH_WALL_1_D" NULL NULL NULL block
+/* 0C */ "MECH_WALL_1_D" "MECH_WALL_1_D" NULL NULL block
+/* 0D */ "MECH_WALL_1_D" NULL NULL "MECH_WALL_1_D" block
+/* 0E */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 10 */ NULL "GLASS_2_L" "GLASS_2_L" NULL block
+/* 11 */ NULL NULL "GLASS_2_L" "GLASS_2_L" block
+/* 12 */ "GLASS_2_L" NULL NULL NULL block
+/* 13 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 14 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 15 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 16 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 17 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 18 */ "GLASS_2_L" "GLASS_2_L" NULL NULL block
+/* 19 */ "GLASS_2_L" NULL NULL "GLASS_2_L" block
+/* 1A */ NULL NULL NULL "MECH_WALL_1_L" block
+/* 1B */ "MECH_DOOR_1_L" NULL NULL NULL block
+
+"
+....................0001020101....................
+....................03......04....................
+....................03......04....................
+....................0305050504....................
+........03060606060607......08060606060606........
+........03..........09......0A..........04........
+........0B0B0B0B0B0B0C......0D0B0B0B0B0B04........
+....................03......04....................
+....................03......04....................
+........030606......07......08......030606........
+000101010E050F01010E100A..09110F01010E050F01010101
+03..................12......12............0A....04
+13........................................0A....14
+03..................05......05............0A....04
+15151515161217151516180A..09191715151612171515151A
+........0B0B04......0C......0D......0B0B04........
+....................03......04....................
+....................03......04....................
+........03060606060607......08060606060606........
+........03..........09......0A..........04........
+........0B0B0B0B0B0B0C......0D0B0B0B0B0B04........
+....................03......04....................
+....................03......04....................
+....................03......04....................
+....................15151B151A....................
+" defmap
+
+/* room 43 (X Complex - VII) */ 
+
+0 17 25 25 43 { 255 0 0 fog_color } new_room
+
+39 2400 288 1 12 NULL gate
+42 160 800 23 12 NULL gate
+41 800 160 12 23 NULL gate
+
+/* 00 */ NULL "MECH_WALL_1_L" NULL NULL block
+/* 01 */ NULL NULL "MECH_WALL_1_L" NULL block
+/* 02 */ NULL NULL "MECH_DOOR_1_L" NULL block
+/* 03 */ NULL "MECH_WALL_1_D" NULL NULL block
+/* 04 */ NULL NULL NULL "MECH_WALL_1_D" block
+/* 05 */ NULL NULL "GLASS_2_L" NULL block
+/* 06 */ NULL NULL "MECH_WALL_1_D" NULL block
+/* 07 */ NULL "MECH_WALL_1_D" "MECH_WALL_1_D" NULL block
+/* 08 */ NULL NULL "MECH_WALL_1_D" "MECH_WALL_1_D" block
+/* 09 */ NULL "GLASS_2_L" NULL NULL block
+/* 0A */ NULL NULL NULL "GLASS_2_L" block
+/* 0B */ "MECH_WALL_1_D" NULL NULL NULL block
+/* 0C */ "MECH_WALL_1_D" "MECH_WALL_1_D" NULL NULL block
+/* 0D */ "MECH_WALL_1_D" NULL NULL "MECH_WALL_1_D" block
+/* 0E */ NULL "MECH_WALL_1_D" "MECH_WALL_1_L" NULL block
+/* 0F */ NULL NULL "MECH_WALL_1_L" "MECH_WALL_1_D" block
+/* 10 */ NULL "GLASS_2_L" "GLASS_2_L" NULL block
+/* 11 */ NULL NULL "GLASS_2_L" "GLASS_2_L" block
+/* 12 */ "GLASS_2_L" NULL NULL NULL block
+/* 13 */ NULL "MECH_DOOR_1_D" NULL NULL block
+/* 14 */ NULL NULL NULL "MECH_DOOR_1_D" block
+/* 15 */ "MECH_WALL_1_L" NULL NULL NULL block
+/* 16 */ "MECH_WALL_1_L" "MECH_WALL_1_D" NULL NULL block
+/* 17 */ "MECH_WALL_1_L" NULL NULL "MECH_WALL_1_D" block
+/* 18 */ "GLASS_2_L" "GLASS_2_L" NULL NULL block
+/* 19 */ "GLASS_2_L" NULL NULL "GLASS_2_L" block
+/* 1A */ NULL NULL NULL "MECH_WALL_1_L" block
+/* 1B */ "MECH_DOOR_1_L" NULL NULL NULL block
+
+"
+....................0001020101....................
+....................03......04....................
+....................03......04....................
+....................0305050504....................
+........03060606060607......08060606060606........
+........03..........09......0A..........04........
+........0B0B0B0B0B0B0C......0D0B0B0B0B0B04........
+....................03......04....................
+....................03......04....................
+........030606......07......08......030606........
+000101010E050F01010E100A..09110F01010E050F01010101
+03..................12......12..................04
+13..............................................14
+03..................05......05..................04
+15151515161217151516180A..09191715151612171515151A
+........0B0B04......0C0505050D......0B0B04........
+....................0312121204....................
+....................03......04....................
+........03060606060607......08060606060606........
+........03..........09......0A..........04........
+........0B0B0B0B0B0B0C......0D0B0B0B0B0B04........
+....................03......04....................
+....................03......04....................
+....................03......04....................
+....................15151B151A....................
+" defmap

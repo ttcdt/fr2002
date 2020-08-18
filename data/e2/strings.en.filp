@@ -1,0 +1,92 @@
+/episode_name "Open Space" set
+
+/room_names (
+	"Engine Room"		/* 0 */ 
+	"Corridor A"		/* 1 */ 
+	"Corridor B"		/* 2 */ 
+	"Fuel Storage"		/* 3 */ 
+	"Instrument Storage"		/* 4 */ 
+	"Engine Room Entrance"		/* 5 */ 
+	"Air Pipe I"		/* 6 */ 
+	"Energy Control"		/* 7 */ 
+	"Transit Gallery"		/* 8 */ 
+	"Negative Pressure Lock"		/* 9 */ 
+	"Positive Pressure Lock"		/* 10 */ 
+	"Deck I"		/* 11 */ 
+	"Lifters / II Floor"		/* 12 */ 
+	"Lifters / I Floor"		/* 13 */ 
+	"Lifters / III Floor"		/* 14 */ 
+	"Cellar"		/* 15 */ 
+	"Passage A01"		/* 16 */ 
+	"Area A02"		/* 17 */ 
+	"Passage A03"		/* 18 */ 
+	"Central Collector"		/* 19 */ 
+	"Entrance to the Cave of Malloks"		/* 20 */ 
+	"Aspagony"		/* 21 */ 
+	"The Vortex"		/* 22 */ 
+	"Voxtex Edge"		/* 23 */ 
+	"Rest Area"		/* 24 */ 
+	"Access A"		/* 25 */ 
+	"Central Reactor"		/* 26 */ 
+	"Access B"		/* 27 */ 
+	"Entrance to Reactor"		/* 28 */ 
+	"Hyperbaric Chamber"		/* 29 */ 
+	"Access C69"		/* 30 */ 
+	"Snorkel"		/* 31 */ 
+	"Access to the Biocomputer"		/* 32 */ 
+	"The Biocomputer"		/* 33 */ 
+	"The Core"		/* 34 */ 
+	"Junk Warehouse"		/* 35 */ 
+	"The Museum"		/* 36 */ 
+	"Entrance to X Complex" 	/* 37 */ 
+	"X Complex - II"		/* 38 */ 
+	"X Complex - III"		/* 39 */ 
+	"X Complex - IV"		/* 40 */ 
+	"X Complex - V" 	/* 41 */ 
+	"X Complex - VI"		/* 42 */ 
+	"X Complex - VII"		/* 43 */ 
+) set
+
+/end_text
+"The Space Base becomes desolated after
+entering the Core and destroying it.
+All the systems are down and the huge
+facility falls into darkness.
+
+You know it's the first time the
+Apprentice felt fear of you and saw
+his end too near...
+
+But his magic helped him again to
+escape from this world to the only
+place he can be accepted, there where
+the lost souls wander searching
+for a material body...
+
+The Pit of Souls..." set
+
+/info_text "
+Open Space - Episode II
+Freaks Original Episodes
+.
+Maps:
+Angel Ortega
+Antonio Guerrero
+Manuel Zamora
+.
+Artwork:
+Angel Ortega
+Antonio Guerrero
+.
+Music:
+Ann Hell
+(The Outpost)
+" set
+
+/full_inv_text " 
+You have got all the cards
+and the energy spheres...
+ 
+Now go up the last floor
+and enter the Biocomputer.
+ " set
